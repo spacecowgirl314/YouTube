@@ -17,6 +17,13 @@
 		3756B2EB16436EC100492E20 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3756B2CB16436EC100492E20 /* Cocoa.framework */; };
 		3756B2F316436EC100492E20 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3756B2F116436EC100492E20 /* InfoPlist.strings */; };
 		3756B2F616436EC100492E20 /* YouTubeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B2F516436EC100492E20 /* YouTubeTests.m */; };
+		3756B30416436FEF00492E20 /* 1.jpg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3756B30316436FEF00492E20 /* 1.jpg.png */; };
+		3756B307164372A500492E20 /* mqdefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3756B306164372A500492E20 /* mqdefault.jpg */; };
+		3756B66C1643A3A300492E20 /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B66B1643A3A300492E20 /* RXMLElement.m */; };
+		3756B66E1643A3CE00492E20 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3756B66D1643A3CE00492E20 /* libxml2.dylib */; };
+		3756B6711643A40100492E20 /* PSCYouTubeChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B6701643A40100492E20 /* PSCYouTubeChannel.m */; };
+		3756B6751643A63B00492E20 /* PSCYouTubeSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B6741643A63B00492E20 /* PSCYouTubeSession.m */; };
+		3756B6921643AE4900492E20 /* PSCYouTubeChannelDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B6911643AE4900492E20 /* PSCYouTubeChannelDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +35,18 @@
 			remoteInfo = YouTube;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3756B3211643773000492E20 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3756B2C716436EC100492E20 /* YouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +68,18 @@
 		3756B2F216436EC100492E20 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3756B2F416436EC100492E20 /* YouTubeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YouTubeTests.h; sourceTree = "<group>"; };
 		3756B2F516436EC100492E20 /* YouTubeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YouTubeTests.m; sourceTree = "<group>"; };
+		3756B30316436FEF00492E20 /* 1.jpg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.jpg.png; sourceTree = "<group>"; };
+		3756B306164372A500492E20 /* mqdefault.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mqdefault.jpg; sourceTree = "<group>"; };
+		3756B66A1643A3A300492E20 /* RXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXMLElement.h; sourceTree = "<group>"; };
+		3756B66B1643A3A300492E20 /* RXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXMLElement.m; sourceTree = "<group>"; };
+		3756B66D1643A3CE00492E20 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		3756B66F1643A40100492E20 /* PSCYouTubeChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCYouTubeChannel.h; sourceTree = "<group>"; };
+		3756B6701643A40100492E20 /* PSCYouTubeChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCYouTubeChannel.m; sourceTree = "<group>"; };
+		3756B6731643A63B00492E20 /* PSCYouTubeSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCYouTubeSession.h; sourceTree = "<group>"; };
+		3756B6741643A63B00492E20 /* PSCYouTubeSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCYouTubeSession.m; sourceTree = "<group>"; };
+		3756B6901643AE4900492E20 /* PSCYouTubeChannelDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCYouTubeChannelDataSource.h; sourceTree = "<group>"; };
+		3756B6911643AE4900492E20 /* PSCYouTubeChannelDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCYouTubeChannelDataSource.m; sourceTree = "<group>"; };
+		3756B6931643B12C00492E20 /* PSCYouTube.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSCYouTube.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3756B66E1643A3CE00492E20 /* libxml2.dylib in Frameworks */,
 				3756B2CC16436EC100492E20 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,6 +126,7 @@
 		3756B2CA16436EC100492E20 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3756B66D1643A3CE00492E20 /* libxml2.dylib */,
 				3756B2CB16436EC100492E20 /* Cocoa.framework */,
 				3756B2E916436EC100492E20 /* SenTestingKit.framework */,
 				3756B2CD16436EC100492E20 /* Other Frameworks */,
@@ -116,7 +149,8 @@
 			children = (
 				3756B2DD16436EC100492E20 /* PSCAppDelegate.h */,
 				3756B2DE16436EC100492E20 /* PSCAppDelegate.m */,
-				3756B2E016436EC100492E20 /* MainMenu.xib */,
+				3756B6721643A5FC00492E20 /* YouTube */,
+				3756B6691643A3A300492E20 /* RaptureXML */,
 				3756B2D216436EC100492E20 /* Supporting Files */,
 			);
 			path = YouTube;
@@ -125,11 +159,14 @@
 		3756B2D216436EC100492E20 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3756B2E016436EC100492E20 /* MainMenu.xib */,
 				3756B2D316436EC100492E20 /* YouTube-Info.plist */,
 				3756B2D416436EC100492E20 /* InfoPlist.strings */,
 				3756B2D716436EC100492E20 /* main.m */,
 				3756B2D916436EC100492E20 /* YouTube-Prefix.pch */,
 				3756B2DA16436EC100492E20 /* Credits.rtf */,
+				3756B306164372A500492E20 /* mqdefault.jpg */,
+				3756B30316436FEF00492E20 /* 1.jpg.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -153,6 +190,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3756B6691643A3A300492E20 /* RaptureXML */ = {
+			isa = PBXGroup;
+			children = (
+				3756B66A1643A3A300492E20 /* RXMLElement.h */,
+				3756B66B1643A3A300492E20 /* RXMLElement.m */,
+			);
+			name = RaptureXML;
+			path = RaptureXML/RaptureXML;
+			sourceTree = "<group>";
+		};
+		3756B6721643A5FC00492E20 /* YouTube */ = {
+			isa = PBXGroup;
+			children = (
+				3756B6901643AE4900492E20 /* PSCYouTubeChannelDataSource.h */,
+				3756B6911643AE4900492E20 /* PSCYouTubeChannelDataSource.m */,
+				3756B6731643A63B00492E20 /* PSCYouTubeSession.h */,
+				3756B6741643A63B00492E20 /* PSCYouTubeSession.m */,
+				3756B66F1643A40100492E20 /* PSCYouTubeChannel.h */,
+				3756B6701643A40100492E20 /* PSCYouTubeChannel.m */,
+				3756B6931643B12C00492E20 /* PSCYouTube.h */,
+			);
+			name = YouTube;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -161,8 +222,9 @@
 			buildConfigurationList = 3756B2F916436EC100492E20 /* Build configuration list for PBXNativeTarget "YouTube" */;
 			buildPhases = (
 				3756B2C316436EC100492E20 /* Sources */,
-				3756B2C416436EC100492E20 /* Frameworks */,
 				3756B2C516436EC100492E20 /* Resources */,
+				3756B2C416436EC100492E20 /* Frameworks */,
+				3756B3211643773000492E20 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -228,6 +290,8 @@
 				3756B2D616436EC100492E20 /* InfoPlist.strings in Resources */,
 				3756B2DC16436EC100492E20 /* Credits.rtf in Resources */,
 				3756B2E216436EC100492E20 /* MainMenu.xib in Resources */,
+				3756B30416436FEF00492E20 /* 1.jpg.png in Resources */,
+				3756B307164372A500492E20 /* mqdefault.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +328,10 @@
 			files = (
 				3756B2D816436EC100492E20 /* main.m in Sources */,
 				3756B2DF16436EC100492E20 /* PSCAppDelegate.m in Sources */,
+				3756B66C1643A3A300492E20 /* RXMLElement.m in Sources */,
+				3756B6711643A40100492E20 /* PSCYouTubeChannel.m in Sources */,
+				3756B6751643A63B00492E20 /* PSCYouTubeSession.m in Sources */,
+				3756B6921643AE4900492E20 /* PSCYouTubeChannelDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,8 +446,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/YouTube-gjxtbdkrcwpdhcgdoyiecwjdpthe/Build/Products/Debug\"",
+				);
+				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YouTube/YouTube-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SDK_DIR)\"/usr/include/libxml2";
 				INFOPLIST_FILE = "YouTube/YouTube-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -390,8 +464,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/YouTube-gjxtbdkrcwpdhcgdoyiecwjdpthe/Build/Products/Debug\"",
+				);
+				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YouTube/YouTube-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SDK_DIR)\"/usr/include/libxml2";
 				INFOPLIST_FILE = "YouTube/YouTube-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -447,6 +527,7 @@
 				3756B2FB16436EC100492E20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3756B2FC16436EC100492E20 /* Build configuration list for PBXNativeTarget "YouTubeTests" */ = {
 			isa = XCConfigurationList;
@@ -455,6 +536,7 @@
 				3756B2FE16436EC100492E20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

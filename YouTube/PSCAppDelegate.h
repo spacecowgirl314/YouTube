@@ -11,5 +11,6 @@
 @interface PSCAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSTableView *channelTableView;
 
 @end

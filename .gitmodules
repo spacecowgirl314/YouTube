@@ -1,0 +1,3 @@
+[submodule "YouTube/RaptureXML"]
+	path = YouTube/RaptureXML
+	url = git://github.com/ZaBlanc/RaptureXML.git
