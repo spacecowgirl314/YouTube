@@ -24,6 +24,10 @@
 		3756B6711643A40100492E20 /* PSCYouTubeChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B6701643A40100492E20 /* PSCYouTubeChannel.m */; };
 		3756B6751643A63B00492E20 /* PSCYouTubeSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B6741643A63B00492E20 /* PSCYouTubeSession.m */; };
 		3756B6921643AE4900492E20 /* PSCYouTubeChannelDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B6911643AE4900492E20 /* PSCYouTubeChannelDataSource.m */; };
+		3756B6961643CCE100492E20 /* PSCYouTubeAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B6951643CCE000492E20 /* PSCYouTubeAuthenticator.m */; };
+		3756B69F1643D20200492E20 /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B69C1643D20100492E20 /* HTTPServer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3756B6A01643D20200492E20 /* HTTPResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B69E1643D20200492E20 /* HTTPResponseHandler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3756B6A51643D30C00492E20 /* PSCYouTubeTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B6A41643D30C00492E20 /* PSCYouTubeTokenResponse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +84,15 @@
 		3756B6901643AE4900492E20 /* PSCYouTubeChannelDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCYouTubeChannelDataSource.h; sourceTree = "<group>"; };
 		3756B6911643AE4900492E20 /* PSCYouTubeChannelDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCYouTubeChannelDataSource.m; sourceTree = "<group>"; };
 		3756B6931643B12C00492E20 /* PSCYouTube.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSCYouTube.h; sourceTree = "<group>"; };
+		3756B6941643CCE000492E20 /* PSCYouTubeAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCYouTubeAuthenticator.h; sourceTree = "<group>"; };
+		3756B6951643CCE000492E20 /* PSCYouTubeAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCYouTubeAuthenticator.m; sourceTree = "<group>"; };
+		3756B69B1643D20100492E20 /* HTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPServer.h; sourceTree = "<group>"; };
+		3756B69C1643D20100492E20 /* HTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPServer.m; sourceTree = "<group>"; };
+		3756B69D1643D20100492E20 /* HTTPResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPResponseHandler.h; sourceTree = "<group>"; };
+		3756B69E1643D20200492E20 /* HTTPResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPResponseHandler.m; sourceTree = "<group>"; };
+		3756B6A21643D27400492E20 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		3756B6A31643D30C00492E20 /* PSCYouTubeTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCYouTubeTokenResponse.h; sourceTree = "<group>"; };
+		3756B6A41643D30C00492E20 /* PSCYouTubeTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCYouTubeTokenResponse.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +163,6 @@
 				3756B2DD16436EC100492E20 /* PSCAppDelegate.h */,
 				3756B2DE16436EC100492E20 /* PSCAppDelegate.m */,
 				3756B6721643A5FC00492E20 /* YouTube */,
-				3756B6691643A3A300492E20 /* RaptureXML */,
 				3756B2D216436EC100492E20 /* Supporting Files */,
 			);
 			path = YouTube;
@@ -203,15 +215,33 @@
 		3756B6721643A5FC00492E20 /* YouTube */ = {
 			isa = PBXGroup;
 			children = (
+				3756B6691643A3A300492E20 /* RaptureXML */,
+				3756B6A11643D20700492E20 /* HTTPServer */,
 				3756B6901643AE4900492E20 /* PSCYouTubeChannelDataSource.h */,
 				3756B6911643AE4900492E20 /* PSCYouTubeChannelDataSource.m */,
 				3756B6731643A63B00492E20 /* PSCYouTubeSession.h */,
 				3756B6741643A63B00492E20 /* PSCYouTubeSession.m */,
 				3756B66F1643A40100492E20 /* PSCYouTubeChannel.h */,
 				3756B6701643A40100492E20 /* PSCYouTubeChannel.m */,
+				3756B6941643CCE000492E20 /* PSCYouTubeAuthenticator.h */,
+				3756B6951643CCE000492E20 /* PSCYouTubeAuthenticator.m */,
+				3756B6A31643D30C00492E20 /* PSCYouTubeTokenResponse.h */,
+				3756B6A41643D30C00492E20 /* PSCYouTubeTokenResponse.m */,
 				3756B6931643B12C00492E20 /* PSCYouTube.h */,
 			);
 			name = YouTube;
+			sourceTree = "<group>";
+		};
+		3756B6A11643D20700492E20 /* HTTPServer */ = {
+			isa = PBXGroup;
+			children = (
+				3756B6A21643D27400492E20 /* SynthesizeSingleton.h */,
+				3756B69B1643D20100492E20 /* HTTPServer.h */,
+				3756B69C1643D20100492E20 /* HTTPServer.m */,
+				3756B69D1643D20100492E20 /* HTTPResponseHandler.h */,
+				3756B69E1643D20200492E20 /* HTTPResponseHandler.m */,
+			);
+			name = HTTPServer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +362,10 @@
 				3756B6711643A40100492E20 /* PSCYouTubeChannel.m in Sources */,
 				3756B6751643A63B00492E20 /* PSCYouTubeSession.m in Sources */,
 				3756B6921643AE4900492E20 /* PSCYouTubeChannelDataSource.m in Sources */,
+				3756B6961643CCE100492E20 /* PSCYouTubeAuthenticator.m in Sources */,
+				3756B69F1643D20200492E20 /* HTTPServer.m in Sources */,
+				3756B6A01643D20200492E20 /* HTTPResponseHandler.m in Sources */,
+				3756B6A51643D30C00492E20 /* PSCYouTubeTokenResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

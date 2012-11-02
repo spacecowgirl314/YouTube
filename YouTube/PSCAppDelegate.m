@@ -7,20 +7,24 @@
 //
 
 #import "PSCAppDelegate.h"
+#import "PSCYouTubeAuthenticator.h"
 
 @implementation PSCAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	// Insert code here to initialize your application
+	[self authenticate];
 }
 
-/* https://accounts.google.com/o/oauth2/auth?
-client_id=598067235549.apps.googleusercontent.com&
-redirect_uri=http://localhost/oauth2callback&
-scope=https://gdata.youtube.com&
-response_type=code&
-access_type=offline
- */
+#pragma mark Authentication
+
+- (void)authenticate {
+	PSCYouTubeAuthenticator *authenticator = [PSCYouTubeAuthenticator new];
+	[authenticator setClientID:@"598067235549.apps.googleusercontent.com"];
+	[authenticator setRedirectURL:[NSURL URLWithString:@"http://localhost:28247"]];
+	NSURL *url = [authenticator URLToAuthorize];
+	[[NSWorkspace sharedWorkspace] openURL:url];
+}
 
 @end

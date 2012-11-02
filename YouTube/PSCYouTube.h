@@ -11,5 +11,6 @@
 
 #import "PSCYouTubeSession.h"
 #import "PSCYouTubeChannel.h"
+#import "PSCYouTubeAuthenticator.h"
 
 #endif

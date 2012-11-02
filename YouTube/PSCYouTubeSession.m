@@ -11,6 +11,15 @@
 #import "RXMLElement.h"
 
 @implementation PSCYouTubeSession
+@synthesize authToken = _authToken;
+
+- (NSString*)authToken {
+	if (!_authToken) {
+		_authToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"api_key"];
+		NSLog(@"Read API Key %@", _authToken);
+	}
+	return _authToken;
+}
 
 - (void)subscriptionsWithCompletion:(PSCSubscriptionRequestCompletion)completion
 {
