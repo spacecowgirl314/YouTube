@@ -12,6 +12,7 @@
 @interface PSCYouTubeChannelDataSource : NSObject <NSTableViewDataSource, NSTableViewDelegate> {
 	PSCYouTubeSession *session;
 	NSArray *channels;
+	IBOutlet NSTableView *tableView;
 }
 
 @end

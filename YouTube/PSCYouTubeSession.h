@@ -12,8 +12,8 @@
 
 typedef void (^PSCSubscriptionRequestCompletion)(NSArray * channels, NSError * error);
 
-@property (assign) NSString *authToken;
-
 - (void)subscriptionsWithCompletion:(PSCSubscriptionRequestCompletion)completion;
+
+@property NSString *developerKey;
 
 @end

@@ -45,14 +45,10 @@
 	NSRange tkIdRange = [url rangeOfString:@"?code="];
 	if (tkIdRange.location != NSNotFound) {
 		NSString *token = [url substringFromIndex:NSMaxRange(tkIdRange)];
-		NSLog(@"token:%@", token);
-		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-		if (token) {
-			[defaults setObject:token forKey:@"token"];
-		} else {
-			[defaults removeObjectForKey:@"token"];
-		}
-		[defaults synchronize];
+		// send token back to the authenticator
+		[[NSNotificationCenter defaultCenter]
+		 postNotificationName:@"ReceivedToken"
+		 object:token];
 		
 		return YES;
 	}

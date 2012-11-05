@@ -13,6 +13,7 @@
 - (id)init
 {
 	session = [PSCYouTubeSession new];
+	[session setDeveloperKey:@"AI39si5u0pQxyJgbcC10IQgk76osOWlrpQeSGyvSF3UXwUq1wqYOyYEiOm7tEecGjPqMOS6kcuR-yB75h8aDbM1N2FiOeYjBBQ"];
 	[session subscriptionsWithCompletion:^(NSArray *_channels, NSError *error) {
 		channels = _channels;
 	}];
@@ -31,6 +32,20 @@
 	NSURL *thumbnailURL = [(PSCYouTubeChannel*)[channels objectAtIndex:row] thumbnailURL];
 	[[result imageView] setImage:[[NSImage alloc] initWithContentsOfURL:thumbnailURL]];
 	return result;
+}
+
+- (void)reload
+{
+	// reattempt loading
+	[session subscriptionsWithCompletion:^(NSArray *_channels, NSError *error) {
+		channels = _channels;
+	}];
+	[tableView reloadData];
+}
+
+- (IBAction)pressedReloadButton:(id)sender
+{
+	[self reload];
 }
 
 @end

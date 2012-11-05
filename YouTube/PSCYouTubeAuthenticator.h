@@ -10,9 +10,11 @@
 
 @interface PSCYouTubeAuthenticator : NSObject
 
+- (BOOL)isAuthenticated;
 - (NSURL*)URLToAuthorize;
 
 @property NSString *clientID;
+@property NSString *clientSecret;
 @property NSString *redirectURL;
 
 @end

@@ -11,14 +11,10 @@
 #import "RXMLElement.h"
 
 @implementation PSCYouTubeSession
-@synthesize authToken = _authToken;
+@synthesize developerKey;
 
 - (NSString*)authToken {
-	if (!_authToken) {
-		_authToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"api_key"];
-		NSLog(@"Read API Key %@", _authToken);
-	}
-	return _authToken;
+	return [[NSUserDefaults standardUserDefaults] stringForKey:@"access_token"];
 }
 
 - (void)subscriptionsWithCompletion:(PSCSubscriptionRequestCompletion)completion
@@ -26,8 +22,22 @@
 	NSMutableArray *channels = [NSMutableArray new];
 	NSError *error;
 	
-	// when ready for primetime use https://gdata.youtube.com/feeds/api/users/default/subscriptions?v=2
-	RXMLElement *rootXML = [RXMLElement elementFromURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/codingguru/subscriptions?v=2&max-results=50&orderby=published"]];
+	// when ready for primetime use 
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/default/subscriptions?v=2"]];
+	
+	NSString *authorizationHeaderString = [[NSString alloc] initWithFormat:@"Bearer %@", [self authToken]];
+	NSString *developerKeyHeaderString = [[NSString alloc] initWithFormat:@"key=%@", developerKey];
+	
+	[request setValue:authorizationHeaderString forHTTPHeaderField:@"Authorization"];
+	[request setValue:developerKeyHeaderString forHTTPHeaderField:@"X-GData-Key"];
+	
+	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+	
+	NSLog(@"response: %@", [[NSString alloc] initWithData:data
+												 encoding:NSUTF8StringEncoding]);
+	
+	RXMLElement *rootXML = [RXMLElement elementFromXMLData:data];
+	//RXMLElement *rootXML = [RXMLElement elementFromURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/codingguru/subscriptions?v=2&max-results=50&orderby=published"]];
 	
 	if ([rootXML isValid]) {
 		[rootXML iterate:@"entry" usingBlock:^(RXMLElement *entryElement) {

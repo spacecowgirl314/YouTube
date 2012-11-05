@@ -7,9 +7,9 @@
 //
 
 #import "PSCAppDelegate.h"
-#import "PSCYouTubeAuthenticator.h"
 
 @implementation PSCAppDelegate
+@synthesize channelTableView;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -19,12 +19,17 @@
 
 #pragma mark Authentication
 
-- (void)authenticate {
-	PSCYouTubeAuthenticator *authenticator = [PSCYouTubeAuthenticator new];
-	[authenticator setClientID:@"598067235549.apps.googleusercontent.com"];
-	[authenticator setRedirectURL:[NSURL URLWithString:@"http://localhost:28247"]];
-	NSURL *url = [authenticator URLToAuthorize];
-	[[NSWorkspace sharedWorkspace] openURL:url];
+- (void)authenticate
+{
+	authenticator = [PSCYouTubeAuthenticator new];
+	if (![authenticator isAuthenticated])
+	{
+		[authenticator setClientID:@"598067235549.apps.googleusercontent.com"];
+		[authenticator setClientSecret:@"YAJBhZyscetPphUSlexBk7pR"];
+		[authenticator setRedirectURL:[NSURL URLWithString:@"http://localhost:28247"]];
+		NSURL *url = [authenticator URLToAuthorize];
+		[[NSWorkspace sharedWorkspace] openURL:url];
+	}
 }
 
 @end

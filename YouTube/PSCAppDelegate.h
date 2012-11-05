@@ -7,10 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "PSCYouTubeAuthenticator.h"
+#import "PSCYouTubeChannelDataSource.h"
 
 @interface PSCAppDelegate : NSObject <NSApplicationDelegate>
+{
+	PSCYouTubeAuthenticator *authenticator;
+}
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSTableView *channelTableView;
+@property (assign) PSCYouTubeChannelDataSource *channelDataSource;
 
 @end
