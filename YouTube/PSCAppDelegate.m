@@ -22,7 +22,7 @@
 - (void)authenticate
 {
 	authenticator = [PSCYouTubeAuthenticator new];
-	if (![authenticator isAuthenticated])
+	if ([authenticator isAuthenticated])
 	{
 		[authenticator setClientID:@"598067235549.apps.googleusercontent.com"];
 		[authenticator setClientSecret:@"YAJBhZyscetPphUSlexBk7pR"];

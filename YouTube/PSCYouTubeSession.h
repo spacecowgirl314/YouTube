@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PSCYouTubeChannel.h"
 
 @interface PSCYouTubeSession : NSObject
 
-typedef void (^PSCSubscriptionRequestCompletion)(NSArray * channels, NSError * error);
+typedef void (^PSCSubscriptionsRequestCompletion)(NSArray * channels, NSError * error);
+typedef void (^PSCChannelRequestCompletion)(NSArray * videos, NSError * error);
 
-- (void)subscriptionsWithCompletion:(PSCSubscriptionRequestCompletion)completion;
+- (void)subscriptionsWithCompletion:(PSCSubscriptionsRequestCompletion)completion;
+- (void)subscriptionWithChannel:(PSCYouTubeChannel*)channel completion:(PSCChannelRequestCompletion)completion;
 
 @property NSString *developerKey;
 

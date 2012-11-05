@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "PSCYouTube.h"
+#import "PSCYouTubeVideoDataSource.h"
 
 @interface PSCYouTubeChannelDataSource : NSObject <NSTableViewDataSource, NSTableViewDelegate> {
 	PSCYouTubeSession *session;
 	NSArray *channels;
 	IBOutlet NSTableView *tableView;
+	IBOutlet PSCYouTubeVideoDataSource *videoDataSource;
 }
 
 @end

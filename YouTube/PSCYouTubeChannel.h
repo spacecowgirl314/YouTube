@@ -14,5 +14,6 @@
 @property NSURL *thumbnailURL; // tag media:thumbnail attribute url
 @property NSNumber *unreadCount; // tag yt:unreadCount
 @property NSDate *lastUpdated; // tag updated
+@property NSURL *mainURL; // tag link rel="self"
 
 @end

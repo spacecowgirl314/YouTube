@@ -7,6 +7,7 @@
 //
 
 #import "PSCYouTubeChannelDataSource.h"
+#import "PSCYouTubeVideo.h"
 
 @implementation PSCYouTubeChannelDataSource
 
@@ -32,6 +33,13 @@
 	NSURL *thumbnailURL = [(PSCYouTubeChannel*)[channels objectAtIndex:row] thumbnailURL];
 	[[result imageView] setImage:[[NSImage alloc] initWithContentsOfURL:thumbnailURL]];
 	return result;
+}
+
+- (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
+{
+	[videoDataSource refreshWithChannel:[channels objectAtIndex:rowIndex]];
+	
+	return YES;
 }
 
 - (void)reload
