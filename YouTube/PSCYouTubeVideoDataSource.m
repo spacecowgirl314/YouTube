@@ -35,6 +35,8 @@
 	[[result descriptionField] setStringValue:[video description]];
 	NSString *viewsString = [[NSString alloc] initWithFormat:@"%@ views", [video viewCount]];
 	[[result viewCountField] setStringValue:viewsString];
+	[[[result videoView] mainFrame] loadRequest:[NSURLRequest requestWithURL:[video videoURL]]];
+	
 	return result;
 }
 
@@ -48,13 +50,13 @@
 	[session subscriptionWithChannel:channel completion:^(NSArray *_videos, NSError *error) {
 		videos = _videos;
 		// don't do anything
-		for (PSCYouTubeVideo *video in videos) {
+		/*for (PSCYouTubeVideo *video in videos) {
 			NSLog(@"title:%@", [video title]);
 			NSLog(@"thumbnailURL:%@", [video thumbnailURL]);
 			NSLog(@"description:%@", [video description]);
 			NSLog(@"viewCount:%@", [video viewCount]);
 			NSLog(@"videoURL:%@", [video videoURL]);
-		}
+		}*/
 	}];
 	[tableView reloadData];
 }

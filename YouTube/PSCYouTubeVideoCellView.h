@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <WebKit/WebKit.h>
 
 @interface PSCYouTubeVideoCellView : NSTableCellView
 {
@@ -14,11 +15,13 @@
 	IBOutlet NSTextField *viewCountField;
 	IBOutlet NSTextField *descriptionField;
 	IBOutlet NSImageView *thumbnailView;
+	IBOutlet WebView *videoView;
 }
 
 @property IBOutlet NSTextField *titleField;
 @property IBOutlet NSTextField *viewCountField;
 @property IBOutlet NSTextField *descriptionField;
 @property IBOutlet NSImageView *thumbnailView;
+@property IBOutlet WebView *videoView;
 
 @end
