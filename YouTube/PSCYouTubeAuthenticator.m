@@ -49,14 +49,12 @@
 	// exchange authorization code for refresh and access tokens https://accounts.google.com/o/oauth2/token
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://accounts.google.com/o/oauth2/token"]];
 	
+	// Instructions on how to use the POST method found here http://panditpakhurde.wordpress.com/2009/04/16/posting-data-to-url-in-objective-c/
 	NSString *post = [NSString stringWithFormat:@"&code=%@&client_id=%@&client_secret=%@&redirect_uri=%@&grant_type=authorization_code",token,_clientID,_clientSecret,_redirectURL];
 	
-	//2. Encode the post string using NSASCIIStringEncoding and also the post string you need to send in NSData format.
-	
+	// Encode the post string using NSASCIIStringEncoding and also the post string you need to send in NSData format.
 	NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-	
-	//You need to send the actual length of your data. Calculate the length of the post string.
-	
+	// You need to send the actual length of your data. Calculate the length of the post string.
 	NSString *postLength = [NSString stringWithFormat:@"%ld",[postData length]];
 	
 	[request setHTTPMethod:@"POST"];

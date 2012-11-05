@@ -35,13 +35,14 @@
 	[[result descriptionField] setStringValue:[video description]];
 	NSString *viewsString = [[NSString alloc] initWithFormat:@"%@ views", [video viewCount]];
 	[[result viewCountField] setStringValue:viewsString];
-	[[[result videoView] mainFrame] loadRequest:[NSURLRequest requestWithURL:[video videoURL]]];
+	//[[[result videoView] mainFrame] loadRequest:[NSURLRequest requestWithURL:[video videoURL]]];
 	
 	return result;
 }
 
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
-{	
+{
+	[[NSWorkspace sharedWorkspace] openURL:[(PSCYouTubeVideo*)[videos objectAtIndex:rowIndex] videoURL]];
 	return YES;
 }
 
