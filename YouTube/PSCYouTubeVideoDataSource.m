@@ -44,6 +44,7 @@
 {
 	//[[NSWorkspace sharedWorkspace] openURL:[(PSCYouTubeVideo*)[videos objectAtIndex:rowIndex] videoURL]];
 	[[videoView mainFrame] loadRequest:[NSURLRequest requestWithURL:[(PSCYouTubeVideo*)[videos objectAtIndex:rowIndex] videoURL]]];
+	[windowController uncollpaseRightView];
 	return YES;
 }
 

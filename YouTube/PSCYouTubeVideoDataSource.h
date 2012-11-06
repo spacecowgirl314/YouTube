@@ -10,12 +10,14 @@
 #import <WebKit/WebKit.h>
 #import "PSCYouTubeSession.h"
 #import "PSCYouTubeChannel.h"
+#import "PSCWindowController.h"
 
 @interface PSCYouTubeVideoDataSource : NSObject <NSTableViewDataSource, NSTableViewDelegate>
 {
 	PSCYouTubeSession *session;
 	IBOutlet NSTableView *tableView;
 	IBOutlet WebView *videoView;
+	IBOutlet PSCWindowController *windowController;
 	NSArray *videos;
 }
 

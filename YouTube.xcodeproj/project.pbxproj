@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37454AAE1648F8ED009FFCBB /* PSCWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37454AAD1648F8ED009FFCBB /* PSCWindowController.m */; };
 		3756B2CC16436EC100492E20 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3756B2CB16436EC100492E20 /* Cocoa.framework */; };
 		3756B2D616436EC100492E20 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3756B2D416436EC100492E20 /* InfoPlist.strings */; };
 		3756B2D816436EC100492E20 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B2D716436EC100492E20 /* main.m */; };
@@ -57,6 +58,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		37454AAC1648F8ED009FFCBB /* PSCWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCWindowController.h; sourceTree = "<group>"; };
+		37454AAD1648F8ED009FFCBB /* PSCWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCWindowController.m; sourceTree = "<group>"; };
 		3756B2C716436EC100492E20 /* YouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3756B2CB16436EC100492E20 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3756B2CE16436EC100492E20 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -175,6 +178,8 @@
 			children = (
 				3756B2DD16436EC100492E20 /* PSCAppDelegate.h */,
 				3756B2DE16436EC100492E20 /* PSCAppDelegate.m */,
+				37454AAC1648F8ED009FFCBB /* PSCWindowController.h */,
+				37454AAD1648F8ED009FFCBB /* PSCWindowController.m */,
 				3756B6721643A5FC00492E20 /* YouTube */,
 				3756B2D216436EC100492E20 /* Supporting Files */,
 			);
@@ -388,6 +393,7 @@
 				37EFAA8A1647B17700E322D0 /* PSCYouTubeVideoDataSource.m in Sources */,
 				37EFAA8E1647B1A400E322D0 /* PSCYouTubeVideo.m in Sources */,
 				37EFAA951647BFDD00E322D0 /* PSCYouTubeVideoCellView.m in Sources */,
+				37454AAE1648F8ED009FFCBB /* PSCWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
