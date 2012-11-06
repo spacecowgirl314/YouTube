@@ -15,6 +15,7 @@
 {
 	PSCYouTubeSession *session;
 	IBOutlet NSTableView *tableView;
+	IBOutlet WebView *videoView;
 	NSArray *videos;
 }
 

@@ -42,7 +42,8 @@
 
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
 {
-	[[NSWorkspace sharedWorkspace] openURL:[(PSCYouTubeVideo*)[videos objectAtIndex:rowIndex] videoURL]];
+	//[[NSWorkspace sharedWorkspace] openURL:[(PSCYouTubeVideo*)[videos objectAtIndex:rowIndex] videoURL]];
+	[[videoView mainFrame] loadRequest:[NSURLRequest requestWithURL:[(PSCYouTubeVideo*)[videos objectAtIndex:rowIndex] videoURL]]];
 	return YES;
 }
 

@@ -22,7 +22,7 @@
 	NSMutableArray *channels = [NSMutableArray new];
 	NSError *error;
 	
-	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/default/subscriptions?v=2"]];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/default/subscriptions?v=2&max-results=50&orderby=published"]];
 	
 	NSString *authorizationHeaderString = [[NSString alloc] initWithFormat:@"Bearer %@", [self authToken]];
 	NSString *developerKeyHeaderString = [[NSString alloc] initWithFormat:@"key=%@", developerKey];
@@ -53,7 +53,9 @@
 			for (RXMLElement *linkElement in [entryElement children:@"link"])
 			{
 				if ([[linkElement attribute:@"rel"] isEqualToString:@"http://gdata.youtube.com/schemas/2007#user.uploads"]) {
-					[channel setMainURL:[NSURL URLWithString:[linkElement attribute:@"href"]]];
+					//&max-results=50
+					NSString *urlString = [[NSString alloc] initWithFormat:@"%@&max-results=50", [linkElement attribute:@"href"]];
+					[channel setMainURL:[NSURL URLWithString:urlString]];
 				}
 			}
 			[channels addObject:channel];
@@ -124,6 +126,11 @@
 	}
 	
 	completion(videos, error);
+}
+
+- (void)watchLaterWithCompletion:(PSCSubscriptionsRequestCompletion)completion
+{
+	  
 }
 
 @end
