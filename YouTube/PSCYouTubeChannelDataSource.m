@@ -27,11 +27,13 @@
 	return [channels count];
 }
 
-- (id)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+- (id)tableView:(NSTableView *)_tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-	NSTableCellView *result = [tableView makeViewWithIdentifier:[tableColumn identifier] owner:nil];
-	NSURL *thumbnailURL = [(PSCYouTubeChannel*)[channels objectAtIndex:row] thumbnailURL];
-	[[result imageView] setImage:[[NSImage alloc] initWithContentsOfURL:thumbnailURL]];
+	NSTableCellView *result = [_tableView makeViewWithIdentifier:[tableColumn identifier] owner:nil];
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+		NSURL *thumbnailURL = [(PSCYouTubeChannel*)[channels objectAtIndex:row] thumbnailURL];
+		[[result imageView] setImage:[[NSImage alloc] initWithContentsOfURL:thumbnailURL]];
+	});
 	return result;
 }
 
@@ -44,11 +46,17 @@
 
 - (void)reload
 {
-	// reattempt loading
-	[session subscriptionsWithCompletion:^(NSArray *_channels, NSError *error) {
-		channels = _channels;
-	}];
-	[tableView reloadData];
+	[channelLoading cancel];
+	channelLoading = [NSBlockOperation blockOperationWithBlock:^{
+        // reattempt loading
+		[session subscriptionsWithCompletion:^(NSArray *_channels, NSError *error) {
+			channels = _channels;
+			dispatch_async(dispatch_get_main_queue(), ^(void) {
+				[tableView reloadData];
+			});
+		}];
+    }];
+	[channelLoading start];
 }
 
 - (IBAction)pressedReloadButton:(id)sender

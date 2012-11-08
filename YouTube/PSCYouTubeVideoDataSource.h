@@ -15,6 +15,7 @@
 @interface PSCYouTubeVideoDataSource : NSObject <NSTableViewDataSource, NSTableViewDelegate>
 {
 	PSCYouTubeSession *session;
+	IBOutlet NSScrollView *scrollView;
 	IBOutlet NSTableView *tableView;
 	IBOutlet WebView *videoView;
 	IBOutlet PSCWindowController *windowController;

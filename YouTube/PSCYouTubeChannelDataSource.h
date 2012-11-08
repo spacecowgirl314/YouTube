@@ -15,6 +15,7 @@
 	NSArray *channels;
 	IBOutlet NSTableView *tableView;
 	IBOutlet PSCYouTubeVideoDataSource *videoDataSource;
+	NSOperation *channelLoading;
 }
 
 @end
