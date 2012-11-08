@@ -1,3 +1,6 @@
 [submodule "YouTube/RaptureXML"]
 	path = YouTube/RaptureXML
 	url = git://github.com/ZaBlanc/RaptureXML.git
+[submodule "YouTube/KGNoise"]
+	path = YouTube/KGNoise
+	url = git://github.com/kgn/KGNoise.git

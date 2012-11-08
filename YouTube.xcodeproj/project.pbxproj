@@ -29,6 +29,10 @@
 		3756B69F1643D20200492E20 /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B69C1643D20100492E20 /* HTTPServer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3756B6A01643D20200492E20 /* HTTPResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B69E1643D20200492E20 /* HTTPResponseHandler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3756B6A51643D30C00492E20 /* PSCYouTubeTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B6A41643D30C00492E20 /* PSCYouTubeTokenResponse.m */; };
+		37742CDD164B710B00272C4A /* KGNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 37742CDC164B710B00272C4A /* KGNoise.m */; };
+		37742CEA164B814A00272C4A /* PSCTransparentCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37742CE7164B814A00272C4A /* PSCTransparentCellView.m */; };
+		37742CEB164B814A00272C4A /* PSCTransparentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37742CE9164B814A00272C4A /* PSCTransparentTableView.m */; };
+		37742CF4164B899700272C4A /* NSColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 37742CF3164B899700272C4A /* NSColor+Hex.m */; };
 		37EFAA8A1647B17700E322D0 /* PSCYouTubeVideoDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EFAA891647B17600E322D0 /* PSCYouTubeVideoDataSource.m */; };
 		37EFAA8E1647B1A400E322D0 /* PSCYouTubeVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EFAA8D1647B1A400E322D0 /* PSCYouTubeVideo.m */; };
 		37EFAA951647BFDD00E322D0 /* PSCYouTubeVideoCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EFAA941647BFDC00E322D0 /* PSCYouTubeVideoCellView.m */; };
@@ -100,6 +104,14 @@
 		3756B6A21643D27400492E20 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		3756B6A31643D30C00492E20 /* PSCYouTubeTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCYouTubeTokenResponse.h; sourceTree = "<group>"; };
 		3756B6A41643D30C00492E20 /* PSCYouTubeTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCYouTubeTokenResponse.m; sourceTree = "<group>"; };
+		37742CDB164B710B00272C4A /* KGNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KGNoise.h; path = KGNoise/KGNoise.h; sourceTree = "<group>"; };
+		37742CDC164B710B00272C4A /* KGNoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KGNoise.m; path = KGNoise/KGNoise.m; sourceTree = "<group>"; };
+		37742CE6164B814A00272C4A /* PSCTransparentCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCTransparentCellView.h; sourceTree = "<group>"; };
+		37742CE7164B814A00272C4A /* PSCTransparentCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCTransparentCellView.m; sourceTree = "<group>"; };
+		37742CE8164B814A00272C4A /* PSCTransparentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCTransparentTableView.h; sourceTree = "<group>"; };
+		37742CE9164B814A00272C4A /* PSCTransparentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCTransparentTableView.m; sourceTree = "<group>"; };
+		37742CF2164B899700272C4A /* NSColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Hex.h"; sourceTree = "<group>"; };
+		37742CF3164B899700272C4A /* NSColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Hex.m"; sourceTree = "<group>"; };
 		37EFAA881647B17600E322D0 /* PSCYouTubeVideoDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCYouTubeVideoDataSource.h; sourceTree = "<group>"; };
 		37EFAA891647B17600E322D0 /* PSCYouTubeVideoDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCYouTubeVideoDataSource.m; sourceTree = "<group>"; };
 		37EFAA8C1647B1A400E322D0 /* PSCYouTubeVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCYouTubeVideo.h; sourceTree = "<group>"; };
@@ -180,6 +192,9 @@
 				3756B2DE16436EC100492E20 /* PSCAppDelegate.m */,
 				37454AAC1648F8ED009FFCBB /* PSCWindowController.h */,
 				37454AAD1648F8ED009FFCBB /* PSCWindowController.m */,
+				37742CF5164B8A6700272C4A /* Categories */,
+				37742CEC164B819000272C4A /* Subclasses */,
+				37742CDF164B710E00272C4A /* KGNoise */,
 				3756B6721643A5FC00492E20 /* YouTube */,
 				3756B2D216436EC100492E20 /* Supporting Files */,
 			);
@@ -266,6 +281,35 @@
 				3756B69E1643D20200492E20 /* HTTPResponseHandler.m */,
 			);
 			name = HTTPServer;
+			sourceTree = "<group>";
+		};
+		37742CDF164B710E00272C4A /* KGNoise */ = {
+			isa = PBXGroup;
+			children = (
+				37742CDB164B710B00272C4A /* KGNoise.h */,
+				37742CDC164B710B00272C4A /* KGNoise.m */,
+			);
+			name = KGNoise;
+			sourceTree = "<group>";
+		};
+		37742CEC164B819000272C4A /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				37742CE6164B814A00272C4A /* PSCTransparentCellView.h */,
+				37742CE7164B814A00272C4A /* PSCTransparentCellView.m */,
+				37742CE8164B814A00272C4A /* PSCTransparentTableView.h */,
+				37742CE9164B814A00272C4A /* PSCTransparentTableView.m */,
+			);
+			name = Subclasses;
+			sourceTree = "<group>";
+		};
+		37742CF5164B8A6700272C4A /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				37742CF2164B899700272C4A /* NSColor+Hex.h */,
+				37742CF3164B899700272C4A /* NSColor+Hex.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +438,10 @@
 				37EFAA8E1647B1A400E322D0 /* PSCYouTubeVideo.m in Sources */,
 				37EFAA951647BFDD00E322D0 /* PSCYouTubeVideoCellView.m in Sources */,
 				37454AAE1648F8ED009FFCBB /* PSCWindowController.m in Sources */,
+				37742CDD164B710B00272C4A /* KGNoise.m in Sources */,
+				37742CEA164B814A00272C4A /* PSCTransparentCellView.m in Sources */,
+				37742CEB164B814A00272C4A /* PSCTransparentTableView.m in Sources */,
+				37742CF4164B899700272C4A /* NSColor+Hex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

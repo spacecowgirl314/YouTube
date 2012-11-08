@@ -9,7 +9,6 @@
 #import "PSCAppDelegate.h"
 
 @implementation PSCAppDelegate
-@synthesize channelTableView;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {

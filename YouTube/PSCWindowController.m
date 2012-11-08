@@ -7,6 +7,7 @@
 //
 
 #import "PSCWindowController.h"
+#import "NSColor+Hex.h"
 
 #define kRightViewWidth 630
 
@@ -15,7 +16,10 @@
 @end
 
 @implementation PSCWindowController
+@synthesize channelTableView;
+@synthesize channelScrollView;
 @synthesize splitView;
+@synthesize noiseView;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -30,8 +34,18 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+	
+	/*[channelScrollView setBackgroundColor:[NSColor clearColor]];
+	//[channelScrollView setDrawsBackground:NO];
+	[channelTableView setBackgroundColor:[NSColor greenColor]];*/
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+}
+
+- (void)awakeFromNib
+{
+	[noiseView setBackgroundColor:[NSColor colorWithHexColorString:@"202020"]];
+	[noiseView setNoiseOpacity:0.08f];
 }
 
 - (IBAction)toggleVideo:(id)sender
