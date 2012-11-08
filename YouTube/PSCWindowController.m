@@ -20,6 +20,8 @@
 @synthesize channelScrollView;
 @synthesize splitView;
 @synthesize noiseView;
+@synthesize leftNoiseView;
+@synthesize rightNoiseView;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -46,6 +48,20 @@
 {
 	[noiseView setBackgroundColor:[NSColor colorWithHexColorString:@"202020"]];
 	[noiseView setNoiseOpacity:0.04f];
+	
+	/*self.viewLeft.backgroundColor = [NSColor colorWithCalibratedRed:0.363 green:0.700 blue:0.909 alpha:1.000];
+    self.viewLeft.alternateBackgroundColor = [NSColor colorWithCalibratedRed:0.307 green:0.455 blue:0.909 alpha:1.000];
+    self.viewLeft.noiseBlendMode = kCGBlendModeMultiply;
+    self.viewLeft.noiseOpacity = 0.1;*/
+	[leftNoiseView setBackgroundColor:[NSColor colorWithHexColorString:@"dadada"]];
+	[leftNoiseView setAlternateBackgroundColor:[NSColor colorWithHexColorString:@"a6a6a6"]];
+	[leftNoiseView setNoiseBlendMode:kCGBlendModeMultiply];
+	[leftNoiseView setNoiseOpacity:0.04f];
+	
+	[rightNoiseView setBackgroundColor:[NSColor colorWithHexColorString:@"dadada"]];
+	[rightNoiseView setAlternateBackgroundColor:[NSColor colorWithHexColorString:@"a6a6a6"]];
+	[rightNoiseView setNoiseBlendMode:kCGBlendModeMultiply];
+	[rightNoiseView setNoiseOpacity:0.04f];
 }
 
 - (IBAction)toggleVideo:(id)sender

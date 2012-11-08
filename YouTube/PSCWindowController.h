@@ -15,6 +15,8 @@
 @property IBOutlet NSScrollView *channelScrollView;
 @property IBOutlet NSSplitView *splitView;
 @property (weak) IBOutlet KGNoiseView *noiseView;
+@property (weak) IBOutlet KGNoiseLinearGradientView *leftNoiseView;
+@property (weak) IBOutlet KGNoiseLinearGradientView *rightNoiseView;
 
 - (void)uncollpaseRightView;
 

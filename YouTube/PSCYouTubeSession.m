@@ -24,7 +24,7 @@
 	
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/default/subscriptions?v=2&max-results=50&orderby=published"]];
 	
-	NSString *authorizationHeaderString = [[NSString alloc] initWithFormat:@"Bearer %@", [self authToken]];
+	NSString *authorizationHeaderString = [[NSString alloc] initWithFormat:@"Bearer %@", @"ya29.AHES6ZR2HZBWqb9dQeJi_5j_DrYEH0lv5jyfa3WSwbFpMROmemi8XQ"]; //[self authToken]];
 	NSString *developerKeyHeaderString = [[NSString alloc] initWithFormat:@"key=%@", developerKey];
 	
 	[request setValue:authorizationHeaderString forHTTPHeaderField:@"Authorization"];
@@ -32,8 +32,8 @@
 	
 	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 	
-	/*NSLog(@"response: %@", [[NSString alloc] initWithData:data
-												 encoding:NSUTF8StringEncoding]);*/
+	NSLog(@"response: %@", [[NSString alloc] initWithData:data
+												 encoding:NSUTF8StringEncoding]);
 	
 	RXMLElement *rootXML = [RXMLElement elementFromXMLData:data];
 	//RXMLElement *rootXML = [RXMLElement elementFromURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/codingguru/subscriptions?v=2&max-results=50&orderby=published"]];

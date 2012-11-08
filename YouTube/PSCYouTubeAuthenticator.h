@@ -12,6 +12,7 @@
 
 - (BOOL)isAuthenticated;
 - (NSURL*)URLToAuthorize;
+- (void)reauthorize;
 
 @property NSString *clientID;
 @property NSString *clientSecret;
