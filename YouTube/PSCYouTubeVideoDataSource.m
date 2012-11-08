@@ -25,13 +25,16 @@
 	return [videos count];
 }
 
-- (id)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+- (id)tableView:(NSTableView *)_tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-	PSCYouTubeVideoCellView *result = [tableView makeViewWithIdentifier:[tableColumn identifier] owner:nil];
+	PSCYouTubeVideoCellView *result = [_tableView makeViewWithIdentifier:[tableColumn identifier] owner:nil];
 	PSCYouTubeVideo *video = [videos objectAtIndex:row];
 	[[result titleField] setStringValue:[video title]];
 	NSURL *thumbnailURL = [video thumbnailURL];
-	[[result thumbnailView] setImage:[[NSImage alloc] initWithContentsOfURL:thumbnailURL]];
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+		[[result thumbnailView] setImage:nil];
+		[[result thumbnailView] setImage:[[NSImage alloc] initWithContentsOfURL:thumbnailURL]];
+	});
 	[[result descriptionField] setStringValue:[video description]];
 	NSString *viewsString = [[NSString alloc] initWithFormat:@"%@ views", [video viewCount]];
 	[[result viewCountField] setStringValue:viewsString];
@@ -50,18 +53,24 @@
 
 - (void)refreshWithChannel:(PSCYouTubeChannel*)channel
 {
-	[session subscriptionWithChannel:channel completion:^(NSArray *_videos, NSError *error) {
-		videos = _videos;
-		// don't do anything
-		/*for (PSCYouTubeVideo *video in videos) {
-			NSLog(@"title:%@", [video title]);
-			NSLog(@"thumbnailURL:%@", [video thumbnailURL]);
-			NSLog(@"description:%@", [video description]);
-			NSLog(@"viewCount:%@", [video viewCount]);
-			NSLog(@"videoURL:%@", [video videoURL]);
-		}*/
-	}];
-	[tableView reloadData];
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		[session subscriptionWithChannel:channel completion:^(NSArray *_videos, NSError *error) {
+			videos = _videos;
+			// don't do anything
+			/*for (PSCYouTubeVideo *video in videos) {
+			 NSLog(@"title:%@", [video title]);
+			 NSLog(@"thumbnailURL:%@", [video thumbnailURL]);
+			 NSLog(@"description:%@", [video description]);
+			 NSLog(@"viewCount:%@", [video viewCount]);
+			 NSLog(@"videoURL:%@", [video videoURL]);
+			 }*/
+			dispatch_async(dispatch_get_main_queue(), ^(void) {
+				[tableView reloadData];
+				[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
+				[scrollView reflectScrolledClipView: [scrollView contentView]];
+			});
+		}];
+	});
 }
 
 @end
