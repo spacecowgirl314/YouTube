@@ -45,7 +45,7 @@
 - (void)awakeFromNib
 {
 	[noiseView setBackgroundColor:[NSColor colorWithHexColorString:@"202020"]];
-	[noiseView setNoiseOpacity:0.03f];
+	[noiseView setNoiseOpacity:0.04f];
 }
 
 - (IBAction)toggleVideo:(id)sender
