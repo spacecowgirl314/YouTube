@@ -74,28 +74,36 @@
 	});
 }
 
+- (void)refreshWithWatchLater
+{
+	[session watchLaterWithCompletion:^(NSArray *_videos, NSError *error) {
+		videos = _videos;
+		dispatch_async(dispatch_get_main_queue(), ^(void) {
+			[tableView reloadData];
+			[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
+			[scrollView reflectScrolledClipView: [scrollView contentView]];
+		});
+	}];
+}
+
+- (void)refreshWithSearch
+{
+	// this shouldn't load any videos into the table (in fact it should clear them), it should bring up the search box as part of the table view
+	[session searchWithQuery:@"Troy And Abed in the morning" completion:^(NSArray *_videos, NSError *error) {
+		videos = _videos;
+		dispatch_async(dispatch_get_main_queue(), ^(void) {
+			[tableView reloadData];
+			[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
+			[scrollView reflectScrolledClipView: [scrollView contentView]];
+		});
+	}];
+}
+
 - (IBAction)share:(id)sender
 {
 	NSSharingServicePicker *sharingServicePicker = [[NSSharingServicePicker alloc] initWithItems:@[[[videos objectAtIndex:[tableView selectedRow]] videoURL]]];
 	sharingServicePicker.delegate = self;
 	[sharingServicePicker showRelativeToRect:[sender bounds] ofView:sender preferredEdge:NSMinYEdge];
-	/*[session searchWithQuery:@"Troy And Abed in the morning" completion:^(NSArray *_videos, NSError *error) {
-		videos = _videos;
-		dispatch_async(dispatch_get_main_queue(), ^(void) {
-			[tableView reloadData];
-			[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
-			[scrollView reflectScrolledClipView: [scrollView contentView]];
-		});
-	}];*/
-	
-	/*[session watchLaterWithCompletion:^(NSArray *_videos, NSError *error) {
-		videos = _videos;
-		dispatch_async(dispatch_get_main_queue(), ^(void) {
-			[tableView reloadData];
-			[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
-			[scrollView reflectScrolledClipView: [scrollView contentView]];
-		});
-	}];*/
 }
 
 - (NSArray *)sharingServicePicker:(NSSharingServicePicker *)sharingServicePicker sharingServicesForItems:(NSArray *)items proposedSharingServices:(NSArray *)proposedServices

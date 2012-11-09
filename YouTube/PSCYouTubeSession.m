@@ -254,4 +254,9 @@
 	completion(videos, error);
 }
 
+- (void)mostPopularWithCompletion:(PSCChannelRequestCompletion)completion
+{
+	// https://gdata.youtube.com/feeds/api/standardfeeds/most_popular
+}
+
 @end

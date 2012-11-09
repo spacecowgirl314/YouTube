@@ -31,16 +31,40 @@
 {
 	NSTableCellView *result = [_tableView makeViewWithIdentifier:[tableColumn identifier] owner:nil];
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
-		NSURL *thumbnailURL = [(PSCYouTubeChannel*)[channels objectAtIndex:row] thumbnailURL];
-		[[result imageView] setImage:[[NSImage alloc] initWithContentsOfURL:thumbnailURL]];
+		if (row==0)
+		{
+			[[result imageView] setImage:[NSImage imageNamed:@"1.jpg.png"]];
+		}
+		else if (row==1)
+		{
+			[[result imageView] setImage:[NSImage imageNamed:@"1.jpg.png"]];
+		}
+		else
+		{
+			NSURL *thumbnailURL = [(PSCYouTubeChannel*)[channels objectAtIndex:row] thumbnailURL];
+			[[result imageView] setImage:[[NSImage alloc] initWithContentsOfURL:thumbnailURL]];
+		}
 	});
 	return result;
 }
 
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
 {
-	[videoDataSource refreshWithChannel:[channels objectAtIndex:rowIndex]];
-	[titleView setStringValue:[[channels objectAtIndex:rowIndex] displayName]];
+	if (rowIndex==0)
+	{
+		[videoDataSource refreshWithSearch];
+		[titleView setStringValue:@"Search - Troy and Abed in the Morning"];
+	}
+	else if (rowIndex==1)
+	{
+		[videoDataSource refreshWithWatchLater];
+		[titleView setStringValue:@"Watch Later"];
+	}
+	else
+	{
+		[videoDataSource refreshWithChannel:[channels objectAtIndex:rowIndex]];
+		[titleView setStringValue:[[channels objectAtIndex:rowIndex] displayName]];
+	}
 	
 	return YES;
 }
@@ -51,7 +75,14 @@
 	channelLoading = [NSBlockOperation blockOperationWithBlock:^{
         // reattempt loading
 		[session subscriptionsWithCompletion:^(NSArray *_channels, NSError *error) {
-			channels = _channels;
+			NSMutableArray *arrayWithButtons = [NSMutableArray arrayWithArray:_channels];
+			PSCYouTubeChannel *searchChannel = [PSCYouTubeChannel new];
+			[searchChannel setDisplayName:@"Search"];
+			PSCYouTubeChannel *mostPopularChannel = [PSCYouTubeChannel new];
+			[mostPopularChannel setDisplayName:@"Most Popular"];
+			[arrayWithButtons insertObject:searchChannel atIndex:0];
+			[arrayWithButtons insertObject:mostPopularChannel atIndex:1];
+			channels = arrayWithButtons;
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
 				[tableView reloadData];
 			});
