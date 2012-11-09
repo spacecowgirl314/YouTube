@@ -16,7 +16,18 @@
 	session = [PSCYouTubeSession new];
 	[session setDeveloperKey:@"AI39si5u0pQxyJgbcC10IQgk76osOWlrpQeSGyvSF3UXwUq1wqYOyYEiOm7tEecGjPqMOS6kcuR-yB75h8aDbM1N2FiOeYjBBQ"];
 	[session subscriptionsWithCompletion:^(NSArray *_channels, NSError *error) {
-		channels = _channels;
+		NSMutableArray *arrayWithButtons = [NSMutableArray arrayWithArray:_channels];
+		PSCYouTubeChannel *searchChannel = [PSCYouTubeChannel new];
+		[searchChannel setDisplayName:@"Search"];
+		PSCYouTubeChannel *mostPopularChannel = [PSCYouTubeChannel new];
+		[mostPopularChannel setDisplayName:@"Most Popular"];
+		[arrayWithButtons insertObject:searchChannel atIndex:0];
+		[arrayWithButtons insertObject:mostPopularChannel atIndex:1];
+		//[arrayWithButtons
+		channels = arrayWithButtons;
+		dispatch_async(dispatch_get_main_queue(), ^(void) {
+			[tableView reloadData];
+		});
 	}];
 	
 	return self;
@@ -82,6 +93,7 @@
 			[mostPopularChannel setDisplayName:@"Most Popular"];
 			[arrayWithButtons insertObject:searchChannel atIndex:0];
 			[arrayWithButtons insertObject:mostPopularChannel atIndex:1];
+			//[arrayWithButtons
 			channels = arrayWithButtons;
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
 				[tableView reloadData];
