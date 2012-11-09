@@ -40,7 +40,10 @@
 		37EFAA971647C88E00E322D0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EFAA961647C88E00E322D0 /* WebKit.framework */; };
 		70124B71164CBCE60006CEE2 /* toggle.png in Resources */ = {isa = PBXBuildFile; fileRef = 70124B6F164CBCE60006CEE2 /* toggle.png */; };
 		70124B72164CBCE60006CEE2 /* toggle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70124B70164CBCE60006CEE2 /* toggle@2x.png */; };
-		70124B75164CC3AF0006CEE2 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 70124B74164CC3AF0006CEE2 /* share.png */; };
+		70CDBEF6164D9DA600939C3F /* togglereverse@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CDBEF4164D9DA600939C3F /* togglereverse@2x.png */; };
+		70CDBEF7164D9DA600939C3F /* togglereverse.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CDBEF5164D9DA600939C3F /* togglereverse.png */; };
+		70CDBEFA164DA22300939C3F /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CDBEF8164DA22300939C3F /* share@2x.png */; };
+		70CDBEFB164DA22300939C3F /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CDBEF9164DA22300939C3F /* share.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,7 +130,10 @@
 		37EFAA961647C88E00E322D0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		70124B6F164CBCE60006CEE2 /* toggle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggle.png; sourceTree = "<group>"; };
 		70124B70164CBCE60006CEE2 /* toggle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle@2x.png"; sourceTree = "<group>"; };
-		70124B74164CC3AF0006CEE2 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		70CDBEF4164D9DA600939C3F /* togglereverse@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "togglereverse@2x.png"; sourceTree = "<group>"; };
+		70CDBEF5164D9DA600939C3F /* togglereverse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = togglereverse.png; sourceTree = "<group>"; };
+		70CDBEF8164DA22300939C3F /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
+		70CDBEF9164DA22300939C3F /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,7 +229,10 @@
 		3756B2D216436EC100492E20 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				70124B74164CC3AF0006CEE2 /* share.png */,
+				70CDBEF8164DA22300939C3F /* share@2x.png */,
+				70CDBEF9164DA22300939C3F /* share.png */,
+				70CDBEF4164D9DA600939C3F /* togglereverse@2x.png */,
+				70CDBEF5164D9DA600939C3F /* togglereverse.png */,
 				70124B6F164CBCE60006CEE2 /* toggle.png */,
 				70124B70164CBCE60006CEE2 /* toggle@2x.png */,
 				3756B2E016436EC100492E20 /* MainMenu.xib */,
@@ -414,7 +423,10 @@
 				3756B307164372A500492E20 /* mqdefault.jpg in Resources */,
 				70124B71164CBCE60006CEE2 /* toggle.png in Resources */,
 				70124B72164CBCE60006CEE2 /* toggle@2x.png in Resources */,
-				70124B75164CC3AF0006CEE2 /* share.png in Resources */,
+				70CDBEF6164D9DA600939C3F /* togglereverse@2x.png in Resources */,
+				70CDBEF7164D9DA600939C3F /* togglereverse.png in Resources */,
+				70CDBEFA164DA22300939C3F /* share@2x.png in Resources */,
+				70CDBEFB164DA22300939C3F /* share.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
