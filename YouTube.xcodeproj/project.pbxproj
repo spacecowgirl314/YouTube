@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37078477164C7C2600668610 /* INAppStoreWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3707844D164C7C2600668610 /* INAppStoreWindow.m */; };
 		37454AAE1648F8ED009FFCBB /* PSCWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37454AAD1648F8ED009FFCBB /* PSCWindowController.m */; };
 		3756B2CC16436EC100492E20 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3756B2CB16436EC100492E20 /* Cocoa.framework */; };
 		3756B2D616436EC100492E20 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3756B2D416436EC100492E20 /* InfoPlist.strings */; };
@@ -62,6 +63,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3707844C164C7C2600668610 /* INAppStoreWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INAppStoreWindow.h; sourceTree = "<group>"; };
+		3707844D164C7C2600668610 /* INAppStoreWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INAppStoreWindow.m; sourceTree = "<group>"; };
 		37454AAC1648F8ED009FFCBB /* PSCWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCWindowController.h; sourceTree = "<group>"; };
 		37454AAD1648F8ED009FFCBB /* PSCWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCWindowController.m; sourceTree = "<group>"; };
 		3756B2C716436EC100492E20 /* YouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +147,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3707844A164C7C2600668610 /* INAppStoreWindow */ = {
+			isa = PBXGroup;
+			children = (
+				3707844C164C7C2600668610 /* INAppStoreWindow.h */,
+				3707844D164C7C2600668610 /* INAppStoreWindow.m */,
+			);
+			path = INAppStoreWindow;
+			sourceTree = "<group>";
+		};
 		3756B2BC16436EC100492E20 = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +206,7 @@
 				37454AAD1648F8ED009FFCBB /* PSCWindowController.m */,
 				37742CF5164B8A6700272C4A /* Categories */,
 				37742CEC164B819000272C4A /* Subclasses */,
+				3707844A164C7C2600668610 /* INAppStoreWindow */,
 				37742CDF164B710E00272C4A /* KGNoise */,
 				3756B6721643A5FC00492E20 /* YouTube */,
 				3756B2D216436EC100492E20 /* Supporting Files */,
@@ -442,6 +455,7 @@
 				37742CEA164B814A00272C4A /* PSCTransparentCellView.m in Sources */,
 				37742CEB164B814A00272C4A /* PSCTransparentTableView.m in Sources */,
 				37742CF4164B899700272C4A /* NSColor+Hex.m in Sources */,
+				37078477164C7C2600668610 /* INAppStoreWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

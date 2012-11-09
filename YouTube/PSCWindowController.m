@@ -16,6 +16,7 @@
 @end
 
 @implementation PSCWindowController
+@synthesize window;
 @synthesize channelTableView;
 @synthesize channelScrollView;
 @synthesize splitView;
@@ -46,6 +47,17 @@
 
 - (void)awakeFromNib
 {
+	self.window.trafficLightButtonsLeftMargin = 7.0;
+    self.window.fullScreenButtonRightMargin = 7.0;
+    self.window.hideTitleBarInFullScreen = YES;
+    self.window.centerFullScreenButton = YES;
+    self.window.titleBarHeight = 33.0;
+	
+	// self.titleView is a an IBOutlet to an NSView that has been configured in IB with everything you want in the title bar
+	/*self.titleView.frame = self.window.titleBarView.bounds;
+	self.titleView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+	[self.window.titleBarView addSubview:self.titleView];*/
+	
 	[noiseView setBackgroundColor:[NSColor colorWithHexColorString:@"202020"]];
 	[noiseView setNoiseOpacity:0.04f];
 	

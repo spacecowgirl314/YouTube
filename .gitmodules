@@ -4,3 +4,6 @@
 [submodule "YouTube/KGNoise"]
 	path = YouTube/KGNoise
 	url = git://github.com/kgn/KGNoise.git
+[submodule "YouTube/INAppStoreWindow"]
+	path = YouTube/INAppStoreWindow
+	url = git://github.com/indragiek/INAppStoreWindow.git
