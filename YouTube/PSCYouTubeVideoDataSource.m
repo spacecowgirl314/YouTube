@@ -79,6 +79,23 @@
 	NSSharingServicePicker *sharingServicePicker = [[NSSharingServicePicker alloc] initWithItems:@[[[videos objectAtIndex:[tableView selectedRow]] videoURL]]];
 	sharingServicePicker.delegate = self;
 	[sharingServicePicker showRelativeToRect:[sender bounds] ofView:sender preferredEdge:NSMinYEdge];
+	/*[session searchWithQuery:@"Troy And Abed in the morning" completion:^(NSArray *_videos, NSError *error) {
+		videos = _videos;
+		dispatch_async(dispatch_get_main_queue(), ^(void) {
+			[tableView reloadData];
+			[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
+			[scrollView reflectScrolledClipView: [scrollView contentView]];
+		});
+	}];*/
+	
+	/*[session watchLaterWithCompletion:^(NSArray *_videos, NSError *error) {
+		videos = _videos;
+		dispatch_async(dispatch_get_main_queue(), ^(void) {
+			[tableView reloadData];
+			[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
+			[scrollView reflectScrolledClipView: [scrollView contentView]];
+		});
+	}];*/
 }
 
 - (NSArray *)sharingServicePicker:(NSSharingServicePicker *)sharingServicePicker sharingServicesForItems:(NSArray *)items proposedSharingServices:(NSArray *)proposedServices

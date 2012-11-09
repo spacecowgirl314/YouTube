@@ -16,6 +16,8 @@ typedef void (^PSCChannelRequestCompletion)(NSArray * videos, NSError * error);
 
 - (void)subscriptionsWithCompletion:(PSCSubscriptionsRequestCompletion)completion;
 - (void)subscriptionWithChannel:(PSCYouTubeChannel*)channel completion:(PSCChannelRequestCompletion)completion;
+- (void)watchLaterWithCompletion:(PSCChannelRequestCompletion)completion;
+- (void)searchWithQuery:(NSString*)query completion:(PSCChannelRequestCompletion)completion;
 
 @property NSString *developerKey;
 
