@@ -46,7 +46,7 @@
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
 {
 	// add autoplay to the end of the URL
-	NSString *videoURLString = [[NSString alloc] initWithFormat:@"%@&autoplay=1&theme=light", [(PSCYouTubeVideo*)[videos objectAtIndex:rowIndex] videoURL]];
+	NSString *videoURLString = [[NSString alloc] initWithFormat:@"%@&autoplay=1&theme=light&modestbranding=1", [(PSCYouTubeVideo*)[videos objectAtIndex:rowIndex] videoURL]];
 	[[videoView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:videoURLString]]];
 	[windowController uncollpaseRightView];
 	return YES;
