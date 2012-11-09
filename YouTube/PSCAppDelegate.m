@@ -21,11 +21,11 @@
 - (void)authenticate
 {
 	authenticator = [PSCYouTubeAuthenticator new];
+	[authenticator setClientID:@"598067235549.apps.googleusercontent.com"];
+	[authenticator setClientSecret:@"YAJBhZyscetPphUSlexBk7pR"];
+	[authenticator setRedirectURL:[NSURL URLWithString:@"http://localhost:28247"]];
 	if ([authenticator isAuthenticated])
 	{
-		[authenticator setClientID:@"598067235549.apps.googleusercontent.com"];
-		[authenticator setClientSecret:@"YAJBhZyscetPphUSlexBk7pR"];
-		[authenticator setRedirectURL:[NSURL URLWithString:@"http://localhost:28247"]];
 		[authenticator reauthorize];
 	}
 	else {
