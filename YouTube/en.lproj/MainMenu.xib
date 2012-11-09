@@ -1580,9 +1580,9 @@
 															</array>
 															<double key="NSIntercellSpacingWidth">3</double>
 															<double key="NSIntercellSpacingHeight">2</double>
-															<object class="NSColor" key="NSBackgroundColor">
-																<int key="NSColorSpace">1</int>
-																<bytes key="NSRGB">MCAwIDAgMAA</bytes>
+															<object class="NSColor" key="NSBackgroundColor" id="501359578">
+																<int key="NSColorSpace">3</int>
+																<bytes key="NSWhite">MCAwAA</bytes>
 															</object>
 															<reference key="NSGridColor" ref="526523205"/>
 															<double key="NSRowHeight">60</double>
@@ -1593,7 +1593,7 @@
 															<int key="NSDraggingSourceMaskForLocal">15</int>
 															<int key="NSDraggingSourceMaskForNonLocal">0</int>
 															<bool key="NSAllowsTypeSelect">YES</bool>
-															<int key="NSTableViewDraggingDestinationStyle">0</int>
+															<int key="NSTableViewDraggingDestinationStyle">1</int>
 															<int key="NSTableViewGroupRowStyle">1</int>
 														</object>
 													</array>
@@ -1603,10 +1603,7 @@
 													<reference key="NSNextKeyView" ref="33937715"/>
 													<string key="NSReuseIdentifierKey">_NS:11</string>
 													<reference key="NSDocView" ref="33937715"/>
-													<object class="NSColor" key="NSBGColor">
-														<int key="NSColorSpace">3</int>
-														<bytes key="NSWhite">MCAwAA</bytes>
-													</object>
+													<reference key="NSBGColor" ref="501359578"/>
 													<int key="NScvFlags">6</int>
 												</object>
 												<object class="NSScroller" id="116659864">
@@ -1781,7 +1778,7 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="826937661"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
@@ -1807,7 +1804,7 @@
 					<object class="NSButton" id="280042870">
 						<reference key="NSNextResponder" ref="466257124"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{1101, 0}, {28, 32}}</string>
+						<string key="NSFrame">{{1102, 0}, {27, 32}}</string>
 						<reference key="NSSuperview" ref="466257124"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -2651,7 +2648,7 @@
 										</object>
 										<string key="NSCellIdentifier">_NS:11</string>
 										<int key="NSAlign">0</int>
-										<int key="NSScale">0</int>
+										<int key="NSScale">3</int>
 										<int key="NSStyle">0</int>
 										<bool key="NSAnimates">NO</bool>
 									</object>
@@ -6102,8 +6099,8 @@
 				<array key="541.prototypeCellViews">
 					<reference ref="465082980"/>
 				</array>
+				<string key="544.CustomClassName">PSCHighlightedTextFieldCell</string>
 				<string key="544.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="558.CustomClassName">PSCTransparentCellView</string>
 				<array class="NSMutableArray" key="558.IBNSViewMetadataConstraints">
 					<reference ref="234397842"/>
 					<reference ref="776109209"/>
@@ -6341,11 +6338,11 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">PSCTransparentCellView</string>
-					<string key="superclassName">NSTableCellView</string>
+					<string key="className">PSCHighlightedTextFieldCell</string>
+					<string key="superclassName">NSTextFieldCell</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/PSCTransparentCellView.h</string>
+						<string key="minorKey">./Classes/PSCHighlightedTextFieldCell.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

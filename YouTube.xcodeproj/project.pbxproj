@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		37078477164C7C2600668610 /* INAppStoreWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3707844D164C7C2600668610 /* INAppStoreWindow.m */; };
 		37454AAE1648F8ED009FFCBB /* PSCWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37454AAD1648F8ED009FFCBB /* PSCWindowController.m */; };
+		375154E3164DBEB3004E4406 /* PSCTableRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 375154E2164DBEB3004E4406 /* PSCTableRowView.m */; };
 		3756B2CC16436EC100492E20 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3756B2CB16436EC100492E20 /* Cocoa.framework */; };
 		3756B2D616436EC100492E20 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3756B2D416436EC100492E20 /* InfoPlist.strings */; };
 		3756B2D816436EC100492E20 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B2D716436EC100492E20 /* main.m */; };
@@ -31,7 +32,6 @@
 		3756B6A01643D20200492E20 /* HTTPResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B69E1643D20200492E20 /* HTTPResponseHandler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3756B6A51643D30C00492E20 /* PSCYouTubeTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3756B6A41643D30C00492E20 /* PSCYouTubeTokenResponse.m */; };
 		37742CDD164B710B00272C4A /* KGNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 37742CDC164B710B00272C4A /* KGNoise.m */; };
-		37742CEA164B814A00272C4A /* PSCTransparentCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37742CE7164B814A00272C4A /* PSCTransparentCellView.m */; };
 		37742CEB164B814A00272C4A /* PSCTransparentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37742CE9164B814A00272C4A /* PSCTransparentTableView.m */; };
 		37742CF4164B899700272C4A /* NSColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 37742CF3164B899700272C4A /* NSColor+Hex.m */; };
 		37EFAA8A1647B17700E322D0 /* PSCYouTubeVideoDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EFAA891647B17600E322D0 /* PSCYouTubeVideoDataSource.m */; };
@@ -75,6 +75,8 @@
 		3707844D164C7C2600668610 /* INAppStoreWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INAppStoreWindow.m; sourceTree = "<group>"; };
 		37454AAC1648F8ED009FFCBB /* PSCWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCWindowController.h; sourceTree = "<group>"; };
 		37454AAD1648F8ED009FFCBB /* PSCWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCWindowController.m; sourceTree = "<group>"; };
+		375154E1164DBEB3004E4406 /* PSCTableRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCTableRowView.h; sourceTree = "<group>"; };
+		375154E2164DBEB3004E4406 /* PSCTableRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCTableRowView.m; sourceTree = "<group>"; };
 		3756B2C716436EC100492E20 /* YouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3756B2CB16436EC100492E20 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3756B2CE16436EC100492E20 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -117,8 +119,6 @@
 		3756B6A41643D30C00492E20 /* PSCYouTubeTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCYouTubeTokenResponse.m; sourceTree = "<group>"; };
 		37742CDB164B710B00272C4A /* KGNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KGNoise.h; path = KGNoise/KGNoise.h; sourceTree = "<group>"; };
 		37742CDC164B710B00272C4A /* KGNoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KGNoise.m; path = KGNoise/KGNoise.m; sourceTree = "<group>"; };
-		37742CE6164B814A00272C4A /* PSCTransparentCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCTransparentCellView.h; sourceTree = "<group>"; };
-		37742CE7164B814A00272C4A /* PSCTransparentCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCTransparentCellView.m; sourceTree = "<group>"; };
 		37742CE8164B814A00272C4A /* PSCTransparentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCTransparentTableView.h; sourceTree = "<group>"; };
 		37742CE9164B814A00272C4A /* PSCTransparentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCTransparentTableView.m; sourceTree = "<group>"; };
 		37742CF2164B899700272C4A /* NSColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Hex.h"; sourceTree = "<group>"; };
@@ -332,10 +332,10 @@
 		37742CEC164B819000272C4A /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
-				37742CE6164B814A00272C4A /* PSCTransparentCellView.h */,
-				37742CE7164B814A00272C4A /* PSCTransparentCellView.m */,
 				37742CE8164B814A00272C4A /* PSCTransparentTableView.h */,
 				37742CE9164B814A00272C4A /* PSCTransparentTableView.m */,
+				375154E1164DBEB3004E4406 /* PSCTableRowView.h */,
+				375154E2164DBEB3004E4406 /* PSCTableRowView.m */,
 			);
 			name = Subclasses;
 			sourceTree = "<group>";
@@ -484,10 +484,10 @@
 				37EFAA951647BFDD00E322D0 /* PSCYouTubeVideoCellView.m in Sources */,
 				37454AAE1648F8ED009FFCBB /* PSCWindowController.m in Sources */,
 				37742CDD164B710B00272C4A /* KGNoise.m in Sources */,
-				37742CEA164B814A00272C4A /* PSCTransparentCellView.m in Sources */,
 				37742CEB164B814A00272C4A /* PSCTransparentTableView.m in Sources */,
 				37742CF4164B899700272C4A /* NSColor+Hex.m in Sources */,
 				37078477164C7C2600668610 /* INAppStoreWindow.m in Sources */,
+				375154E3164DBEB3004E4406 /* PSCTableRowView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

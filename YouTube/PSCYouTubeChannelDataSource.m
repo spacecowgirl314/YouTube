@@ -8,6 +8,7 @@
 
 #import "PSCYouTubeChannelDataSource.h"
 #import "PSCYouTubeVideo.h"
+#import "PSCTableRowView.h"
 
 @implementation PSCYouTubeChannelDataSource
 
@@ -78,6 +79,12 @@
 	}
 	
 	return YES;
+}
+
+// set style for the highlight of the cell
+- (NSTableRowView *)tableView:(NSTableView *)tableView rowViewForRow:(NSInteger)row
+{
+	return [PSCTableRowView new];
 }
 
 - (void)reload
