@@ -1531,7 +1531,7 @@
 															<string key="NSFrameSize">{60, 434}</string>
 															<reference key="NSSuperview" ref="129521003"/>
 															<reference key="NSWindow"/>
-															<reference key="NSNextKeyView" ref="465082980"/>
+															<reference key="NSNextKeyView" ref="116659864"/>
 															<string key="NSReuseIdentifierKey">_NS:13</string>
 															<bool key="NSEnabled">YES</bool>
 															<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -1636,7 +1636,7 @@
 											<string key="NSFrame">{{0, 32}, {60, 434}}</string>
 											<reference key="NSSuperview" ref="765746352"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="116659864"/>
+											<reference key="NSNextKeyView" ref="129521003"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<int key="NSsFlags">133664</int>
 											<reference key="NSVScroller" ref="116659864"/>
@@ -6227,7 +6227,7 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">KGNoiseView</string>
-					<string key="superclassName">UIView</string>
+					<string key="superclassName">NSView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/KGNoiseView.h</string>
