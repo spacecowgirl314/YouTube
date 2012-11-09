@@ -124,4 +124,52 @@
 	});
 }
 
+- (IBAction)toggleSidebar:(id)sender
+{
+	NSView *left = [[[self splitView] subviews] objectAtIndex:0];
+	if (left.frame.size.width <= 0)
+	{
+		[self uncollpaseLeftView];
+	}
+	else {
+		[self collapseLeftView];
+	}
+}
+
+- (void)collapseLeftView
+{
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		// received help from http://www.manicwave.com/blog/2009/12/31/unraveling-the-mysteries-of-nssplitview-part-2/
+		NSView *left  = [[[self splitView] subviews] objectAtIndex:0];
+		NSRect leftFrame = [left frame];
+		NSRect rect = self.window.frame;
+		rect.size.width = leftFrame.size.width;
+		
+		dispatch_async(dispatch_get_main_queue(), ^(void) {
+			[left setFrame:rect];
+			//[[self window] setFrame:rect display:YES animate:YES];
+			[[self splitView] display];
+		});
+	});
+}
+
+- (void)uncollpaseLeftView
+{
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		NSView *left = [[[self splitView] subviews] objectAtIndex:0];
+		// the double if statment is for the YouTube video data source
+		if (left.frame.size.width <= 0)
+		{
+			NSRect rect = self.window.frame;
+			rect.size.width = rect.size.width+kRightViewWidth;
+			
+			
+			dispatch_async(dispatch_get_main_queue(), ^(void) {
+				[[self window] setFrame:rect display:YES animate:YES];
+				[[self splitView] display];
+			});
+		}
+	});
+}
+
 @end
