@@ -12,11 +12,12 @@
 #import "PSCYouTubeChannel.h"
 #import "PSCWindowController.h"
 
-@interface PSCYouTubeVideoDataSource : NSObject <NSTableViewDataSource, NSTableViewDelegate>
+@interface PSCYouTubeVideoDataSource : NSObject <NSTableViewDataSource, NSTableViewDelegate, NSSharingServicePickerDelegate>
 {
 	PSCYouTubeSession *session;
 	IBOutlet NSScrollView *scrollView;
 	IBOutlet NSTableView *tableView;
+	IBOutlet NSView *titleView;
 	IBOutlet WebView *videoView;
 	IBOutlet PSCWindowController *windowController;
 	NSArray *videos;

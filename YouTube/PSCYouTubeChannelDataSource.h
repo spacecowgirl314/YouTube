@@ -14,6 +14,7 @@
 	PSCYouTubeSession *session;
 	NSArray *channels;
 	IBOutlet NSTableView *tableView;
+	IBOutlet NSTextField *titleView;
 	IBOutlet PSCYouTubeVideoDataSource *videoDataSource;
 	NSOperation *channelLoading;
 }

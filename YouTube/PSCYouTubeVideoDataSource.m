@@ -73,4 +73,24 @@
 	});
 }
 
+- (IBAction)share:(id)sender
+{
+	NSSharingServicePicker *sharingServicePicker = [[NSSharingServicePicker alloc] initWithItems:@[[[videos objectAtIndex:[tableView selectedRow]] videoURL]]];
+	sharingServicePicker.delegate = self;
+	[sharingServicePicker showRelativeToRect:[sender bounds] ofView:sender preferredEdge:NSMinYEdge];
+}
+
+- (NSArray *)sharingServicePicker:(NSSharingServicePicker *)sharingServicePicker sharingServicesForItems:(NSArray *)items proposedSharingServices:(NSArray *)proposedServices
+{
+	NSMutableArray *modifiedProposals = [NSMutableArray new];
+	for (NSSharingService *proposedService in proposedServices) {
+		if (![[proposedService title] isEqualToString:@"Add to Reading List"]) {
+			[modifiedProposals addObject:proposedService];
+		}
+		//NSLog (@"title:%@", [proposedService title]);
+	}
+
+	return modifiedProposals;
+}
+
 @end

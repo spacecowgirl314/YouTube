@@ -17,6 +17,7 @@
 
 @implementation PSCWindowController
 @synthesize window;
+@synthesize titleView;
 @synthesize channelTableView;
 @synthesize channelScrollView;
 @synthesize splitView;
@@ -51,12 +52,12 @@
     self.window.fullScreenButtonRightMargin = 7.0;
     self.window.hideTitleBarInFullScreen = YES;
     self.window.centerFullScreenButton = YES;
-    self.window.titleBarHeight = 44.0;
+    self.window.titleBarHeight = 33.0;
 	
 	// self.titleView is a an IBOutlet to an NSView that has been configured in IB with everything you want in the title bar
-	/*self.titleView.frame = self.window.titleBarView.bounds;
+	self.titleView.frame = self.window.titleBarView.bounds;
 	self.titleView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
-	[self.window.titleBarView addSubview:self.titleView];*/
+	[self.window.titleBarView addSubview:self.titleView];
 	
 	[noiseView setBackgroundColor:[NSColor colorWithHexColorString:@"202020"]];
 	[noiseView setNoiseOpacity:0.04f];
@@ -90,28 +91,37 @@
 
 - (void)collapseRightView
 {
-	// received help from http://www.manicwave.com/blog/2009/12/31/unraveling-the-mysteries-of-nssplitview-part-2/
-    NSView *left  = [[[self splitView] subviews] objectAtIndex:0];
-    NSRect leftFrame = [left frame];
-	NSRect rect = self.window.frame;
-	rect.size.width = leftFrame.size.width;
-	
-	[[self window] setFrame:rect display:YES animate:YES];
-    [[self splitView] display];
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		// received help from http://www.manicwave.com/blog/2009/12/31/unraveling-the-mysteries-of-nssplitview-part-2/
+		NSView *left  = [[[self splitView] subviews] objectAtIndex:0];
+		NSRect leftFrame = [left frame];
+		NSRect rect = self.window.frame;
+		rect.size.width = leftFrame.size.width;
+		
+		dispatch_async(dispatch_get_main_queue(), ^(void) {
+			[[self window] setFrame:rect display:YES animate:YES];
+			[[self splitView] display];
+		});
+	});
 }
 
 - (void)uncollpaseRightView
 {
-	NSView *right = [[[self splitView] subviews] objectAtIndex:1];
-	// the double if statment is for the YouTube video data source
-	if (right.frame.size.width <= 0)
-	{
-		NSRect rect = self.window.frame;
-		rect.size.width = rect.size.width+kRightViewWidth;
-		
-		[[self window] setFrame:rect display:YES animate:YES];
-		[[self splitView] display];
-	}
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		NSView *right = [[[self splitView] subviews] objectAtIndex:1];
+		// the double if statment is for the YouTube video data source
+		if (right.frame.size.width <= 0)
+		{
+			NSRect rect = self.window.frame;
+			rect.size.width = rect.size.width+kRightViewWidth;
+			
+			
+			dispatch_async(dispatch_get_main_queue(), ^(void) {
+				[[self window] setFrame:rect display:YES animate:YES];
+				[[self splitView] display];
+			});
+		}
+	});
 }
 
 @end

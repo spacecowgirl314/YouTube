@@ -40,6 +40,7 @@
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
 {
 	[videoDataSource refreshWithChannel:[channels objectAtIndex:rowIndex]];
+	[titleView setStringValue:[[channels objectAtIndex:rowIndex] displayName]];
 	
 	return YES;
 }

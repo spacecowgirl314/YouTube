@@ -13,6 +13,7 @@
 @interface PSCWindowController : NSWindowController
 
 @property IBOutlet INAppStoreWindow *window;
+@property IBOutlet NSView *titleView;
 @property IBOutlet NSTableView *channelTableView;
 @property IBOutlet NSScrollView *channelScrollView;
 @property IBOutlet NSSplitView *splitView;
