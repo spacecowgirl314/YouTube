@@ -51,7 +51,7 @@
     self.window.fullScreenButtonRightMargin = 7.0;
     self.window.hideTitleBarInFullScreen = YES;
     self.window.centerFullScreenButton = YES;
-    self.window.titleBarHeight = 33.0;
+    self.window.titleBarHeight = 44.0;
 	
 	// self.titleView is a an IBOutlet to an NSView that has been configured in IB with everything you want in the title bar
 	/*self.titleView.frame = self.window.titleBarView.bounds;
