@@ -44,6 +44,8 @@
 		70CDBEF7164D9DA600939C3F /* togglereverse.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CDBEF5164D9DA600939C3F /* togglereverse.png */; };
 		70CDBEFA164DA22300939C3F /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CDBEF8164DA22300939C3F /* share@2x.png */; };
 		70CDBEFB164DA22300939C3F /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CDBEF9164DA22300939C3F /* share.png */; };
+		70CDBF02164DACE300939C3F /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CDBF00164DACE300939C3F /* search@2x.png */; };
+		70CDBF03164DACE300939C3F /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CDBF01164DACE300939C3F /* search.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,8 @@
 		70CDBEF5164D9DA600939C3F /* togglereverse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = togglereverse.png; sourceTree = "<group>"; };
 		70CDBEF8164DA22300939C3F /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
 		70CDBEF9164DA22300939C3F /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		70CDBF00164DACE300939C3F /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
+		70CDBF01164DACE300939C3F /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +233,8 @@
 		3756B2D216436EC100492E20 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				70CDBF00164DACE300939C3F /* search@2x.png */,
+				70CDBF01164DACE300939C3F /* search.png */,
 				70CDBEF8164DA22300939C3F /* share@2x.png */,
 				70CDBEF9164DA22300939C3F /* share.png */,
 				70CDBEF4164D9DA600939C3F /* togglereverse@2x.png */,
@@ -427,6 +433,8 @@
 				70CDBEF7164D9DA600939C3F /* togglereverse.png in Resources */,
 				70CDBEFA164DA22300939C3F /* share@2x.png in Resources */,
 				70CDBEFB164DA22300939C3F /* share.png in Resources */,
+				70CDBF02164DACE300939C3F /* search@2x.png in Resources */,
+				70CDBF03164DACE300939C3F /* search.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -44,7 +44,7 @@
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
 		if (row==0)
 		{
-			[[result imageView] setImage:[NSImage imageNamed:@"1.jpg.png"]];
+			[[result imageView] setImage:[NSImage imageNamed:@"search"]];
 		}
 		else if (row==1)
 		{
