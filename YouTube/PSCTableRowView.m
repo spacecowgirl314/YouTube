@@ -23,7 +23,7 @@
 - (void)drawSelectionInRect:(NSRect)dirtyRect {
     if (self.selectionHighlightStyle != NSTableViewSelectionHighlightStyleNone) {
         //NSRect selectionRect = NSInsetRect(self.bounds, 2.5, 2.5);
-		[[NSImage imageNamed:@"1.jpg.png"] drawInRect:self.bounds
+		[[NSImage imageNamed:@"sidebarhighlight"] drawInRect:self.bounds
 						  fromRect:NSZeroRect
 						 operation:NSCompositeCopy
 						  fraction:1.0];
