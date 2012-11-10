@@ -36,7 +36,15 @@
 		[[result thumbnailView] setImage:[[NSImage alloc] initWithContentsOfURL:thumbnailURL]];
 	});
 	[[result descriptionField] setStringValue:[video description]];
-	NSString *viewsString = [[NSString alloc] initWithFormat:@"%@ views", [video viewCount]];
+	
+	// format listener and play count with commas/separators
+	NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
+	[numberFormatter setGroupingSize:3];
+	[numberFormatter setUsesGroupingSeparator:YES];
+	NSString *formattedViewCount = [numberFormatter stringFromNumber:[video viewCount]];
+	
+	NSString *viewsString = [[NSString alloc] initWithFormat:@"%@ views", formattedViewCount];
+	
 	[[result viewCountField] setStringValue:viewsString];
 	//[[[result videoView] mainFrame] loadRequest:[NSURLRequest requestWithURL:[video videoURL]]];
 	
