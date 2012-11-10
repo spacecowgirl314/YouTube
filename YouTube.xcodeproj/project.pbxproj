@@ -228,6 +228,7 @@
 				3756B2DE16436EC100492E20 /* PSCAppDelegate.m */,
 				37454AAC1648F8ED009FFCBB /* PSCWindowController.h */,
 				37454AAD1648F8ED009FFCBB /* PSCWindowController.m */,
+				37AF36F6164E256600548814 /* Data Sources */,
 				37742CF5164B8A6700272C4A /* Categories */,
 				37742CEC164B819000272C4A /* Subclasses */,
 				3707844A164C7C2600668610 /* INAppStoreWindow */,
@@ -299,10 +300,6 @@
 			children = (
 				3756B6691643A3A300492E20 /* RaptureXML */,
 				3756B6A11643D20700492E20 /* HTTPServer */,
-				37EFAA881647B17600E322D0 /* PSCYouTubeVideoDataSource.h */,
-				37EFAA891647B17600E322D0 /* PSCYouTubeVideoDataSource.m */,
-				3756B6901643AE4900492E20 /* PSCYouTubeChannelDataSource.h */,
-				3756B6911643AE4900492E20 /* PSCYouTubeChannelDataSource.m */,
 				3756B6731643A63B00492E20 /* PSCYouTubeSession.h */,
 				3756B6741643A63B00492E20 /* PSCYouTubeSession.m */,
 				3756B66F1643A40100492E20 /* PSCYouTubeChannel.h */,
@@ -359,6 +356,17 @@
 				37742CF3164B899700272C4A /* NSColor+Hex.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		37AF36F6164E256600548814 /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				37EFAA881647B17600E322D0 /* PSCYouTubeVideoDataSource.h */,
+				37EFAA891647B17600E322D0 /* PSCYouTubeVideoDataSource.m */,
+				3756B6901643AE4900492E20 /* PSCYouTubeChannelDataSource.h */,
+				3756B6911643AE4900492E20 /* PSCYouTubeChannelDataSource.m */,
+			);
+			name = "Data Sources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
