@@ -46,15 +46,18 @@
 		if (row==0)
 		{
 			[[result imageView] setImage:[NSImage imageNamed:@"search"]];
+			[[result imageView] setImageScaling:NSImageScaleNone];
 		}
 		else if (row==1)
 		{
 			[[result imageView] setImage:[NSImage imageNamed:@"1.jpg.png"]];
+			[[result imageView] setImageScaling:NSImageScaleNone];
 		}
 		else
 		{
 			NSURL *thumbnailURL = [(PSCYouTubeChannel*)[channels objectAtIndex:row] thumbnailURL];
 			[[result imageView] setImage:[[NSImage alloc] initWithContentsOfURL:thumbnailURL]];
+			[[result imageView] setImageScaling:NSImageScaleProportionallyUpOrDown];
 		}
 	});
 	return result;
