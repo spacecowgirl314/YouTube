@@ -20,6 +20,7 @@
 	IBOutlet NSView *titleView;
 	IBOutlet WebView *videoView;
 	IBOutlet PSCWindowController *windowController;
+	IBOutlet NSSearchField *searchField;
 	NSArray *videos;
 }
 
