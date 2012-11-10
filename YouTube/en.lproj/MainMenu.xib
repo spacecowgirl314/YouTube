@@ -2749,7 +2749,7 @@
 								<object class="NSTextField" id="955827446">
 									<reference key="NSNextResponder" ref="450387462"/>
 									<int key="NSvFlags">268</int>
-									<string key="NSFrame">{{162, 73}, {144, 16}}</string>
+									<string key="NSFrame">{{162, 74}, {144, 16}}</string>
 									<reference key="NSSuperview" ref="450387462"/>
 									<reference key="NSNextKeyView" ref="1065114306"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -2804,7 +2804,7 @@
 								<object class="NSTextField" id="1065114306">
 									<reference key="NSNextResponder" ref="450387462"/>
 									<int key="NSvFlags">268</int>
-									<string key="NSFrame">{{162, 8}, {303, 60}}</string>
+									<string key="NSFrame">{{162, 19}, {303, 50}}</string>
 									<reference key="NSSuperview" ref="450387462"/>
 									<reference key="NSNextKeyView" ref="410907282"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -4613,7 +4613,7 @@
 								<int key="secondAttribute">4</int>
 								<float key="multiplier">1</float>
 								<object class="IBLayoutConstant" key="constant">
-									<double key="value">3</double>
+									<double key="value">2</double>
 								</object>
 								<float key="priority">1000</float>
 								<reference key="containingView" ref="450387462"/>
@@ -4732,7 +4732,7 @@
 						<int key="objectID">666</int>
 						<reference key="object" ref="1065114306"/>
 						<array class="NSMutableArray" key="children">
-							<object class="IBNSLayoutConstraint" id="1064557753">
+							<object class="IBNSLayoutConstraint" id="809205664">
 								<reference key="firstItem" ref="1065114306"/>
 								<int key="firstAttribute">8</int>
 								<int key="relation">0</int>
@@ -4740,12 +4740,12 @@
 								<int key="secondAttribute">0</int>
 								<float key="multiplier">1</float>
 								<object class="IBLayoutConstant" key="constant">
-									<double key="value">60</double>
+									<double key="value">50</double>
 								</object>
 								<float key="priority">1000</float>
 								<reference key="containingView" ref="1065114306"/>
-								<int key="scoringType">9</int>
-								<float key="scoringTypeFloat">40</float>
+								<int key="scoringType">3</int>
+								<float key="scoringTypeFloat">9</float>
 								<int key="contentType">1</int>
 							</object>
 							<reference ref="94217976"/>
@@ -5691,11 +5691,6 @@
 						<reference key="parent" ref="450387462"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">1706</int>
-						<reference key="object" ref="1064557753"/>
-						<reference key="parent" ref="1065114306"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">1714</int>
 						<reference key="object" ref="916016171"/>
 						<reference key="parent" ref="450387462"/>
@@ -5719,6 +5714,11 @@
 						<int key="objectID">1725</int>
 						<reference key="object" ref="931282594"/>
 						<reference key="parent" ref="549847523"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1740</int>
+						<reference key="object" ref="809205664"/>
+						<reference key="parent" ref="1065114306"/>
 					</object>
 				</array>
 			</object>
@@ -5824,12 +5824,12 @@
 				<string key="1685.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1686.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1687.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="1706.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1714.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1717.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1723.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1724.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1725.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="1740.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="19.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="195.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="196.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -6044,7 +6044,7 @@
 				<string key="662.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="663.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<array class="NSMutableArray" key="666.IBNSViewMetadataConstraints">
-					<reference ref="1064557753"/>
+					<reference ref="809205664"/>
 				</array>
 				<boolean value="NO" key="666.IBNSViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
 				<string key="666.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -6126,7 +6126,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1725</int>
+			<int key="maxID">1743</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -6308,6 +6308,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">PSCYouTubeVideoDataSource</string>
 					<string key="superclassName">NSObject</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">share:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">share:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">share:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="scrollView">NSScrollView</string>
 						<string key="tableView">NSTableView</string>
