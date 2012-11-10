@@ -26,5 +26,6 @@
 - (void)refreshWithChannel:(PSCYouTubeChannel*)channel;
 - (void)refreshWithWatchLater;
 - (void)refreshWithSearch;
+- (void)refreshWithMostPopular;
 
 @end

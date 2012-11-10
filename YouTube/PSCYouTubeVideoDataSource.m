@@ -107,6 +107,17 @@
 	}];
 }
 
+- (void)refreshWithMostPopular
+{
+	[session mostPopularWithCompletion:^(NSArray *_videos, NSError *error) {
+		videos = _videos;
+		dispatch_async(dispatch_get_main_queue(), ^(void) {
+			[tableView reloadData];
+			[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
+			[scrollView reflectScrolledClipView: [scrollView contentView]];
+		});
+	}];
+}
 - (IBAction)share:(id)sender
 {
 	NSSharingServicePicker *sharingServicePicker = [[NSSharingServicePicker alloc] initWithItems:@[[[videos objectAtIndex:[tableView selectedRow]] videoURL]]];
