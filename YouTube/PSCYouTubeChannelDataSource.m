@@ -20,10 +20,13 @@
 		NSMutableArray *arrayWithButtons = [NSMutableArray arrayWithArray:_channels];
 		PSCYouTubeChannel *searchChannel = [PSCYouTubeChannel new];
 		[searchChannel setDisplayName:@"Search"];
-		PSCYouTubeChannel *mostPopularChannel = [PSCYouTubeChannel new];
-		[mostPopularChannel setDisplayName:@"Most Popular"];
+		PSCYouTubeChannel *watchLaterChannel = [PSCYouTubeChannel new];
+		[watchLaterChannel setDisplayName:@"Watch Later"];
+        PSCYouTubeChannel *mostPopularChannel = [PSCYouTubeChannel new];
+        [mostPopularChannel setDisplayName:@"Most Popular"];
 		[arrayWithButtons insertObject:searchChannel atIndex:0];
-		[arrayWithButtons insertObject:mostPopularChannel atIndex:1];
+		[arrayWithButtons insertObject:watchLaterChannel atIndex:1];
+        [arrayWithButtons insertObject:mostPopularChannel atIndex:2];
 		//[arrayWithButtons
 		channels = arrayWithButtons;
 		dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -47,17 +50,26 @@
 		{
 			[[result imageView] setImage:[NSImage imageNamed:@"search"]];
 			[[result imageView] setImageScaling:NSImageScaleNone];
+            [[result imageView] setAlphaValue:0.5];
 		}
 		else if (row==1)
 		{
 			[[result imageView] setImage:[NSImage imageNamed:@"watchlater"]];
 			[[result imageView] setImageScaling:NSImageScaleNone];
+            [[result imageView] setAlphaValue:0.5];
 		}
+        else if (row==2)
+        {
+            [[result imageView] setImage: [NSImage imageNamed:@"mostpopular"]];
+            [[result imageView] setImageScaling:NSImageScaleNone];
+            [[result imageView] setAlphaValue:0.5];
+        }
 		else
 		{
 			NSURL *thumbnailURL = [(PSCYouTubeChannel*)[channels objectAtIndex:row] thumbnailURL];
 			[[result imageView] setImage:[[NSImage alloc] initWithContentsOfURL:thumbnailURL]];
 			[[result imageView] setImageScaling:NSImageScaleProportionallyUpOrDown];
+            [[result imageView] setAlphaValue:0.5];
 		}
 	});
 	return result;
@@ -65,6 +77,10 @@
 
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
 {
+    NSTableRowView *rowView = [aTableView rowViewAtRow:rowIndex makeIfNecessary:NO];
+    NSTableCellView *result = [rowView viewAtColumn:0];
+    [[result imageView] setAlphaValue:1.0];
+    
 	if (rowIndex==0)
 	{
 		[videoDataSource refreshWithSearch];
@@ -75,6 +91,11 @@
 		[videoDataSource refreshWithWatchLater];
 		[titleView setStringValue:@"Watch Later"];
 	}
+    else if (rowIndex==2)
+    {
+        [videoDataSource refreshWithMostPopular];
+        [titleView setStringValue:@"Most Popular"];
+    }
 	else
 	{
 		[videoDataSource refreshWithChannel:[channels objectAtIndex:rowIndex]];
@@ -82,6 +103,7 @@
 	}
 	
 	return YES;
+    
 }
 
 // set style for the highlight of the cell
@@ -99,10 +121,13 @@
 			NSMutableArray *arrayWithButtons = [NSMutableArray arrayWithArray:_channels];
 			PSCYouTubeChannel *searchChannel = [PSCYouTubeChannel new];
 			[searchChannel setDisplayName:@"Search"];
-			PSCYouTubeChannel *mostPopularChannel = [PSCYouTubeChannel new];
-			[mostPopularChannel setDisplayName:@"Most Popular"];
-			[arrayWithButtons insertObject:searchChannel atIndex:0];
-			[arrayWithButtons insertObject:mostPopularChannel atIndex:1];
+			PSCYouTubeChannel *watchLaterChannel = [PSCYouTubeChannel new];
+            [watchLaterChannel setDisplayName:@"Watch Later"];
+            PSCYouTubeChannel *mostPopularChannel = [PSCYouTubeChannel new];
+            [mostPopularChannel setDisplayName:@"Most Popular"];
+            [arrayWithButtons insertObject:searchChannel atIndex:0];
+            [arrayWithButtons insertObject:watchLaterChannel atIndex:1];
+            [arrayWithButtons insertObject:mostPopularChannel atIndex:2];
 			//[arrayWithButtons
 			channels = arrayWithButtons;
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
