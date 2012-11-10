@@ -50,7 +50,7 @@
 		}
 		else if (row==1)
 		{
-			[[result imageView] setImage:[NSImage imageNamed:@"1.jpg.png"]];
+			[[result imageView] setImage:[NSImage imageNamed:@"watchlater"]];
 			[[result imageView] setImageScaling:NSImageScaleNone];
 		}
 		else
