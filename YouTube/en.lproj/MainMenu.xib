@@ -2728,7 +2728,7 @@
 										<string key="NSContents">Trees Are Freaking Awesome!</string>
 										<object class="NSFont" key="NSSupport">
 											<string key="NSName">LucidaGrande-Bold</string>
-											<double key="NSSize">15</double>
+											<double key="NSSize">14</double>
 											<int key="NSfFlags">16</int>
 										</object>
 										<string key="NSCellIdentifier">_NS:9</string>
@@ -2752,9 +2752,9 @@
 										<int key="NSCellFlags">67108864</int>
 										<int key="NSCellFlags2">4194560</int>
 										<string key="NSContents">106,338 views</string>
-										<object class="NSFont" key="NSSupport" id="108032345">
+										<object class="NSFont" key="NSSupport" id="294546578">
 											<string key="NSName">LucidaGrande</string>
-											<double key="NSSize">13</double>
+											<double key="NSSize">12</double>
 											<int key="NSfFlags">16</int>
 										</object>
 										<string key="NSCellIdentifier">_NS:9</string>
@@ -2778,7 +2778,11 @@
 										<int key="NSCellFlags">67108864</int>
 										<int key="NSCellFlags2">272629760</int>
 										<string key="NSContents">Multiline Label</string>
-										<reference key="NSSupport" ref="108032345"/>
+										<object class="NSFont" key="NSSupport">
+											<string key="NSName">LucidaGrande</string>
+											<double key="NSSize">13</double>
+											<int key="NSfFlags">16</int>
+										</object>
 										<string key="NSCellIdentifier">_NS:9</string>
 										<reference key="NSControlView" ref="358199022"/>
 										<reference key="NSBackgroundColor" ref="108446093"/>
@@ -2800,7 +2804,7 @@
 										<int key="NSCellFlags">67108864</int>
 										<int key="NSCellFlags2">4194560</int>
 										<string key="NSContents">Hope this was worth the wait! So many people helped with this </string>
-										<reference key="NSSupport" ref="108032345"/>
+										<reference key="NSSupport" ref="294546578"/>
 										<string key="NSCellIdentifier">_NS:9</string>
 										<reference key="NSControlView" ref="1065114306"/>
 										<reference key="NSBackgroundColor" ref="108446093"/>
