@@ -50,26 +50,26 @@
 		{
 			[[result imageView] setImage:[NSImage imageNamed:@"search"]];
 			[[result imageView] setImageScaling:NSImageScaleNone];
-            [[result imageView] setAlphaValue:0.5];
+            //[[result imageView] setAlphaValue:0.5];
 		}
 		else if (row==1)
 		{
 			[[result imageView] setImage:[NSImage imageNamed:@"watchlater"]];
 			[[result imageView] setImageScaling:NSImageScaleNone];
-            [[result imageView] setAlphaValue:0.5];
+            //[[result imageView] setAlphaValue:0.5];
 		}
         else if (row==2)
         {
             [[result imageView] setImage: [NSImage imageNamed:@"mostpopular"]];
             [[result imageView] setImageScaling:NSImageScaleNone];
-            [[result imageView] setAlphaValue:0.5];
+            //[[result imageView] setAlphaValue:0.5];
         }
 		else
 		{
 			NSURL *thumbnailURL = [(PSCYouTubeChannel*)[channels objectAtIndex:row] thumbnailURL];
 			[[result imageView] setImage:[[NSImage alloc] initWithContentsOfURL:thumbnailURL]];
 			[[result imageView] setImageScaling:NSImageScaleProportionallyUpOrDown];
-            [[result imageView] setAlphaValue:0.5];
+            //[[result imageView] setAlphaValue:0.5];
 		}
 	});
 	return result;
@@ -77,9 +77,9 @@
 
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
 {
-    NSTableRowView *rowView = [aTableView rowViewAtRow:rowIndex makeIfNecessary:NO];
-    NSTableCellView *result = [rowView viewAtColumn:0];
-    [[result imageView] setAlphaValue:1.0];
+    //NSTableRowView *rowView = [aTableView rowViewAtRow:rowIndex makeIfNecessary:NO];
+    //NSTableCellView *result = [rowView viewAtColumn:0];
+    //[[result imageView] setAlphaValue:1.0];
     
 	if (rowIndex==0)
 	{
