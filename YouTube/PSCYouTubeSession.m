@@ -92,226 +92,6 @@
 	completion(channels, error);
 }
 
-- (void)subscriptionWithChannel:(PSCYouTubeChannel*)channel completion:(PSCVideosRequestCompletion)completion
-{
-	NSMutableArray *videos = [NSMutableArray new];
-	NSError *error;
-	
-	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[channel mainURL]];
-	
-	NSString *authorizationHeaderString = [[NSString alloc] initWithFormat:@"Bearer %@", [self authToken]];
-	NSString *developerKeyHeaderString = [[NSString alloc] initWithFormat:@"key=%@", developerKey];
-	
-	[request setValue:authorizationHeaderString forHTTPHeaderField:@"Authorization"];
-	[request setValue:developerKeyHeaderString forHTTPHeaderField:@"X-GData-Key"];
-	
-	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-	
-	NSLog(@"response: %@", [[NSString alloc] initWithData:data
-												 encoding:NSUTF8StringEncoding]);
-	
-	RXMLElement *rootXML = [RXMLElement elementFromXMLData:data];
-	//RXMLElement *rootXML = [RXMLElement elementFromURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/codingguru/subscriptions?v=2&max-results=50&orderby=published"]];
-	
-	if ([rootXML isValid])
-	{
-		[rootXML iterate:@"entry" usingBlock:^(RXMLElement *entryElement)
-		 {
-			 PSCYouTubeVideo *video = [PSCYouTubeVideo new];
-			 RXMLElement *groupElement = [entryElement child:@"group"];
-			 
-			 [video setTitle:[[entryElement child:@"title"] text]];
-			 for (RXMLElement *thumnailElement in [groupElement children:@"thumbnail"])
-			 {
-				 if ([[thumnailElement attribute:@"name"] isEqualToString:@"hqdefault"])
-				 {
-					 [video setThumbnailURL:[NSURL URLWithString:[thumnailElement attribute:@"url"]]];
-				 }
-			 }
-			 for (RXMLElement *linkElement in [entryElement children:@"link"])
-			 {
-				 if ([[linkElement attribute:@"rel"] isEqualToString:@"alternate"])
-				 {
-					 [video setSiteURL:[NSURL URLWithString:[linkElement attribute:@"href"]]];
-				 }
-			 }
-			 
-			 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-			 // help from https://github.com/mwaterfall/MWFeedParser/blob/master/Classes/NSDate%2BInternetDateTime.m
-			 // 2012-09-07T02:17:50.000Z
-			 [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSZZZ"];
-			 NSDate *date = [dateFormatter dateFromString: [[entryElement child:@"published"] text]];
-			 //NSLog(@"date:%@ with:%@", [myDate description], [[entryElement child:@"published"] text]);
-			 [video setPublishedDate:date];
-			 
-			 [video setDescription:[[groupElement child:@"description"] text]];
-			 [video setViewCount:[NSNumber numberWithInt:[[[entryElement child:@"statistics"] attribute:@"viewCount"] intValue]]];
-			 [video setVideoURL:[NSURL URLWithString:[[entryElement child:@"content"] attribute:@"src"]]];
-			 
-			 [videos addObject:video];
-		 }];
-	}
-	else
-	{
-		// populate the error object with the details
-		NSMutableDictionary* details = [NSMutableDictionary dictionary];
-		[details setValue:@"YouTube is likely having issues." forKey:NSLocalizedDescriptionKey];
-		
-		error = [NSError errorWithDomain:@"ParsingFailed" code:404 userInfo:details];
-	}
-	
-	completion(videos, error);
-}
-
-- (void)watchLaterWithCompletion:(PSCVideosRequestCompletion)completion
-{
-	// duplicate of subscriptionWithChannel with minor changes
-	// https://developers.google.com/youtube/2.0/developers_guide_protocol_playlists#Retrieving_watch_later_playlist
-	// https://gdata.youtube.com/feeds/api/users/default/watch_later?v=2
-	
-	NSMutableArray *videos = [NSMutableArray new];
-	NSError *error;
-	
-	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/default/watch_later?v=2"]];
-	
-	NSString *authorizationHeaderString = [[NSString alloc] initWithFormat:@"Bearer %@", [self authToken]];
-	NSString *developerKeyHeaderString = [[NSString alloc] initWithFormat:@"key=%@", developerKey];
-	
-	[request setValue:authorizationHeaderString forHTTPHeaderField:@"Authorization"];
-	[request setValue:developerKeyHeaderString forHTTPHeaderField:@"X-GData-Key"];
-	
-	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-	
-	/*NSLog(@"response: %@", [[NSString alloc] initWithData:data
-	 encoding:NSUTF8StringEncoding]);*/
-	
-	RXMLElement *rootXML = [RXMLElement elementFromXMLData:data];
-	//RXMLElement *rootXML = [RXMLElement elementFromURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/codingguru/subscriptions?v=2&max-results=50&orderby=published"]];
-	
-	if ([rootXML isValid])
-	{
-		[rootXML iterate:@"entry" usingBlock:^(RXMLElement *entryElement)
-		 {
-			 PSCYouTubeVideo *video = [PSCYouTubeVideo new];
-			 RXMLElement *groupElement = [entryElement child:@"group"];
-			 
-			 [video setTitle:[[entryElement child:@"title"] text]];
-			 for (RXMLElement *thumnailElement in [groupElement children:@"thumbnail"])
-			 {
-				 if ([[thumnailElement attribute:@"name"] isEqualToString:@"hqdefault"])
-				 {
-					 [video setThumbnailURL:[NSURL URLWithString:[thumnailElement attribute:@"url"]]];
-				 }
-			 }
-			 for (RXMLElement *linkElement in [entryElement children:@"link"])
-			 {
-				 if ([[linkElement attribute:@"rel"] isEqualToString:@"alternate"])
-				 {
-					 [video setSiteURL:[NSURL URLWithString:[linkElement attribute:@"href"]]];
-				 }
-			 }
-			 
-			 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-			 // help from https://github.com/mwaterfall/MWFeedParser/blob/master/Classes/NSDate%2BInternetDateTime.m
-			 // 2012-09-07T02:17:50.000Z
-			 [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSZZZ"];
-			 NSDate *date = [dateFormatter dateFromString: [[entryElement child:@"published"] text]];
-			 //NSLog(@"date:%@ with:%@", [myDate description], [[entryElement child:@"published"] text]);
-			 [video setPublishedDate:date];
-			 
-			 [video setDescription:[[groupElement child:@"description"] text]];
-			 [video setViewCount:[NSNumber numberWithInt:[[[entryElement child:@"statistics"] attribute:@"viewCount"] intValue]]];
-			 [video setVideoURL:[NSURL URLWithString:[[entryElement child:@"content"] attribute:@"src"]]];
-			 
-			 [videos addObject:video];
-		 }];
-	}
-	else
-	{
-		// populate the error object with the details
-		NSMutableDictionary* details = [NSMutableDictionary dictionary];
-		[details setValue:@"YouTube is likely having issues." forKey:NSLocalizedDescriptionKey];
-		
-		error = [NSError errorWithDomain:@"ParsingFailed" code:404 userInfo:details];
-	}
-	
-	completion(videos, error);
-}
-
-- (void)searchWithQuery:(NSString*)query completion:(PSCVideosRequestCompletion)completion
-{
-	// duplicate of subscriptionWithChannel with minor changes
-	NSString *escapedQuery = [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	NSString *searchURLString = [[NSString alloc] initWithFormat:@"https://gdata.youtube.com/feeds/api/videos?q=%@&orderby=relevance&max-results=50&v=2", escapedQuery];
-	
-	NSMutableArray *videos = [NSMutableArray new];
-	NSError *error;
-	
-	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:searchURLString]];
-	
-	NSString *authorizationHeaderString = [[NSString alloc] initWithFormat:@"Bearer %@", [self authToken]];
-	NSString *developerKeyHeaderString = [[NSString alloc] initWithFormat:@"key=%@", developerKey];
-	
-	[request setValue:authorizationHeaderString forHTTPHeaderField:@"Authorization"];
-	[request setValue:developerKeyHeaderString forHTTPHeaderField:@"X-GData-Key"];
-	
-	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-	
-	/*NSLog(@"response: %@", [[NSString alloc] initWithData:data
-	 encoding:NSUTF8StringEncoding]);*/
-	
-	RXMLElement *rootXML = [RXMLElement elementFromXMLData:data];
-	
-	if ([rootXML isValid])
-	{
-		[rootXML iterate:@"entry" usingBlock:^(RXMLElement *entryElement)
-		 {
-			 PSCYouTubeVideo *video = [PSCYouTubeVideo new];
-			 RXMLElement *groupElement = [entryElement child:@"group"];
-			 
-			 [video setTitle:[[entryElement child:@"title"] text]];
-			 for (RXMLElement *thumnailElement in [groupElement children:@"thumbnail"])
-			 {
-				 if ([[thumnailElement attribute:@"name"] isEqualToString:@"hqdefault"])
-				 {
-					 [video setThumbnailURL:[NSURL URLWithString:[thumnailElement attribute:@"url"]]];
-				 }
-			 }
-			 for (RXMLElement *linkElement in [entryElement children:@"link"])
-			 {
-				 if ([[linkElement attribute:@"rel"] isEqualToString:@"alternate"])
-				 {
-					 [video setSiteURL:[NSURL URLWithString:[linkElement attribute:@"href"]]];
-				 }
-			 }
-			 
-			 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-			 // help from https://github.com/mwaterfall/MWFeedParser/blob/master/Classes/NSDate%2BInternetDateTime.m
-			 // 2012-09-07T02:17:50.000Z
-			 [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSZZZ"];
-			 NSDate *date = [dateFormatter dateFromString: [[entryElement child:@"published"] text]];
-			 //NSLog(@"date:%@ with:%@", [myDate description], [[entryElement child:@"published"] text]);
-			 [video setPublishedDate:date];
-			 
-			 [video setDescription:[[groupElement child:@"description"] text]];
-			 [video setViewCount:[NSNumber numberWithInt:[[[entryElement child:@"statistics"] attribute:@"viewCount"] intValue]]];
-			 [video setVideoURL:[NSURL URLWithString:[[entryElement child:@"content"] attribute:@"src"]]];
-			 
-			 [videos addObject:video];
-		 }];
-	}
-	else
-	{
-		// populate the error object with the details
-		NSMutableDictionary* details = [NSMutableDictionary dictionary];
-		[details setValue:@"YouTube is likely having issues." forKey:NSLocalizedDescriptionKey];
-		
-		error = [NSError errorWithDomain:@"ParsingFailed" code:404 userInfo:details];
-	}
-	
-	completion(videos, error);
-}
-
 - (void)videosWithURL:(NSURL*)url completion:(PSCVideosRequestCompletion)completion
 {
 	NSMutableArray *videos = [NSMutableArray new];
@@ -380,6 +160,28 @@
 	}
 	
 	completion(videos, error);
+}
+
+- (void)subscriptionWithChannel:(PSCYouTubeChannel*)channel completion:(PSCVideosRequestCompletion)completion
+{
+	[self videosWithURL:[channel mainURL] completion:completion];
+}
+
+- (void)watchLaterWithCompletion:(PSCVideosRequestCompletion)completion
+{
+	// https://developers.google.com/youtube/2.0/developers_guide_protocol_playlists#Retrieving_watch_later_playlist
+	// https://gdata.youtube.com/feeds/api/users/default/watch_later?v=2
+	
+	[self videosWithURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/default/watch_later?v=2"] completion:completion];
+}
+
+- (void)searchWithQuery:(NSString*)query completion:(PSCVideosRequestCompletion)completion
+{
+	// duplicate of subscriptionWithChannel with minor changes
+	NSString *escapedQuery = [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	NSString *searchURLString = [[NSString alloc] initWithFormat:@"https://gdata.youtube.com/feeds/api/videos?q=%@&orderby=relevance&max-results=50&v=2", escapedQuery];
+	
+	[self videosWithURL:[NSURL URLWithString:searchURLString] completion:completion];
 }
 
 - (void)mostPopularWithCompletion:(PSCVideosRequestCompletion)completion
