@@ -7,6 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <WebKit/WebKit.h>
+#import <WebKit/WebUIDelegate.h>
 #import "KGNoise.h"
 #import "INAppStoreWindow.h"
 
@@ -24,6 +26,7 @@
 @property (weak) IBOutlet KGNoiseView *noiseView;
 @property (weak) IBOutlet KGNoiseLinearGradientView *leftNoiseView;
 @property (weak) IBOutlet KGNoiseLinearGradientView *rightNoiseView;
+@property IBOutlet WebView *videoView;
 
 - (void)uncollpaseRightView;
 

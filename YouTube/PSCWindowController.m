@@ -25,6 +25,7 @@
 @synthesize leftNoiseView;
 @synthesize rightNoiseView;
 @synthesize toggleSidebarButton;
+@synthesize videoView;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -39,6 +40,8 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+	
+	//[videoView setUIDelegate:self];
 	
 	/*[channelScrollView setBackgroundColor:[NSColor clearColor]];
 	//[channelScrollView setDrawsBackground:NO];
@@ -210,6 +213,12 @@
 			});
 		}
 	});
+}
+
+- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
+{
+	NSLog(@"request: %@", [request mainDocumentURL]);
+	return sender;
 }
 
 @end
