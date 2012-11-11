@@ -15,6 +15,7 @@
 	NSArray *channels;
 	IBOutlet NSTableView *tableView;
 	IBOutlet NSTextField *titleView;
+	IBOutlet NSSearchField *searchField;
 	IBOutlet PSCYouTubeVideoDataSource *videoDataSource;
 	NSOperation *channelLoading;
 }

@@ -109,6 +109,13 @@
 					 [video setThumbnailURL:[NSURL URLWithString:[thumnailElement attribute:@"url"]]];
 				 }
 			 }
+			 for (RXMLElement *linkElement in [entryElement children:@"link"])
+			 {
+				 if ([[linkElement attribute:@"rel"] isEqualToString:@"alternate"])
+				 {
+					 [video setSiteURL:[NSURL URLWithString:[linkElement attribute:@"href"]]];
+				 }
+			 }
 			 [video setDescription:[[groupElement child:@"description"] text]];
 			 [video setViewCount:[NSNumber numberWithInt:[[[entryElement child:@"statistics"] attribute:@"viewCount"] intValue]]];
 			 [video setVideoURL:[NSURL URLWithString:[[entryElement child:@"content"] attribute:@"src"]]];
@@ -168,6 +175,13 @@
 					 [video setThumbnailURL:[NSURL URLWithString:[thumnailElement attribute:@"url"]]];
 				 }
 			 }
+			 for (RXMLElement *linkElement in [entryElement children:@"link"])
+			 {
+				 if ([[linkElement attribute:@"rel"] isEqualToString:@"alternate"])
+				 {
+					 [video setSiteURL:[NSURL URLWithString:[linkElement attribute:@"href"]]];
+				 }
+			 }
 			 [video setDescription:[[groupElement child:@"description"] text]];
 			 [video setViewCount:[NSNumber numberWithInt:[[[entryElement child:@"statistics"] attribute:@"viewCount"] intValue]]];
 			 [video setVideoURL:[NSURL URLWithString:[[entryElement child:@"content"] attribute:@"src"]]];
@@ -210,7 +224,6 @@
 	 encoding:NSUTF8StringEncoding]);*/
 	
 	RXMLElement *rootXML = [RXMLElement elementFromXMLData:data];
-	//RXMLElement *rootXML = [RXMLElement elementFromURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/codingguru/subscriptions?v=2&max-results=50&orderby=published"]];
 	
 	if ([rootXML isValid])
 	{
@@ -225,6 +238,13 @@
 				 if ([[thumnailElement attribute:@"name"] isEqualToString:@"hqdefault"])
 				 {
 					 [video setThumbnailURL:[NSURL URLWithString:[thumnailElement attribute:@"url"]]];
+				 }
+			 }
+			 for (RXMLElement *linkElement in [entryElement children:@"link"])
+			 {
+				 if ([[linkElement attribute:@"rel"] isEqualToString:@"alternate"])
+				 {
+					 [video setSiteURL:[NSURL URLWithString:[linkElement attribute:@"href"]]];
 				 }
 			 }
 			 [video setDescription:[[groupElement child:@"description"] text]];
@@ -248,10 +268,7 @@
 
 - (void)mostPopularWithCompletion:(PSCChannelRequestCompletion)completion
 {
-	// https://gdata.youtube.com/feeds/api/standardfeeds/most_popular
     // duplicate of subscriptionWithChannel with minor changes
-	// https://developers.google.com/youtube/2.0/developers_guide_protocol_playlists#Retrieving_watch_later_playlist
-	// https://gdata.youtube.com/feeds/api/users/default/watch_later?v=2
 	
 	NSMutableArray *videos = [NSMutableArray new];
 	NSError *error;
@@ -270,7 +287,6 @@
 	 encoding:NSUTF8StringEncoding]);*/
 	
 	RXMLElement *rootXML = [RXMLElement elementFromXMLData:data];
-	//RXMLElement *rootXML = [RXMLElement elementFromURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/codingguru/subscriptions?v=2&max-results=50&orderby=published"]];
 	
 	if ([rootXML isValid])
 	{
@@ -285,6 +301,13 @@
 				 if ([[thumnailElement attribute:@"name"] isEqualToString:@"hqdefault"])
 				 {
 					 [video setThumbnailURL:[NSURL URLWithString:[thumnailElement attribute:@"url"]]];
+				 }
+			 }
+			 for (RXMLElement *linkElement in [entryElement children:@"link"])
+			 {
+				 if ([[linkElement attribute:@"rel"] isEqualToString:@"alternate"])
+				 {
+					 [video setSiteURL:[NSURL URLWithString:[linkElement attribute:@"href"]]];
 				 }
 			 }
 			 [video setDescription:[[groupElement child:@"description"] text]];

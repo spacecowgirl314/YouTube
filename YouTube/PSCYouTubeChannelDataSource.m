@@ -27,7 +27,6 @@
 		[arrayWithButtons insertObject:searchChannel atIndex:0];
 		[arrayWithButtons insertObject:watchLaterChannel atIndex:1];
         [arrayWithButtons insertObject:mostPopularChannel atIndex:2];
-		//[arrayWithButtons
 		channels = arrayWithButtons;
 		dispatch_async(dispatch_get_main_queue(), ^(void) {
 			[tableView reloadData];
@@ -45,7 +44,7 @@
 - (id)tableView:(NSTableView *)_tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
 	NSTableCellView *result = [_tableView makeViewWithIdentifier:[tableColumn identifier] owner:nil];
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+	//dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
 		if (row==0)
 		{
 			[[result imageView] setImage:[NSImage imageNamed:@"search"]];
@@ -71,7 +70,7 @@
 			[[result imageView] setImageScaling:NSImageScaleProportionallyUpOrDown];
             //[[result imageView] setAlphaValue:0.5];
 		}
-	});
+	//});
 	return result;
 }
 
@@ -85,21 +84,25 @@
 	{
 		[videoDataSource refreshWithSearch];
 		[titleView setStringValue:@"Search - Troy and Abed in the Morning"];
+		[searchField setHidden:NO];
 	}
 	else if (rowIndex==1)
 	{
 		[videoDataSource refreshWithWatchLater];
 		[titleView setStringValue:@"Watch Later"];
+		[searchField setHidden:YES];
 	}
     else if (rowIndex==2)
     {
         [videoDataSource refreshWithMostPopular];
         [titleView setStringValue:@"Most Popular"];
+		[searchField setHidden:YES];
     }
 	else
 	{
 		[videoDataSource refreshWithChannel:[channels objectAtIndex:rowIndex]];
 		[titleView setStringValue:[[channels objectAtIndex:rowIndex] displayName]];
+		[searchField setHidden:YES];
 	}
 	
 	return YES;
@@ -128,7 +131,6 @@
             [arrayWithButtons insertObject:searchChannel atIndex:0];
             [arrayWithButtons insertObject:watchLaterChannel atIndex:1];
             [arrayWithButtons insertObject:mostPopularChannel atIndex:2];
-			//[arrayWithButtons
 			channels = arrayWithButtons;
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
 				[tableView reloadData];

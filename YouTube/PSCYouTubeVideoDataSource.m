@@ -120,9 +120,14 @@
 }
 - (IBAction)share:(id)sender
 {
-	NSSharingServicePicker *sharingServicePicker = [[NSSharingServicePicker alloc] initWithItems:@[[[videos objectAtIndex:[tableView selectedRow]] videoURL]]];
+	NSSharingServicePicker *sharingServicePicker = [[NSSharingServicePicker alloc] initWithItems:@[[[videos objectAtIndex:[tableView selectedRow]] siteURL]]];
 	sharingServicePicker.delegate = self;
 	[sharingServicePicker showRelativeToRect:[sender bounds] ofView:sender preferredEdge:NSMinYEdge];
+}
+
+- (IBAction)openInBrowser:(id)sender
+{
+	[[NSWorkspace sharedWorkspace] openURL:[[videos objectAtIndex:[tableView selectedRow]] siteURL]];
 }
 
 - (NSArray *)sharingServicePicker:(NSSharingServicePicker *)sharingServicePicker sharingServicesForItems:(NSArray *)items proposedSharingServices:(NSArray *)proposedServices

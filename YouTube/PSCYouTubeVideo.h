@@ -12,6 +12,7 @@
 
 @property NSString *title; // title tag
 @property NSURL *thumbnailURL; // thumbnail tag ns media with name = "hqdefault" for retina, "mqdefault" for non, inside group ns media tag
+@property NSURL *siteURL; // link tag with rel = "alternate", attribute href
 @property NSString *description; // description tag ns media, inside group ns media tag
 @property NSNumber *viewCount; // statistics tag, attribute viewCount
 @property NSURL *videoURL; // content tag
