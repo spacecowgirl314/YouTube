@@ -16,5 +16,6 @@
 @property NSString *description; // description tag ns media, inside group ns media tag
 @property NSNumber *viewCount; // statistics tag, attribute viewCount
 @property NSURL *videoURL; // content tag
+@property NSDate *publishedDate;
 
 @end

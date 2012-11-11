@@ -107,8 +107,8 @@
 	
 	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 	
-	/*NSLog(@"response: %@", [[NSString alloc] initWithData:data
-												 encoding:NSUTF8StringEncoding]);*/
+	NSLog(@"response: %@", [[NSString alloc] initWithData:data
+												 encoding:NSUTF8StringEncoding]);
 	
 	RXMLElement *rootXML = [RXMLElement elementFromXMLData:data];
 	//RXMLElement *rootXML = [RXMLElement elementFromURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/codingguru/subscriptions?v=2&max-results=50&orderby=published"]];
@@ -135,6 +135,15 @@
 					 [video setSiteURL:[NSURL URLWithString:[linkElement attribute:@"href"]]];
 				 }
 			 }
+			 
+			 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+			 // help from https://github.com/mwaterfall/MWFeedParser/blob/master/Classes/NSDate%2BInternetDateTime.m
+			 // 2012-09-07T02:17:50.000Z
+			 [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSZZZ"];
+			 NSDate *date = [dateFormatter dateFromString: [[entryElement child:@"published"] text]];
+			 //NSLog(@"date:%@ with:%@", [myDate description], [[entryElement child:@"published"] text]);
+			 [video setPublishedDate:date];
+			 
 			 [video setDescription:[[groupElement child:@"description"] text]];
 			 [video setViewCount:[NSNumber numberWithInt:[[[entryElement child:@"statistics"] attribute:@"viewCount"] intValue]]];
 			 [video setVideoURL:[NSURL URLWithString:[[entryElement child:@"content"] attribute:@"src"]]];
@@ -201,6 +210,15 @@
 					 [video setSiteURL:[NSURL URLWithString:[linkElement attribute:@"href"]]];
 				 }
 			 }
+			 
+			 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+			 // help from https://github.com/mwaterfall/MWFeedParser/blob/master/Classes/NSDate%2BInternetDateTime.m
+			 // 2012-09-07T02:17:50.000Z
+			 [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSZZZ"];
+			 NSDate *date = [dateFormatter dateFromString: [[entryElement child:@"published"] text]];
+			 //NSLog(@"date:%@ with:%@", [myDate description], [[entryElement child:@"published"] text]);
+			 [video setPublishedDate:date];
+			 
 			 [video setDescription:[[groupElement child:@"description"] text]];
 			 [video setViewCount:[NSNumber numberWithInt:[[[entryElement child:@"statistics"] attribute:@"viewCount"] intValue]]];
 			 [video setVideoURL:[NSURL URLWithString:[[entryElement child:@"content"] attribute:@"src"]]];
@@ -266,6 +284,15 @@
 					 [video setSiteURL:[NSURL URLWithString:[linkElement attribute:@"href"]]];
 				 }
 			 }
+			 
+			 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+			 // help from https://github.com/mwaterfall/MWFeedParser/blob/master/Classes/NSDate%2BInternetDateTime.m
+			 // 2012-09-07T02:17:50.000Z
+			 [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSZZZ"];
+			 NSDate *date = [dateFormatter dateFromString: [[entryElement child:@"published"] text]];
+			 //NSLog(@"date:%@ with:%@", [myDate description], [[entryElement child:@"published"] text]);
+			 [video setPublishedDate:date];
+			 
 			 [video setDescription:[[groupElement child:@"description"] text]];
 			 [video setViewCount:[NSNumber numberWithInt:[[[entryElement child:@"statistics"] attribute:@"viewCount"] intValue]]];
 			 [video setVideoURL:[NSURL URLWithString:[[entryElement child:@"content"] attribute:@"src"]]];
@@ -285,14 +312,12 @@
 	completion(videos, error);
 }
 
-- (void)mostPopularWithCompletion:(PSCVideosRequestCompletion)completion
+- (void)videosWithURL:(NSURL*)url completion:(PSCVideosRequestCompletion)completion
 {
-    // duplicate of subscriptionWithChannel with minor changes
-	
 	NSMutableArray *videos = [NSMutableArray new];
 	NSError *error;
 	
-	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/standardfeeds/most_popular?v=2"]];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
 	
 	NSString *authorizationHeaderString = [[NSString alloc] initWithFormat:@"Bearer %@", [self authToken]];
 	NSString *developerKeyHeaderString = [[NSString alloc] initWithFormat:@"key=%@", developerKey];
@@ -329,6 +354,15 @@
 					 [video setSiteURL:[NSURL URLWithString:[linkElement attribute:@"href"]]];
 				 }
 			 }
+			 
+			 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+			 // help from https://github.com/mwaterfall/MWFeedParser/blob/master/Classes/NSDate%2BInternetDateTime.m
+			 // 2012-09-07T02:17:50.000Z
+			 [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSZZZ"];
+			 NSDate *date = [dateFormatter dateFromString: [[entryElement child:@"published"] text]];
+			 //NSLog(@"date:%@ with:%@", [myDate description], [[entryElement child:@"published"] text]);
+			 [video setPublishedDate:date];
+			 
 			 [video setDescription:[[groupElement child:@"description"] text]];
 			 [video setViewCount:[NSNumber numberWithInt:[[[entryElement child:@"statistics"] attribute:@"viewCount"] intValue]]];
 			 [video setVideoURL:[NSURL URLWithString:[[entryElement child:@"content"] attribute:@"src"]]];
@@ -346,6 +380,12 @@
 	}
 	
 	completion(videos, error);
+}
+
+- (void)mostPopularWithCompletion:(PSCVideosRequestCompletion)completion
+{
+	// test of refactor
+	[self videosWithURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/standardfeeds/most_popular?v=2"] completion:completion];
 }
 
 @end
