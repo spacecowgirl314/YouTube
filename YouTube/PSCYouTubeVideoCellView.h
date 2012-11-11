@@ -15,6 +15,7 @@
 	IBOutlet NSTextField *viewCountField;
 	IBOutlet NSTextField *timeAgoField;
 	IBOutlet NSTextField *descriptionField;
+	IBOutlet NSTextField *uploaderTextField;
 	IBOutlet NSImageView *thumbnailView;
 	IBOutlet WebView *videoView;
 }
@@ -23,6 +24,7 @@
 @property IBOutlet NSTextField *viewCountField;
 @property IBOutlet NSTextField *timeAgoField;
 @property IBOutlet NSTextField *descriptionField;
+@property IBOutlet NSTextField *uploaderTextField;
 @property IBOutlet NSImageView *thumbnailView;
 @property IBOutlet WebView *videoView;
 

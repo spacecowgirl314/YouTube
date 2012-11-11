@@ -48,7 +48,7 @@
 	NSString *viewsString = [[NSString alloc] initWithFormat:@"%@ views", formattedViewCount];
 	
 	[[result viewCountField] setStringValue:viewsString];
-	//[[[result videoView] mainFrame] loadRequest:[NSURLRequest requestWithURL:[video videoURL]]];
+	[[result uploaderTextField] setStringValue:[video uploader]];
 	
 	return result;
 }

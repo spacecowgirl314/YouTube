@@ -136,6 +136,7 @@
 			 }
 			 
 			 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+			 // See http://www.faqs.org/rfcs/rfc3339.html
 			 // help from https://github.com/mwaterfall/MWFeedParser/blob/master/Classes/NSDate%2BInternetDateTime.m
 			 // 2012-09-07T02:17:50.000Z
 			 [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSZZZ"];
@@ -146,6 +147,7 @@
 			 [video setDescription:[[groupElement child:@"description"] text]];
 			 [video setViewCount:[NSNumber numberWithInt:[[[entryElement child:@"statistics"] attribute:@"viewCount"] intValue]]];
 			 [video setVideoURL:[NSURL URLWithString:[[entryElement child:@"content"] attribute:@"src"]]];
+			 [video setUploader:[[[entryElement child:@"group"] child:@"credit"] attribute:@"display"]];
 			 
 			 [videos addObject:video];
 		 }];

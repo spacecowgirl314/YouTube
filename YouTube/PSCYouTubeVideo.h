@@ -18,5 +18,6 @@
 @property NSURL *videoURL; // content tag, this could also use the content tag inside the group tag ns media
 @property NSDate *publishedDate; // published tag
 @property NSTimeInterval *duration; // content tag ns media attribute duration, inside group ns media tag
+@property NSString *uploader; // group ns media, credit ns media, attribute display with role = "uploader"
 
 @end
