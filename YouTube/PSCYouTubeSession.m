@@ -42,7 +42,6 @@
 	
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/default/subscriptions?v=2&max-results=50&orderby=published"]];
 	
-	NSLog(@"token:%@", [self authToken]);
 	NSString *authorizationHeaderString = [[NSString alloc] initWithFormat:@"Bearer %@", [self authToken]];
 	NSString *developerKeyHeaderString = [[NSString alloc] initWithFormat:@"key=%@", developerKey];
 	

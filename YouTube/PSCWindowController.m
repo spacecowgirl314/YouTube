@@ -24,6 +24,7 @@
 @synthesize noiseView;
 @synthesize leftNoiseView;
 @synthesize rightNoiseView;
+@synthesize toggleSidebarButton;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -44,6 +45,31 @@
 	[channelTableView setBackgroundColor:[NSColor greenColor]];*/
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+}
+
+- (void)windowDidResize:(NSNotification*)notification
+{
+	NSView *right = [[[self splitView] subviews] objectAtIndex:1];
+	if (!isTogglingSidebar)
+	{
+		// adjust the toggle button to be in the proper positon at start
+		if (right.frame.size.width > 0)
+		{
+			[[self toggleSidebarButton] setImage:[NSImage imageNamed:@"togglereverse"]];
+		}
+		else
+		{
+			[[self toggleSidebarButton] setImage:[NSImage imageNamed:@"toggle"]];
+		}
+	}
+	else
+	{
+		// now that toggling has stopped resume resize detection
+		if (right.frame.size.width == 0)
+		{
+			isTogglingSidebar = NO;
+		}
+	}
 }
 
 - (void)awakeFromNib
@@ -75,6 +101,18 @@
 	[rightNoiseView setAlternateBackgroundColor:[NSColor colorWithHexColorString:@"a6a6a6"]];
 	[rightNoiseView setNoiseBlendMode:kCGBlendModeMultiply];
 	[rightNoiseView setNoiseOpacity:0.04f];
+	
+	// adjust the toggle button to be in the proper positon at start
+	NSView *right = [[[self splitView] subviews] objectAtIndex:1];
+	if (right.frame.size.width > 0)
+	{
+		[[self toggleSidebarButton] setImage:[NSImage imageNamed:@"togglereverse"]];
+	}
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(windowDidResize:)
+												 name:NSWindowDidResizeNotification
+											   object:[self window]];
 }
 
 - (IBAction)toggleVideo:(id)sender
@@ -97,8 +135,10 @@
 		NSRect leftFrame = [left frame];
 		NSRect rect = self.window.frame;
 		rect.size.width = leftFrame.size.width;
+		isTogglingSidebar = YES;
 		
 		dispatch_async(dispatch_get_main_queue(), ^(void) {
+			[[self toggleSidebarButton] setImage:[NSImage imageNamed:@"toggle"]];
 			[[self window] setFrame:rect display:YES animate:YES];
 			[[self splitView] display];
 		});
@@ -114,9 +154,10 @@
 		{
 			NSRect rect = self.window.frame;
 			rect.size.width = rect.size.width+kRightViewWidth;
-			
+			isTogglingSidebar = YES;
 			
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
+				[[self toggleSidebarButton] setImage:[NSImage imageNamed:@"togglereverse"]];
 				[[self window] setFrame:rect display:YES animate:YES];
 				[[self splitView] display];
 			});
@@ -162,7 +203,6 @@
 		{
 			NSRect rect = self.window.frame;
 			rect.size.width = rect.size.width+kRightViewWidth;
-			
 			
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
 				[[self window] setFrame:rect display:YES animate:YES];

@@ -11,12 +11,16 @@
 #import "INAppStoreWindow.h"
 
 @interface PSCWindowController : NSWindowController
+{
+	BOOL isTogglingSidebar;
+}
 
 @property IBOutlet INAppStoreWindow *window;
 @property IBOutlet NSView *titleView;
 @property IBOutlet NSTableView *channelTableView;
 @property IBOutlet NSScrollView *channelScrollView;
 @property IBOutlet NSSplitView *splitView;
+@property IBOutlet NSButton *toggleSidebarButton;
 @property (weak) IBOutlet KGNoiseView *noiseView;
 @property (weak) IBOutlet KGNoiseLinearGradientView *leftNoiseView;
 @property (weak) IBOutlet KGNoiseLinearGradientView *rightNoiseView;
