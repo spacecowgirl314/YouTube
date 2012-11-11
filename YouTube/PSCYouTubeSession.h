@@ -12,14 +12,16 @@
 @interface PSCYouTubeSession : NSObject
 
 typedef void (^PSCSubscriptionsRequestCompletion)(NSArray * channels, NSError * error);
-typedef void (^PSCChannelRequestCompletion)(NSArray * videos, NSError * error);
+typedef void (^PSCVideosRequestCompletion)(NSArray * videos, NSError * error);
 
++ (id)sharedSession;
 - (void)subscriptionsWithCompletion:(PSCSubscriptionsRequestCompletion)completion;
-- (void)subscriptionWithChannel:(PSCYouTubeChannel*)channel completion:(PSCChannelRequestCompletion)completion;
-- (void)watchLaterWithCompletion:(PSCChannelRequestCompletion)completion;
-- (void)searchWithQuery:(NSString*)query completion:(PSCChannelRequestCompletion)completion;
-- (void)mostPopularWithCompletion:(PSCChannelRequestCompletion)completion;
+- (void)subscriptionWithChannel:(PSCYouTubeChannel*)channel completion:(PSCVideosRequestCompletion)completion;
+- (void)watchLaterWithCompletion:(PSCVideosRequestCompletion)completion;
+- (void)searchWithQuery:(NSString*)query completion:(PSCVideosRequestCompletion)completion;
+- (void)mostPopularWithCompletion:(PSCVideosRequestCompletion)completion;
 
 @property NSString *developerKey;
+@property NSString *userName;
 
 @end

@@ -18,6 +18,7 @@
 	IBOutlet NSScrollView *scrollView;
 	IBOutlet NSTableView *tableView;
 	IBOutlet NSView *titleView;
+	IBOutlet NSTextField *titleTextField;
 	IBOutlet WebView *videoView;
 	IBOutlet PSCWindowController *windowController;
 	IBOutlet NSSearchField *searchField;

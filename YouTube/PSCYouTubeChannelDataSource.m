@@ -14,7 +14,7 @@
 
 - (id)init
 {
-	session = [PSCYouTubeSession new];
+	session = [PSCYouTubeSession sharedSession];
 	[session setDeveloperKey:@"AI39si5u0pQxyJgbcC10IQgk76osOWlrpQeSGyvSF3UXwUq1wqYOyYEiOm7tEecGjPqMOS6kcuR-yB75h8aDbM1N2FiOeYjBBQ"];
 	[session subscriptionsWithCompletion:^(NSArray *_channels, NSError *error) {
 		NSMutableArray *arrayWithButtons = [NSMutableArray arrayWithArray:_channels];
@@ -29,6 +29,10 @@
         [arrayWithButtons insertObject:mostPopularChannel atIndex:2];
 		channels = arrayWithButtons;
 		dispatch_async(dispatch_get_main_queue(), ^(void) {
+			if ([session userName]!=nil)
+			{
+				[userNameTextField setStringValue:[session userName]];
+			}
 			[tableView reloadData];
 		});
 	}];
@@ -83,27 +87,25 @@
 	if (rowIndex==0)
 	{
 		[videoDataSource refreshWithSearch];
-		[titleView setStringValue:@"Search - Troy and Abed in the Morning"];
 		[searchField setHidden:NO];
 	}
 	else if (rowIndex==1)
 	{
 		[videoDataSource refreshWithWatchLater];
-		[titleView setStringValue:@"Watch Later"];
 		[searchField setHidden:YES];
 	}
     else if (rowIndex==2)
     {
         [videoDataSource refreshWithMostPopular];
-        [titleView setStringValue:@"Most Popular"];
 		[searchField setHidden:YES];
     }
 	else
 	{
 		[videoDataSource refreshWithChannel:[channels objectAtIndex:rowIndex]];
-		[titleView setStringValue:[[channels objectAtIndex:rowIndex] displayName]];
 		[searchField setHidden:YES];
 	}
+	
+	[titleTextField setStringValue:[[channels objectAtIndex:rowIndex] displayName]];
 	
 	return YES;
     
@@ -133,6 +135,10 @@
             [arrayWithButtons insertObject:mostPopularChannel atIndex:2];
 			channels = arrayWithButtons;
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
+				if ([session userName]!=nil)
+				{
+					[userNameTextField setStringValue:[session userName]];
+				}
 				[tableView reloadData];
 			});
 		}];

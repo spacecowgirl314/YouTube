@@ -12,6 +12,24 @@
 
 @implementation PSCYouTubeSession
 @synthesize developerKey;
+@synthesize userName;
+
+/*- (id)init
+{
+	userName = @"Test";
+	
+	return self;
+}*/
+
++ (id)sharedSession
+{
+    static dispatch_once_t once;
+    static id sharedInstance;
+    dispatch_once(&once, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
 
 - (NSString*)authToken {
 	return [[NSUserDefaults standardUserDefaults] stringForKey:@"access_token"];
@@ -24,6 +42,7 @@
 	
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/default/subscriptions?v=2&max-results=50&orderby=published"]];
 	
+	NSLog(@"token:%@", [self authToken]);
 	NSString *authorizationHeaderString = [[NSString alloc] initWithFormat:@"Bearer %@", [self authToken]];
 	NSString *developerKeyHeaderString = [[NSString alloc] initWithFormat:@"key=%@", developerKey];
 	
@@ -32,14 +51,15 @@
 	
 	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 	
-	/*NSLog(@"response: %@", [[NSString alloc] initWithData:data
-												 encoding:NSUTF8StringEncoding]);*/
+	NSLog(@"response: %@", [[NSString alloc] initWithData:data
+												 encoding:NSUTF8StringEncoding]);
 	
 	RXMLElement *rootXML = [RXMLElement elementFromXMLData:data];
 	//RXMLElement *rootXML = [RXMLElement elementFromURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/codingguru/subscriptions?v=2&max-results=50&orderby=published"]];
 	
 	if ([rootXML isValid])
 	{
+		[self setUserName:[[[rootXML child:@"author"] child:@"name"] text]];
 		[rootXML iterate:@"entry" usingBlock:^(RXMLElement *entryElement)
 		{
 			//NSLog(@"text:%@\n", [entryElement text]);
@@ -73,7 +93,7 @@
 	completion(channels, error);
 }
 
-- (void)subscriptionWithChannel:(PSCYouTubeChannel*)channel completion:(PSCChannelRequestCompletion)completion
+- (void)subscriptionWithChannel:(PSCYouTubeChannel*)channel completion:(PSCVideosRequestCompletion)completion
 {
 	NSMutableArray *videos = [NSMutableArray new];
 	NSError *error;
@@ -135,7 +155,7 @@
 	completion(videos, error);
 }
 
-- (void)watchLaterWithCompletion:(PSCChannelRequestCompletion)completion
+- (void)watchLaterWithCompletion:(PSCVideosRequestCompletion)completion
 {
 	// duplicate of subscriptionWithChannel with minor changes
 	// https://developers.google.com/youtube/2.0/developers_guide_protocol_playlists#Retrieving_watch_later_playlist
@@ -201,7 +221,7 @@
 	completion(videos, error);
 }
 
-- (void)searchWithQuery:(NSString*)query completion:(PSCChannelRequestCompletion)completion
+- (void)searchWithQuery:(NSString*)query completion:(PSCVideosRequestCompletion)completion
 {
 	// duplicate of subscriptionWithChannel with minor changes
 	NSString *escapedQuery = [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -266,7 +286,7 @@
 	completion(videos, error);
 }
 
-- (void)mostPopularWithCompletion:(PSCChannelRequestCompletion)completion
+- (void)mostPopularWithCompletion:(PSCVideosRequestCompletion)completion
 {
     // duplicate of subscriptionWithChannel with minor changes
 	

@@ -7,6 +7,7 @@
 //
 
 #import "PSCAppDelegate.h"
+#import "PSCYouTubeSession.h"
 
 @implementation PSCAppDelegate
 

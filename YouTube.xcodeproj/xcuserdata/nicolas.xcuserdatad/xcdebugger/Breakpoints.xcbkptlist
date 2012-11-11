@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "YouTube/PSCYouTubeChannelDataSource.m"
-         timestampString = "374286115.081265"
+         timestampString = "374295523.478495"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
+         startingLineNumber = "54"
+         endingLineNumber = "54"
          landmarkName = "-tableView:viewForTableColumn:row:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "YouTube/PSCYouTubeChannelDataSource.m"
-         timestampString = "374286115.081265"
+         timestampString = "374295523.478495"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "56"
-         endingLineNumber = "56"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
          landmarkName = "-tableView:viewForTableColumn:row:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,12 +47,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "YouTube/PSCYouTubeChannelDataSource.m"
-         timestampString = "374286115.081265"
+         timestampString = "374295523.478495"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "68"
-         endingLineNumber = "68"
+         startingLineNumber = "72"
+         endingLineNumber = "72"
          landmarkName = "-tableView:viewForTableColumn:row:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "YouTube/PSCYouTubeSession.m"
+         timestampString = "374295019.034279"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "62"
+         endingLineNumber = "62"
+         landmarkName = "-subscriptionsWithCompletion:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

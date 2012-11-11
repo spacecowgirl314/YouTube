@@ -14,8 +14,7 @@
 
 - (id)init
 {
-	session = [PSCYouTubeSession new];
-	[session setDeveloperKey:@"AI39si5u0pQxyJgbcC10IQgk76osOWlrpQeSGyvSF3UXwUq1wqYOyYEiOm7tEecGjPqMOS6kcuR-yB75h8aDbM1N2FiOeYjBBQ"];
+	session = [PSCYouTubeSession sharedSession];
 	
 	return self;
 }
@@ -108,6 +107,7 @@
 {
 	if (![[searchField stringValue] isEqualToString:@""])
 	{
+		[titleTextField setStringValue:[[NSString alloc] initWithFormat:@"Search - %@", [searchField stringValue]]];
 		[session searchWithQuery:[searchField stringValue] completion:^(NSArray *_videos, NSError *error) {
 			videos = _videos;
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
