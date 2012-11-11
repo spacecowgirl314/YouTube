@@ -97,14 +97,26 @@
 - (void)refreshWithSearch
 {
 	// this shouldn't load any videos into the table (in fact it should clear them), it should bring up the search box as part of the table view
-	[session searchWithQuery:[searchField stringValue] completion:^(NSArray *_videos, NSError *error) {
-		videos = _videos;
-		dispatch_async(dispatch_get_main_queue(), ^(void) {
-			[tableView reloadData];
-			[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
-			[scrollView reflectScrolledClipView: [scrollView contentView]];
-		});
-	}];
+	videos = [NSArray new];
+	[tableView reloadData];
+	[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
+	[scrollView reflectScrolledClipView: [scrollView contentView]];
+	[self refreshSearchWithQuery:nil];
+}
+
+- (IBAction)refreshSearchWithQuery:(id)sender
+{
+	if (![[searchField stringValue] isEqualToString:@""])
+	{
+		[session searchWithQuery:[searchField stringValue] completion:^(NSArray *_videos, NSError *error) {
+			videos = _videos;
+			dispatch_async(dispatch_get_main_queue(), ^(void) {
+				[tableView reloadData];
+				[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
+				[scrollView reflectScrolledClipView: [scrollView contentView]];
+			});
+		}];
+	}
 }
 
 - (void)refreshWithMostPopular
