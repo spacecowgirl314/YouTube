@@ -13,6 +13,7 @@
 {
 	IBOutlet NSTextField *titleField;
 	IBOutlet NSTextField *viewCountField;
+	IBOutlet NSTextField *timeAgoField;
 	IBOutlet NSTextField *descriptionField;
 	IBOutlet NSImageView *thumbnailView;
 	IBOutlet WebView *videoView;
@@ -20,6 +21,7 @@
 
 @property IBOutlet NSTextField *titleField;
 @property IBOutlet NSTextField *viewCountField;
+@property IBOutlet NSTextField *timeAgoField;
 @property IBOutlet NSTextField *descriptionField;
 @property IBOutlet NSImageView *thumbnailView;
 @property IBOutlet WebView *videoView;

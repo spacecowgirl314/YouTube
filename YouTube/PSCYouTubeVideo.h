@@ -15,7 +15,8 @@
 @property NSURL *siteURL; // link tag with rel = "alternate", attribute href
 @property NSString *description; // description tag ns media, inside group ns media tag
 @property NSNumber *viewCount; // statistics tag, attribute viewCount
-@property NSURL *videoURL; // content tag
-@property NSDate *publishedDate;
+@property NSURL *videoURL; // content tag, this could also use the content tag inside the group tag ns media
+@property NSDate *publishedDate; // published tag
+@property NSTimeInterval *duration; // content tag ns media attribute duration, inside group ns media tag
 
 @end

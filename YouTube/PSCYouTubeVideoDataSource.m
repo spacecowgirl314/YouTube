@@ -9,6 +9,7 @@
 #import "PSCYouTubeVideoDataSource.h"
 #import "PSCYouTubeVideoCellView.h"
 #import "PSCYouTubeVideo.h"
+#import "NSDate+TimeAgo.h"
 
 @implementation PSCYouTubeVideoDataSource
 
@@ -35,6 +36,8 @@
 		[[result thumbnailView] setImage:[[NSImage alloc] initWithContentsOfURL:thumbnailURL]];
 	});
 	[[result descriptionField] setStringValue:[video description]];
+	
+	[[result timeAgoField] setStringValue:[[video publishedDate] timeAgo]];
 	
 	// format listener and play count with commas/separators
 	NSNumberFormatter *numberFormatter = [NSNumberFormatter new];

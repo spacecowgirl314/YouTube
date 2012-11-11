@@ -7,3 +7,6 @@
 [submodule "YouTube/INAppStoreWindow"]
 	path = YouTube/INAppStoreWindow
 	url = git://github.com/indragiek/INAppStoreWindow.git
+[submodule "YouTube/NSDate-TimeAgo"]
+	path = YouTube/NSDate-TimeAgo
+	url = git://github.com/kevinlawler/NSDate-TimeAgo.git

@@ -34,6 +34,8 @@
 		37742CDD164B710B00272C4A /* KGNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 37742CDC164B710B00272C4A /* KGNoise.m */; };
 		37742CEB164B814A00272C4A /* PSCTransparentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37742CE9164B814A00272C4A /* PSCTransparentTableView.m */; };
 		37742CF4164B899700272C4A /* NSColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 37742CF3164B899700272C4A /* NSColor+Hex.m */; };
+		377DD123164F8F22004B6916 /* NSDateTimeAgo.strings in Resources */ = {isa = PBXBuildFile; fileRef = 377DD11B164F8F22004B6916 /* NSDateTimeAgo.strings */; };
+		377DD124164F8F22004B6916 /* NSDate+TimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 377DD121164F8F22004B6916 /* NSDate+TimeAgo.m */; };
 		37EFAA8A1647B17700E322D0 /* PSCYouTubeVideoDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EFAA891647B17600E322D0 /* PSCYouTubeVideoDataSource.m */; };
 		37EFAA8E1647B1A400E322D0 /* PSCYouTubeVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EFAA8D1647B1A400E322D0 /* PSCYouTubeVideo.m */; };
 		37EFAA951647BFDD00E322D0 /* PSCYouTubeVideoCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EFAA941647BFDC00E322D0 /* PSCYouTubeVideoCellView.m */; };
@@ -133,6 +135,12 @@
 		37742CE9164B814A00272C4A /* PSCTransparentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCTransparentTableView.m; sourceTree = "<group>"; };
 		37742CF2164B899700272C4A /* NSColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Hex.h"; sourceTree = "<group>"; };
 		37742CF3164B899700272C4A /* NSColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Hex.m"; sourceTree = "<group>"; };
+		377DD11C164F8F22004B6916 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NSDateTimeAgo.strings; sourceTree = "<group>"; };
+		377DD11D164F8F22004B6916 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/NSDateTimeAgo.strings; sourceTree = "<group>"; };
+		377DD11E164F8F22004B6916 /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/NSDateTimeAgo.strings; sourceTree = "<group>"; };
+		377DD11F164F8F22004B6916 /* zh_Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_Hans; path = zh_Hans.lproj/NSDateTimeAgo.strings; sourceTree = "<group>"; };
+		377DD120164F8F22004B6916 /* NSDate+TimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeAgo.h"; sourceTree = "<group>"; };
+		377DD121164F8F22004B6916 /* NSDate+TimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeAgo.m"; sourceTree = "<group>"; };
 		37EFAA881647B17600E322D0 /* PSCYouTubeVideoDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCYouTubeVideoDataSource.h; sourceTree = "<group>"; };
 		37EFAA891647B17600E322D0 /* PSCYouTubeVideoDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCYouTubeVideoDataSource.m; sourceTree = "<group>"; };
 		37EFAA8C1647B1A400E322D0 /* PSCYouTubeVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCYouTubeVideo.h; sourceTree = "<group>"; };
@@ -245,6 +253,7 @@
 				37742CEC164B819000272C4A /* Subclasses */,
 				3756B6721643A5FC00492E20 /* YouTube */,
 				3707844A164C7C2600668610 /* INAppStoreWindow */,
+				377DD119164F8F22004B6916 /* NSDate-TimeAgo */,
 				37742CDF164B710E00272C4A /* KGNoise */,
 				3756B2D216436EC100492E20 /* Supporting Files */,
 			);
@@ -376,6 +385,24 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		377DD119164F8F22004B6916 /* NSDate-TimeAgo */ = {
+			isa = PBXGroup;
+			children = (
+				377DD11A164F8F22004B6916 /* Localization */,
+				377DD120164F8F22004B6916 /* NSDate+TimeAgo.h */,
+				377DD121164F8F22004B6916 /* NSDate+TimeAgo.m */,
+			);
+			path = "NSDate-TimeAgo";
+			sourceTree = "<group>";
+		};
+		377DD11A164F8F22004B6916 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				377DD11B164F8F22004B6916 /* NSDateTimeAgo.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		37AF36F6164E256600548814 /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +470,9 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				es,
+				pt_BR,
+				zh_Hans,
 			);
 			mainGroup = 3756B2BC16436EC100492E20;
 			productRefGroup = 3756B2C816436EC100492E20 /* Products */;
@@ -483,6 +513,7 @@
 				709C2F68164EF48E00A9C591 /* comments.png in Resources */,
 				709C2F6B164EF59800A9C591 /* safari.png in Resources */,
 				709C2F6C164EF59800A9C591 /* safari@2x.png in Resources */,
+				377DD123164F8F22004B6916 /* NSDateTimeAgo.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +567,7 @@
 				37742CF4164B899700272C4A /* NSColor+Hex.m in Sources */,
 				37078477164C7C2600668610 /* INAppStoreWindow.m in Sources */,
 				375154E3164DBEB3004E4406 /* PSCTableRowView.m in Sources */,
+				377DD124164F8F22004B6916 /* NSDate+TimeAgo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +620,17 @@
 				3756B2F216436EC100492E20 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		377DD11B164F8F22004B6916 /* NSDateTimeAgo.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				377DD11C164F8F22004B6916 /* en */,
+				377DD11D164F8F22004B6916 /* es */,
+				377DD11E164F8F22004B6916 /* pt_BR */,
+				377DD11F164F8F22004B6916 /* zh_Hans */,
+			);
+			name = NSDateTimeAgo.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
