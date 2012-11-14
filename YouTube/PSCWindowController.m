@@ -58,10 +58,12 @@
 		// adjust the toggle button to be in the proper positon at start
 		if (right.frame.size.width > 0)
 		{
+			[[self titleDivider] setHidden:NO];
 			[[self toggleSidebarButton] setImage:[NSImage imageNamed:@"togglereverse"]];
 		}
 		else
 		{
+			[[self titleDivider] setHidden:YES];
 			[[self toggleSidebarButton] setImage:[NSImage imageNamed:@"toggle"]];
 		}
 	}
@@ -70,6 +72,7 @@
 		// now that toggling has stopped resume resize detection
 		if (right.frame.size.width == 0)
 		{
+			[[self titleDivider] setHidden:YES];
 			isTogglingSidebar = NO;
 		}
 	}
@@ -141,6 +144,7 @@
 		isTogglingSidebar = YES;
 		
 		dispatch_async(dispatch_get_main_queue(), ^(void) {
+			//[[self titleDivider] setHidden:YES];
 			[[self toggleSidebarButton] setImage:[NSImage imageNamed:@"toggle"]];
 			[[self window] setFrame:rect display:YES animate:YES];
 			[[self splitView] display];
@@ -160,6 +164,7 @@
 			isTogglingSidebar = YES;
 			
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
+				[[self titleDivider] setHidden:NO];
 				[[self toggleSidebarButton] setImage:[NSImage imageNamed:@"togglereverse"]];
 				[[self window] setFrame:rect display:YES animate:YES];
 				[[self splitView] display];

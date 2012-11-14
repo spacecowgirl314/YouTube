@@ -27,6 +27,7 @@
 @property (weak) IBOutlet KGNoiseLinearGradientView *leftNoiseView;
 @property (weak) IBOutlet KGNoiseLinearGradientView *rightNoiseView;
 @property IBOutlet WebView *videoView;
+@property IBOutlet NSBox *titleDivider;
 
 - (void)uncollpaseRightView;
 
