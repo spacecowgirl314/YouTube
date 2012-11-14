@@ -253,7 +253,6 @@
 				37742CEC164B819000272C4A /* Subclasses */,
 				3756B6721643A5FC00492E20 /* YouTube */,
 				3707844A164C7C2600668610 /* INAppStoreWindow */,
-				377DD119164F8F22004B6916 /* NSDate-TimeAgo */,
 				37742CDF164B710E00272C4A /* KGNoise */,
 				3756B2D216436EC100492E20 /* Supporting Files */,
 			);
@@ -381,6 +380,7 @@
 			children = (
 				37742CF2164B899700272C4A /* NSColor+Hex.h */,
 				37742CF3164B899700272C4A /* NSColor+Hex.m */,
+				377DD119164F8F22004B6916 /* NSDate-TimeAgo */,
 			);
 			name = Categories;
 			sourceTree = "<group>";

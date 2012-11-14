@@ -69,6 +69,10 @@
 
 - (void)refreshWithChannel:(PSCYouTubeChannel*)channel
 {
+	// remove current rows if present
+	/*NSRange range = NSMakeRange(0, [videos count]);
+	NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
+	[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideUp];*/
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		[session subscriptionWithChannel:channel completion:^(NSArray *_videos, NSError *error) {
 			videos = _videos;
@@ -81,9 +85,13 @@
 			 NSLog(@"videoURL:%@", [video videoURL]);
 			 }*/
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
-				[tableView reloadData];
-				[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
-				[scrollView reflectScrolledClipView: [scrollView contentView]];
+				// insert new rows:
+				NSRange range = NSMakeRange(0, [videos count]);
+				NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
+				[tableView insertRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideDown];
+				//[tableView reloadData];
+				//[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
+				//[scrollView reflectScrolledClipView: [scrollView contentView]];
 			});
 		}];
 	});
@@ -91,12 +99,20 @@
 
 - (void)refreshWithWatchLater
 {
+	// remove current rows if present
+	/*NSRange range = NSMakeRange(0, [videos count]);
+	NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
+	[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideUp];*/
 	[session watchLaterWithCompletion:^(NSArray *_videos, NSError *error) {
 		videos = _videos;
 		dispatch_async(dispatch_get_main_queue(), ^(void) {
-			[tableView reloadData];
-			[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
-			[scrollView reflectScrolledClipView: [scrollView contentView]];
+			// insert new rows:
+			NSRange range = NSMakeRange(0, [videos count]);
+			NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
+			[tableView insertRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideDown];
+			//[tableView reloadData];
+			//[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
+			//[scrollView reflectScrolledClipView: [scrollView contentView]];
 		});
 	}];
 }
@@ -113,15 +129,23 @@
 
 - (IBAction)refreshSearchWithQuery:(id)sender
 {
+	// remove current rows if present
+	/*NSRange range = NSMakeRange(0, [videos count]);
+	NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
+	[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideUp];*/
 	if (![[searchField stringValue] isEqualToString:@""])
 	{
 		[titleTextField setStringValue:[[NSString alloc] initWithFormat:@"Search - %@", [searchField stringValue]]];
 		[session searchWithQuery:[searchField stringValue] completion:^(NSArray *_videos, NSError *error) {
 			videos = _videos;
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
-				[tableView reloadData];
-				[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
-				[scrollView reflectScrolledClipView: [scrollView contentView]];
+				// insert new rows:
+				NSRange range = NSMakeRange(0, [videos count]);
+				NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
+				[tableView insertRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideDown];
+				//[tableView reloadData];
+				//[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
+				//[scrollView reflectScrolledClipView: [scrollView contentView]];
 			});
 		}];
 	}
@@ -129,12 +153,20 @@
 
 - (void)refreshWithMostPopular
 {
+	// remove current rows if present
+	/*NSRange range = NSMakeRange(0, [videos count]);
+	NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
+	[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideUp];*/
 	[session mostPopularWithCompletion:^(NSArray *_videos, NSError *error) {
 		videos = _videos;
 		dispatch_async(dispatch_get_main_queue(), ^(void) {
-			[tableView reloadData];
-			[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
-			[scrollView reflectScrolledClipView: [scrollView contentView]];
+			// insert new rows:
+			NSRange range = NSMakeRange(0, [videos count]);
+			NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
+			[tableView insertRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideDown];
+			//[tableView reloadData];
+			//[[scrollView contentView] scrollToPoint: NSMakePoint(0, 0)];
+			//[scrollView reflectScrolledClipView: [scrollView contentView]];
 		});
 	}];
 }

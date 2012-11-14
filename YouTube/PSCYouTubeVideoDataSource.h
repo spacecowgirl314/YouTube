@@ -23,6 +23,7 @@
 	IBOutlet PSCWindowController *windowController;
 	IBOutlet NSSearchField *searchField;
 	NSArray *videos;
+	NSThread *channelLoading;
 }
 
 - (void)refreshWithChannel:(PSCYouTubeChannel*)channel;

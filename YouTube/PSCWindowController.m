@@ -217,8 +217,10 @@
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
 {
-	NSLog(@"request: %@", [request mainDocumentURL]);
-	return sender;
+	NSLog(@"request: %@", [sender mainFrameURL]);
+	[[NSWorkspace sharedWorkspace] openURL:[request URL]];
+	return nil;
+	
 }
 
 @end
