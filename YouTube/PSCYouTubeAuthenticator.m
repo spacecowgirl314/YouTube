@@ -25,6 +25,16 @@
 	return self;
 }
 
++ (id)sharedAuthenticator
+{
+    static dispatch_once_t once;
+    static id sharedInstance;
+    dispatch_once(&once, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
+
 - (BOOL)isAuthenticated
 {
 	if ([[NSUserDefaults standardUserDefaults] stringForKey:@"access_token"] != nil)

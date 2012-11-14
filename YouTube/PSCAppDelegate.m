@@ -14,14 +14,14 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	// Insert code here to initialize your application
-	[self authenticate];
+	//[self authenticate];
 }
 
 #pragma mark Authentication
 
 - (void)authenticate
 {
-	authenticator = [PSCYouTubeAuthenticator new];
+	authenticator = [PSCYouTubeAuthenticator sharedAuthenticator];
 	[authenticator setClientID:@"598067235549.apps.googleusercontent.com"];
 	[authenticator setClientSecret:@"YAJBhZyscetPphUSlexBk7pR"];
 	[authenticator setRedirectURL:[NSURL URLWithString:@"http://localhost:28247"]];

@@ -10,6 +10,7 @@
 
 @interface PSCYouTubeAuthenticator : NSObject
 
++ (id)sharedAuthenticator;
 - (BOOL)isAuthenticated;
 - (NSURL*)URLToAuthorize;
 - (void)reauthorize;

@@ -8,6 +8,7 @@
 
 #import "PSCYouTubeSession.h"
 #import "PSCYouTubeVideo.h"
+#import "PSCYouTubeAuthenticator.h"
 #import "RXMLElement.h"
 
 @implementation PSCYouTubeSession
@@ -48,10 +49,28 @@
 	[request setValue:authorizationHeaderString forHTTPHeaderField:@"Authorization"];
 	[request setValue:developerKeyHeaderString forHTTPHeaderField:@"X-GData-Key"];
 	
-	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+	NSError *connectionError;
+	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&connectionError];
 	
-	/*NSLog(@"response: %@", [[NSString alloc] initWithData:data
-												 encoding:NSUTF8StringEncoding]);*/
+	if (connectionError)
+	{
+		if ([connectionError code] == -1012)
+		{
+			NSLog(@"Your token has expired. Please request a new one.");
+			NSLog(@"Client:%@", [[PSCYouTubeAuthenticator sharedAuthenticator] clientID]);
+			[[PSCYouTubeAuthenticator sharedAuthenticator] reauthorize];
+			[self subscriptionsWithCompletion:completion];
+			return;
+		}
+		if ([connectionError code] == -1009)
+		{
+			NSLog(@"It appears you have no internet connection.");
+		}
+		NSLog(@"error: %@", [connectionError description]);
+	}
+	
+	//NSLog(@"response: %@", [[NSString alloc] initWithData:data
+	//											 encoding:NSUTF8StringEncoding]);
 	
 	RXMLElement *rootXML = [RXMLElement elementFromXMLData:data];
 	//RXMLElement *rootXML = [RXMLElement elementFromURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/codingguru/subscriptions?v=2&max-results=50&orderby=published"]];
@@ -105,7 +124,25 @@
 	[request setValue:authorizationHeaderString forHTTPHeaderField:@"Authorization"];
 	[request setValue:developerKeyHeaderString forHTTPHeaderField:@"X-GData-Key"];
 	
-	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+	NSError *connectionError;
+	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&connectionError];
+	
+	if (connectionError)
+	{
+		if ([connectionError code] == -1012)
+		{
+			NSLog(@"Your token has expired. Please request a new one.");
+			NSLog(@"Client:%@", [[PSCYouTubeAuthenticator sharedAuthenticator] clientID]);
+			[[PSCYouTubeAuthenticator sharedAuthenticator] reauthorize];
+			[self subscriptionsWithCompletion:completion];
+			return;
+		}
+		if ([connectionError code] == -1009)
+		{
+			NSLog(@"It appears you have no internet connection.");
+		}
+		NSLog(@"error: %@", [connectionError description]);
+	}
 	
 	/*NSLog(@"response: %@", [[NSString alloc] initWithData:data
 	 encoding:NSUTF8StringEncoding]);*/

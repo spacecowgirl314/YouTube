@@ -14,6 +14,19 @@
 
 - (id)init
 {
+	PSCYouTubeAuthenticator *authenticator = [PSCYouTubeAuthenticator sharedAuthenticator];
+	[authenticator setClientID:@"598067235549.apps.googleusercontent.com"];
+	[authenticator setClientSecret:@"YAJBhZyscetPphUSlexBk7pR"];
+	[authenticator setRedirectURL:[NSURL URLWithString:@"http://localhost:28247"]];
+	if ([authenticator isAuthenticated])
+	{
+		[authenticator reauthorize];
+	}
+	else {
+		NSURL *url = [authenticator URLToAuthorize];
+		[[NSWorkspace sharedWorkspace] openURL:url];
+	}
+	
 	session = [PSCYouTubeSession sharedSession];
 	[session setDeveloperKey:@"AI39si5u0pQxyJgbcC10IQgk76osOWlrpQeSGyvSF3UXwUq1wqYOyYEiOm7tEecGjPqMOS6kcuR-yB75h8aDbM1N2FiOeYjBBQ"];
 	[session subscriptionsWithCompletion:^(NSArray *_channels, NSError *error) {
