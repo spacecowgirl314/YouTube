@@ -70,9 +70,9 @@
 - (void)refreshWithChannel:(PSCYouTubeChannel*)channel
 {
 	// remove current rows if present
-	/*NSRange range = NSMakeRange(0, [videos count]);
+	NSRange range = NSMakeRange(0, [videos count]);
 	NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
-	[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideUp];*/
+	[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideDown];
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		[session subscriptionWithChannel:channel completion:^(NSArray *_videos, NSError *error) {
 			videos = _videos;
@@ -100,9 +100,9 @@
 - (void)refreshWithWatchLater
 {
 	// remove current rows if present
-	/*NSRange range = NSMakeRange(0, [videos count]);
+	NSRange range = NSMakeRange(0, [videos count]);
 	NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
-	[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideUp];*/
+	[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideDown];
 	[session watchLaterWithCompletion:^(NSArray *_videos, NSError *error) {
 		videos = _videos;
 		dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -130,9 +130,9 @@
 - (IBAction)refreshSearchWithQuery:(id)sender
 {
 	// remove current rows if present
-	/*NSRange range = NSMakeRange(0, [videos count]);
+	NSRange range = NSMakeRange(0, [videos count]);
 	NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
-	[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideUp];*/
+	[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideDown];
 	if (![[searchField stringValue] isEqualToString:@""])
 	{
 		[titleTextField setStringValue:[[NSString alloc] initWithFormat:@"Search - %@", [searchField stringValue]]];
@@ -154,9 +154,9 @@
 - (void)refreshWithMostPopular
 {
 	// remove current rows if present
-	/*NSRange range = NSMakeRange(0, [videos count]);
+	NSRange range = NSMakeRange(0, [videos count]);
 	NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
-	[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideUp];*/
+	[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideDown];
 	[session mostPopularWithCompletion:^(NSArray *_videos, NSError *error) {
 		videos = _videos;
 		dispatch_async(dispatch_get_main_queue(), ^(void) {
