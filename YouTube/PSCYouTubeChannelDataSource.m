@@ -24,6 +24,10 @@
 	[authenticator setClientID:@"598067235549.apps.googleusercontent.com"];
 	[authenticator setClientSecret:@"YAJBhZyscetPphUSlexBk7pR"];
 	[authenticator setRedirectURL:[NSURL URLWithString:@"http://localhost:28247"]];
+	/* uncomment this to reset the login and start fresh
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"access_token"];
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"refresh_token"];
+	 */
 	if ([authenticator isAuthenticated])
 	{
 		[authenticator reauthorize];
