@@ -54,6 +54,9 @@
 
 - (void)receivedToken:(NSNotification*)notification
 {
+	// stop the server after we receive the token
+	[[HTTPServer sharedHTTPServer] stop];
+	
 	NSString *token = [notification object];
 	
 	// exchange authorization code for refresh and access tokens https://accounts.google.com/o/oauth2/token
@@ -92,6 +95,11 @@
 	[defaults setObject:authorizationToken forKey:@"access_token"];
 	[defaults setObject:refreshToken forKey:@"refresh_token"];
 	[defaults synchronize];
+	
+	// now that we're authorized let the main views know
+	[[NSNotificationCenter defaultCenter]
+	 postNotificationName:@"Authorized"
+	 object:nil];
 }
 
 - (void)reauthorize

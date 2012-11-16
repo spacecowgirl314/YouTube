@@ -14,6 +14,12 @@
 
 - (id)init
 {
+	[[NSNotificationCenter defaultCenter]
+	 addObserver:self
+	 selector:@selector(reload:)
+	 name:@"Authorized"
+	 object:nil];
+	
 	PSCYouTubeAuthenticator *authenticator = [PSCYouTubeAuthenticator sharedAuthenticator];
 	[authenticator setClientID:@"598067235549.apps.googleusercontent.com"];
 	[authenticator setClientSecret:@"YAJBhZyscetPphUSlexBk7pR"];
@@ -130,8 +136,9 @@
 	return [PSCTableRowView new];
 }
 
-- (void)reload
+- (void)reload:(NSNotification*)notification
 {
+	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
 	[channelLoading cancel];
 	channelLoading = [NSBlockOperation blockOperationWithBlock:^{
         // reattempt loading
@@ -140,12 +147,12 @@
 			PSCYouTubeChannel *searchChannel = [PSCYouTubeChannel new];
 			[searchChannel setDisplayName:@"Search"];
 			PSCYouTubeChannel *watchLaterChannel = [PSCYouTubeChannel new];
-            [watchLaterChannel setDisplayName:@"Watch Later"];
-            PSCYouTubeChannel *mostPopularChannel = [PSCYouTubeChannel new];
-            [mostPopularChannel setDisplayName:@"Most Popular"];
-            [arrayWithButtons insertObject:searchChannel atIndex:0];
-            [arrayWithButtons insertObject:watchLaterChannel atIndex:1];
-            [arrayWithButtons insertObject:mostPopularChannel atIndex:2];
+			[watchLaterChannel setDisplayName:@"Watch Later"];
+			PSCYouTubeChannel *mostPopularChannel = [PSCYouTubeChannel new];
+			[mostPopularChannel setDisplayName:@"Most Popular"];
+			[arrayWithButtons insertObject:searchChannel atIndex:0];
+			[arrayWithButtons insertObject:watchLaterChannel atIndex:1];
+			[arrayWithButtons insertObject:mostPopularChannel atIndex:2];
 			channels = arrayWithButtons;
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
 				if ([session userName]!=nil)
@@ -157,11 +164,6 @@
 		}];
     }];
 	[channelLoading start];
-}
-
-- (IBAction)pressedReloadButton:(id)sender
-{
-	[self reload];
 }
 
 @end

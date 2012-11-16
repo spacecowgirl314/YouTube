@@ -56,11 +56,15 @@
 	{
 		if ([connectionError code] == -1012)
 		{
-			NSLog(@"Your token has expired. Please request a new one.");
-			NSLog(@"Client:%@", [[PSCYouTubeAuthenticator sharedAuthenticator] clientID]);
-			[[PSCYouTubeAuthenticator sharedAuthenticator] reauthorize];
-			[self subscriptionsWithCompletion:completion];
-			return;
+			// if it's our first time we can't do this
+			if([self authToken]!=nil)
+			{
+				NSLog(@"Your token has expired. Please request a new one.");
+				NSLog(@"Client:%@", [[PSCYouTubeAuthenticator sharedAuthenticator] clientID]);
+				[[PSCYouTubeAuthenticator sharedAuthenticator] reauthorize];
+				[self subscriptionsWithCompletion:completion];
+				return;
+			}
 		}
 		if ([connectionError code] == -1009)
 		{

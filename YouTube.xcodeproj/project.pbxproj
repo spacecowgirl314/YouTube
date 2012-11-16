@@ -88,6 +88,7 @@
 /* Begin PBXFileReference section */
 		3707844C164C7C2600668610 /* INAppStoreWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INAppStoreWindow.h; sourceTree = "<group>"; };
 		3707844D164C7C2600668610 /* INAppStoreWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INAppStoreWindow.m; sourceTree = "<group>"; };
+		370A784E16561D4900D9F2EF /* YouTube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YouTube.entitlements; sourceTree = "<group>"; };
 		37454AAC1648F8ED009FFCBB /* PSCWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCWindowController.h; sourceTree = "<group>"; };
 		37454AAD1648F8ED009FFCBB /* PSCWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCWindowController.m; sourceTree = "<group>"; };
 		375154E1164DBEB3004E4406 /* PSCTableRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCTableRowView.h; sourceTree = "<group>"; };
@@ -268,6 +269,7 @@
 		3756B2D216436EC100492E20 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				370A784E16561D4900D9F2EF /* YouTube.entitlements */,
 				709819FA1654414500E63C16 /* stupidline@2x.png */,
 				709819FB1654414500E63C16 /* stupidline.png */,
 				709C2F69164EF59800A9C591 /* safari.png */,
@@ -704,6 +706,7 @@
 		3756B2FA16436EC100492E20 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = YouTube/YouTube.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -722,6 +725,7 @@
 		3756B2FB16436EC100492E20 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = YouTube/YouTube.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
