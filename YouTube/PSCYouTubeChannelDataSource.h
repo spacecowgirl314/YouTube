@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PSCYouTube.h"
 #import "PSCYouTubeVideoDataSource.h"
+#import "EQSTRScrollView.h"
 
 @interface PSCYouTubeChannelDataSource : NSObject <NSTableViewDataSource, NSTableViewDelegate> {
 	PSCYouTubeSession *session;
@@ -18,9 +19,11 @@
 	IBOutlet NSTextField *userNameTextField;
 	IBOutlet NSSearchField *searchField;
 	IBOutlet PSCYouTubeVideoDataSource *videoDataSource;
+	IBOutlet EQSTRScrollView *scrollView;
 	NSOperation *channelLoading;
 }
 
 - (IBAction)reloadPressed:(id)sender;
+- (void)reload:(NSNotification*)notification;
 
 @end

@@ -98,7 +98,7 @@
 	
 	// now that we're authorized let the main views know
 	[[NSNotificationCenter defaultCenter]
-	 postNotificationName:@"Authorized"
+	 postNotificationName:@"ReloadChannels"
 	 object:nil];
 }
 

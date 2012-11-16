@@ -10,6 +10,7 @@
 #import "PSCYouTubeVideo.h"
 #import "PSCTableRowView.h"
 
+// this is the real number of buttons and not the -1 shifted crap that NSArrays return
 #define kExtraButtons 3
 
 @implementation PSCYouTubeChannelDataSource
@@ -22,7 +23,7 @@
 	[[NSNotificationCenter defaultCenter]
 	 addObserver:self
 	 selector:@selector(reload:)
-	 name:@"Authorized"
+	 name:@"ReloadChannels"
 	 object:nil];
 	
 	PSCYouTubeAuthenticator *authenticator = [PSCYouTubeAuthenticator sharedAuthenticator];
@@ -56,7 +57,6 @@
 	[channels insertObject:searchChannel atIndex:0];
 	[channels insertObject:watchLaterChannel atIndex:1];
 	[channels insertObject:mostPopularChannel atIndex:2];
-	//[tableView reloadData];
 	
 	NSRange range = NSMakeRange(0, kExtraButtons);
 	NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
@@ -70,10 +70,15 @@
 				[userNameTextField setStringValue:[session userName]];
 			}
 			NSRange range = NSMakeRange(kExtraButtons, [_channels count]);
-			NSLog(@"range lenght:%lu", range.length);
 			NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
 			[tableView insertRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideDown];
-			//[tableView reloadData];
+			
+			// allow you to scroll to refresh.. using [self reload:nil] here causes it to panic about something strong retain
+			[scrollView setRefreshBlock:^(EQSTRScrollView *scrollView) {
+				[[NSNotificationCenter defaultCenter]
+				 postNotificationName:@"ReloadChannels"
+				 object:nil];
+			}];
 		});
 	}];
 	});
@@ -83,7 +88,6 @@
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
-	NSLog(@"channels count:%lu", channels.count);
 	return [channels count];
 }
 
@@ -168,7 +172,7 @@
 	NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
 	// remove objects from the table and the array
 	[channels removeObjectsAtIndexes:theSet];
-	[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideDown];
+	[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideUp];
 	channelLoading = [NSBlockOperation blockOperationWithBlock:^{
         // reattempt loading
 		[session subscriptionsWithCompletion:^(NSArray *_channels, NSError *error) {
@@ -181,7 +185,7 @@
 				NSRange range = NSMakeRange(kExtraButtons, [_channels count]);
 				NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
 				[tableView insertRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideDown];
-				//[tableView reloadData];
+				[scrollView stopLoading];
 			});
 		}];
     }];

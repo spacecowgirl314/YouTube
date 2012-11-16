@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		37078477164C7C2600668610 /* INAppStoreWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3707844D164C7C2600668610 /* INAppStoreWindow.m */; };
+		370A7944165651C100D9F2EF /* EQSTRClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 370A7930165651C100D9F2EF /* EQSTRClipView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		370A7945165651C100D9F2EF /* EQSTRScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 370A7932165651C100D9F2EF /* EQSTRScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		370A794A1656538800D9F2EF /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370A79491656538800D9F2EF /* Quartz.framework */; };
 		37454AAE1648F8ED009FFCBB /* PSCWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37454AAD1648F8ED009FFCBB /* PSCWindowController.m */; };
 		375154E3164DBEB3004E4406 /* PSCTableRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 375154E2164DBEB3004E4406 /* PSCTableRowView.m */; };
 		3756B2CC16436EC100492E20 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3756B2CB16436EC100492E20 /* Cocoa.framework */; };
@@ -89,6 +92,11 @@
 		3707844C164C7C2600668610 /* INAppStoreWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INAppStoreWindow.h; sourceTree = "<group>"; };
 		3707844D164C7C2600668610 /* INAppStoreWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INAppStoreWindow.m; sourceTree = "<group>"; };
 		370A784E16561D4900D9F2EF /* YouTube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YouTube.entitlements; sourceTree = "<group>"; };
+		370A792F165651C100D9F2EF /* EQSTRClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EQSTRClipView.h; sourceTree = "<group>"; };
+		370A7930165651C100D9F2EF /* EQSTRClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EQSTRClipView.m; sourceTree = "<group>"; };
+		370A7931165651C100D9F2EF /* EQSTRScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EQSTRScrollView.h; sourceTree = "<group>"; };
+		370A7932165651C100D9F2EF /* EQSTRScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EQSTRScrollView.m; sourceTree = "<group>"; };
+		370A79491656538800D9F2EF /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		37454AAC1648F8ED009FFCBB /* PSCWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCWindowController.h; sourceTree = "<group>"; };
 		37454AAD1648F8ED009FFCBB /* PSCWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCWindowController.m; sourceTree = "<group>"; };
 		375154E1164DBEB3004E4406 /* PSCTableRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCTableRowView.h; sourceTree = "<group>"; };
@@ -181,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3756B66E1643A3CE00492E20 /* libxml2.dylib in Frameworks */,
+				370A794A1656538800D9F2EF /* Quartz.framework in Frameworks */,
 				37EFAA971647C88E00E322D0 /* WebKit.framework in Frameworks */,
 				3756B2CC16436EC100492E20 /* Cocoa.framework in Frameworks */,
 			);
@@ -207,6 +216,18 @@
 			path = INAppStoreWindow;
 			sourceTree = "<group>";
 		};
+		370A792E165651C100D9F2EF /* ScrollToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				370A792F165651C100D9F2EF /* EQSTRClipView.h */,
+				370A7930165651C100D9F2EF /* EQSTRClipView.m */,
+				370A7931165651C100D9F2EF /* EQSTRScrollView.h */,
+				370A7932165651C100D9F2EF /* EQSTRScrollView.m */,
+			);
+			name = ScrollToRefresh;
+			path = ScrollToRefresh/ScrollToRefresh/src;
+			sourceTree = "<group>";
+		};
 		3756B2BC16436EC100492E20 = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				3756B66D1643A3CE00492E20 /* libxml2.dylib */,
+				370A79491656538800D9F2EF /* Quartz.framework */,
 				37EFAA961647C88E00E322D0 /* WebKit.framework */,
 				3756B2CB16436EC100492E20 /* Cocoa.framework */,
 				3756B2E916436EC100492E20 /* SenTestingKit.framework */,
@@ -378,6 +400,7 @@
 		37742CEC164B819000272C4A /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				370A792E165651C100D9F2EF /* ScrollToRefresh */,
 				37742CE8164B814A00272C4A /* PSCTransparentTableView.h */,
 				37742CE9164B814A00272C4A /* PSCTransparentTableView.m */,
 				375154E1164DBEB3004E4406 /* PSCTableRowView.h */,
@@ -582,6 +605,8 @@
 				37078477164C7C2600668610 /* INAppStoreWindow.m in Sources */,
 				375154E3164DBEB3004E4406 /* PSCTableRowView.m in Sources */,
 				377DD124164F8F22004B6916 /* NSDate+TimeAgo.m in Sources */,
+				370A7944165651C100D9F2EF /* EQSTRClipView.m in Sources */,
+				370A7945165651C100D9F2EF /* EQSTRScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

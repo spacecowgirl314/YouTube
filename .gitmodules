@@ -10,3 +10,6 @@
 [submodule "YouTube/NSDate-TimeAgo"]
 	path = YouTube/NSDate-TimeAgo
 	url = git://github.com/kevinlawler/NSDate-TimeAgo.git
+[submodule "YouTube/ScrollToRefresh"]
+	path = YouTube/ScrollToRefresh
+	url = git://github.com/alexzielenski/ScrollToRefresh.git

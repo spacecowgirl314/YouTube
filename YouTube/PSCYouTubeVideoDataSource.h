@@ -11,11 +11,12 @@
 #import "PSCYouTubeSession.h"
 #import "PSCYouTubeChannel.h"
 #import "PSCWindowController.h"
+#import "EQSTRScrollView.h"
 
 @interface PSCYouTubeVideoDataSource : NSObject <NSTableViewDataSource, NSTableViewDelegate, NSSharingServicePickerDelegate>
 {
 	PSCYouTubeSession *session;
-	IBOutlet NSScrollView *scrollView;
+	IBOutlet EQSTRScrollView *scrollView;
 	IBOutlet NSTableView *tableView;
 	IBOutlet NSView *titleView;
 	IBOutlet NSTextField *titleTextField;
