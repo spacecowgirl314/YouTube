@@ -138,6 +138,16 @@
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 		// received help from http://www.manicwave.com/blog/2009/12/31/unraveling-the-mysteries-of-nssplitview-part-2/
 		NSView *left  = [[[self splitView] subviews] objectAtIndex:0];
+		NSView *right = [[[self splitView] subviews] objectAtIndex:1];
+		// save the right view width if it's greater than the default, otherwise reset it
+		if (right.frame.size.width > kRightViewWidth)
+		{
+			[[NSUserDefaults standardUserDefaults] setFloat:right.frame.size.width forKey:@"rightViewWidth"];
+		}
+		else
+		{
+			[[NSUserDefaults standardUserDefaults] setFloat:kRightViewWidth forKey:@"rightViewWidth"];
+		}
 		NSRect leftFrame = [left frame];
 		NSRect rect = self.window.frame;
 		rect.size.width = leftFrame.size.width;
@@ -160,7 +170,16 @@
 		if (right.frame.size.width <= 0)
 		{
 			NSRect rect = self.window.frame;
-			rect.size.width = rect.size.width+kRightViewWidth;
+			// only set the right view width if the key exists
+			if ([[NSUserDefaults standardUserDefaults] floatForKey:@"rightViewWidth"]!=0)
+			{
+				// if we changed the width then keep it
+				rect.size.width = rect.size.width+[[NSUserDefaults standardUserDefaults] floatForKey:@"rightViewWidth"];
+			}
+			else
+			{
+				rect.size.width = rect.size.width+kRightViewWidth;
+			}
 			isTogglingSidebar = YES;
 			
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
