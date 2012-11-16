@@ -10,10 +10,15 @@
 #import "PSCYouTubeVideo.h"
 #import "PSCTableRowView.h"
 
+#define kExtraButtons 3
+
 @implementation PSCYouTubeChannelDataSource
 
 - (id)init
 {
+	// for some reason this wants to load more than once... refuse it
+	static dispatch_once_t once;
+	dispatch_once(&once, ^{
 	[[NSNotificationCenter defaultCenter]
 	 addObserver:self
 	 selector:@selector(reload:)
@@ -39,32 +44,46 @@
 	
 	session = [PSCYouTubeSession sharedSession];
 	[session setDeveloperKey:@"AI39si5u0pQxyJgbcC10IQgk76osOWlrpQeSGyvSF3UXwUq1wqYOyYEiOm7tEecGjPqMOS6kcuR-yB75h8aDbM1N2FiOeYjBBQ"];
+	
+	// set up array and display them before we load the channels
+	channels = [NSMutableArray new];
+	PSCYouTubeChannel *searchChannel = [PSCYouTubeChannel new];
+	[searchChannel setDisplayName:@"Search"];
+	PSCYouTubeChannel *watchLaterChannel = [PSCYouTubeChannel new];
+	[watchLaterChannel setDisplayName:@"Watch Later"];
+	PSCYouTubeChannel *mostPopularChannel = [PSCYouTubeChannel new];
+	[mostPopularChannel setDisplayName:@"Most Popular"];
+	[channels insertObject:searchChannel atIndex:0];
+	[channels insertObject:watchLaterChannel atIndex:1];
+	[channels insertObject:mostPopularChannel atIndex:2];
+	//[tableView reloadData];
+	
+	NSRange range = NSMakeRange(0, kExtraButtons);
+	NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
+	[tableView insertRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideUp];
+	
 	[session subscriptionsWithCompletion:^(NSArray *_channels, NSError *error) {
-		NSMutableArray *arrayWithButtons = [NSMutableArray arrayWithArray:_channels];
-		PSCYouTubeChannel *searchChannel = [PSCYouTubeChannel new];
-		[searchChannel setDisplayName:@"Search"];
-		PSCYouTubeChannel *watchLaterChannel = [PSCYouTubeChannel new];
-		[watchLaterChannel setDisplayName:@"Watch Later"];
-        PSCYouTubeChannel *mostPopularChannel = [PSCYouTubeChannel new];
-        [mostPopularChannel setDisplayName:@"Most Popular"];
-		[arrayWithButtons insertObject:searchChannel atIndex:0];
-		[arrayWithButtons insertObject:watchLaterChannel atIndex:1];
-        [arrayWithButtons insertObject:mostPopularChannel atIndex:2];
-		channels = arrayWithButtons;
+		[channels addObjectsFromArray:_channels];
 		dispatch_async(dispatch_get_main_queue(), ^(void) {
 			if ([session userName]!=nil)
 			{
 				[userNameTextField setStringValue:[session userName]];
 			}
-			[tableView reloadData];
+			NSRange range = NSMakeRange(kExtraButtons, [_channels count]);
+			NSLog(@"range lenght:%lu", range.length);
+			NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
+			[tableView insertRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideDown];
+			//[tableView reloadData];
 		});
 	}];
+	});
 	
 	return self;
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
+	NSLog(@"channels count:%lu", channels.count);
 	return [channels count];
 }
 
@@ -144,30 +163,34 @@
 {
 	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
 	[channelLoading cancel];
+	// remove current rows if present
+	NSRange range = NSMakeRange(kExtraButtons, [channels count]-kExtraButtons);
+	NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
+	// remove objects from the table and the array
+	[channels removeObjectsAtIndexes:theSet];
+	[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideDown];
 	channelLoading = [NSBlockOperation blockOperationWithBlock:^{
         // reattempt loading
 		[session subscriptionsWithCompletion:^(NSArray *_channels, NSError *error) {
-			NSMutableArray *arrayWithButtons = [NSMutableArray arrayWithArray:_channels];
-			PSCYouTubeChannel *searchChannel = [PSCYouTubeChannel new];
-			[searchChannel setDisplayName:@"Search"];
-			PSCYouTubeChannel *watchLaterChannel = [PSCYouTubeChannel new];
-			[watchLaterChannel setDisplayName:@"Watch Later"];
-			PSCYouTubeChannel *mostPopularChannel = [PSCYouTubeChannel new];
-			[mostPopularChannel setDisplayName:@"Most Popular"];
-			[arrayWithButtons insertObject:searchChannel atIndex:0];
-			[arrayWithButtons insertObject:watchLaterChannel atIndex:1];
-			[arrayWithButtons insertObject:mostPopularChannel atIndex:2];
-			channels = arrayWithButtons;
+			[channels addObjectsFromArray:_channels];
 			dispatch_async(dispatch_get_main_queue(), ^(void) {
 				if ([session userName]!=nil)
 				{
 					[userNameTextField setStringValue:[session userName]];
 				}
-				[tableView reloadData];
+				NSRange range = NSMakeRange(kExtraButtons, [_channels count]);
+				NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
+				[tableView insertRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideDown];
+				//[tableView reloadData];
 			});
 		}];
     }];
 	[channelLoading start];
+}
+
+- (IBAction)reloadPressed:(id)sender
+{
+	[self reload:nil];
 }
 
 @end

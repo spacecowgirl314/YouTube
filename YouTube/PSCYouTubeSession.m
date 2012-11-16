@@ -38,6 +38,7 @@
 
 - (void)subscriptionsWithCompletion:(PSCSubscriptionsRequestCompletion)completion
 {
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 	NSMutableArray *channels = [NSMutableArray new];
 	NSError *error;
 	
@@ -113,10 +114,12 @@
 	}
 	
 	completion(channels, error);
+	});
 }
 
 - (void)videosWithURL:(NSURL*)url completion:(PSCVideosRequestCompletion)completion
 {
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 	NSMutableArray *videos = [NSMutableArray new];
 	NSError *error;
 	
@@ -203,6 +206,7 @@
 	}
 	
 	completion(videos, error);
+	});
 }
 
 - (void)subscriptionWithChannel:(PSCYouTubeChannel*)channel completion:(PSCVideosRequestCompletion)completion

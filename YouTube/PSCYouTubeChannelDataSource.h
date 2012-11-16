@@ -12,7 +12,7 @@
 
 @interface PSCYouTubeChannelDataSource : NSObject <NSTableViewDataSource, NSTableViewDelegate> {
 	PSCYouTubeSession *session;
-	NSArray *channels;
+	NSMutableArray *channels;
 	IBOutlet NSTableView *tableView;
 	IBOutlet NSTextField *titleTextField;
 	IBOutlet NSTextField *userNameTextField;
@@ -20,5 +20,7 @@
 	IBOutlet PSCYouTubeVideoDataSource *videoDataSource;
 	NSOperation *channelLoading;
 }
+
+- (IBAction)reloadPressed:(id)sender;
 
 @end
