@@ -15,5 +15,6 @@
 @property NSNumber *unreadCount; // tag yt:unreadCount
 @property NSDate *lastUpdated; // tag updated
 @property NSURL *mainURL; // tag link rel="self"
+@property NSImage *channelImage; // downloaded thumbnailURL
 
 @end

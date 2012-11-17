@@ -94,7 +94,7 @@
 - (id)tableView:(NSTableView *)_tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
 	NSTableCellView *result = [_tableView makeViewWithIdentifier:[tableColumn identifier] owner:nil];
-	//dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
 		if (row==0)
 		{
 			[[result imageView] setImage:[NSImage imageNamed:@"search"]];
@@ -115,12 +115,17 @@
         }
 		else
 		{
-			NSURL *thumbnailURL = [(PSCYouTubeChannel*)[channels objectAtIndex:row] thumbnailURL];
-			[[result imageView] setImage:[[NSImage alloc] initWithContentsOfURL:thumbnailURL]];
+			NSLog(@"row:%ld", (long)row);
+			/*dispatch_async(dispatch_get_main_queue(), ^(void) {
+			[[result imageView] setImage:nil];
+			});*/
+			//NSURL *thumbnailImage = [(PSCYouTubeChannel*)[channels objectAtIndex:row] thumbnailURL];
+			//NSImage *downloadedImage = [[NSImage alloc] initWithContentsOfURL:thumbnailURL];
+			[[result imageView] setImage:[(PSCYouTubeChannel*)[channels objectAtIndex:row] channelImage]];
 			[[result imageView] setImageScaling:NSImageScaleProportionallyUpOrDown];
             //[[result imageView] setAlphaValue:0.5];
 		}
-	//});
+	});
 	return result;
 }
 

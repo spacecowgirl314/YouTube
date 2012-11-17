@@ -91,7 +91,8 @@
 			[channel setDisplayName:[[entryElement child:@"username"] attribute:@"display"]];
 			[channel setThumbnailURL:[NSURL URLWithString:[[entryElement child:@"thumbnail"] attribute:@"url"]]];
 			// [entryElement child:@"yt:unreadCount"]
-			[channel setUnreadCount:[NSNumber numberWithInt:[[entryElement child:@"unreadCount"] textAsInt]]];
+			[channel setChannelImage:[[NSImage alloc] initWithContentsOfURL:[channel thumbnailURL]]];
+			[channel setUnreadCount:[NSNumber numberWithLong:[[entryElement child:@"unreadCount"] textAsInt]]];
 			[channel setLastUpdated:nil]; // [[entryElement child:@"updated"] dateFromString];
 			for (RXMLElement *linkElement in [entryElement children:@"link"])
 			{
