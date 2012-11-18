@@ -115,7 +115,6 @@
         }
 		else
 		{
-			NSLog(@"row:%ld", (long)row);
 			/*dispatch_async(dispatch_get_main_queue(), ^(void) {
 			[[result imageView] setImage:nil];
 			});*/

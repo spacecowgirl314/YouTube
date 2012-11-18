@@ -59,7 +59,7 @@
 	NSString *videoURLString = [[NSString alloc] initWithFormat:@"%@&autoplay=1&theme=light&modestbranding=1", [(PSCYouTubeVideo*)[videos objectAtIndex:rowIndex] videoURL]];
 	//NSString *swfHTML = [[NSString alloc] initWithFormat:@"<embed src=\"%@\" quality=\"high\" name=\"show\" width=\"100%%\" height=\"100%%\" allowScriptAccess=\"sameDomain\" allowFullScreen=\"true\" type=\"application/x-shockwave-flash\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\" SCALE=\"exactfit\" />", videoURLString];
 	NSString *swfHTML = [[NSString alloc] initWithFormat:@"<html><body style='margin:0;padding:0;'><object classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\" codebase=\"http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0\" width=\"100%%\" height=\"100%%\"><param name=\"movie\" value=\"%@\" /><param name=\"quality\" value=\"high\" /><PARAM NAME=\"SCALE\" VALUE=\"exactfit\"><embed src=\"%@\" quality=\"high\" allowFullScreen=\"true\" type=\"application/x-shockwave-flash\" width=\"100%%\" height=\"100%%\" SCALE=\"exactfit\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\" /></object></body></html>", videoURLString, videoURLString];
-	[[videoView mainFrame] loadHTMLString:swfHTML baseURL:nil];
+	[[videoView mainFrame] loadHTMLString:swfHTML baseURL:[NSURL URLWithString:@"http://youtube.com/"]];
 	//[[videoView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:videoURLString]]];
 	// document.getElementById("mainVidEmbed").allowFullScreen ="true"
 	

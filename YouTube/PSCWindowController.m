@@ -26,6 +26,7 @@
 @synthesize rightNoiseView;
 @synthesize toggleSidebarButton;
 @synthesize videoView;
+@synthesize loginSheet;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -119,6 +120,9 @@
 											 selector:@selector(windowDidResize:)
 												 name:NSWindowDidResizeNotification
 											   object:[self window]];
+	
+	/*[NSApp beginSheet:loginSheet modalForWindow:window
+		modalDelegate:self didEndSelector:NULL contextInfo:nil];*/
 }
 
 - (IBAction)toggleVideo:(id)sender
