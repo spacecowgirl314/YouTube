@@ -37,14 +37,13 @@
 
 - (NSMenu*)menuForEvent:(NSEvent*)theEvent {
     NSPoint pt = [self convertPoint:[theEvent locationInWindow] fromView:nil];
-    int row=(int)[self rowAtPoint:pt];
-	NSLog(@"menuForEvent %@ %@ %d",self, [self delegate], row);
+	// overridden because of nonstandard menu practice
+	self.clickedRow=[self rowAtPoint:pt];
 	// only allow regular non-pseudo channels to show the menu
-	if (row!=0 && row!=1 && row!=2)
+	if (self.clickedRow!=0 && self.clickedRow!=1 && self.clickedRow!=2)
 	{
-		// acquired help from http://www.cocoabuilder.com/archive/cocoa/242805-solved-with-reservations-re-turn-off-menu-highlight-in-outline-view.html#242823
+		// help from http://www.cocoabuilder.com/archive/cocoa/242805-solved-with-reservations-re-turn-off-menu-highlight-in-outline-view.html#242823
 		// do not use [super menuForEvent:theEvent], it will draw the stupid blue or white outline when clicked
-		self.clickedRow=row;
 		return [self menu];
 	}
 	else
