@@ -16,5 +16,6 @@
 @property NSDate *lastUpdated; // tag updated
 @property NSURL *mainURL; // tag link rel="self"
 @property NSImage *channelImage; // downloaded thumbnailURL
+@property NSURL *subscriptionID; // tag id
 
 @end

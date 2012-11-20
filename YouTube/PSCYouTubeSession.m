@@ -57,14 +57,14 @@
 	{
 		if ([connectionError code] == -1012)
 		{
-			// if it's our first time we can't do this
+			// if it's our first time we can't do this, this is also dangerously recursive
 			if([self authToken]!=nil)
 			{
 				NSLog(@"Your token has expired. Please request a new one.");
 				NSLog(@"Client:%@", [[PSCYouTubeAuthenticator sharedAuthenticator] clientID]);
 				[[PSCYouTubeAuthenticator sharedAuthenticator] reauthorize];
 				[self subscriptionsWithCompletion:completion];
-				return;
+				//return;
 			}
 		}
 		if ([connectionError code] == -1009)
@@ -94,12 +94,17 @@
 			[channel setChannelImage:[[NSImage alloc] initWithContentsOfURL:[channel thumbnailURL]]];
 			[channel setUnreadCount:[NSNumber numberWithLong:[[entryElement child:@"unreadCount"] textAsInt]]];
 			[channel setLastUpdated:nil]; // [[entryElement child:@"updated"] dateFromString];
+			//[channel setSubscriptionID:[[entryElement child:@"channelId"] text]];
 			for (RXMLElement *linkElement in [entryElement children:@"link"])
 			{
 				if ([[linkElement attribute:@"rel"] isEqualToString:@"http://gdata.youtube.com/schemas/2007#user.uploads"]) {
 					//&max-results=50
 					NSString *urlString = [[NSString alloc] initWithFormat:@"%@&max-results=50", [linkElement attribute:@"href"]];
 					[channel setMainURL:[NSURL URLWithString:urlString]];
+				}
+				if ([[linkElement attribute:@"rel"] isEqualToString:@"self"])
+				{
+					[channel setSubscriptionID:[NSURL URLWithString:[linkElement attribute:@"href"]]];
 				}
 			}
 			[channels addObject:channel];
@@ -118,6 +123,60 @@
 	});
 }
 
+- (void)unsubscribeWithChannel:(PSCYouTubeChannel*)channel completion:(PSCUnsubscribeCompletion)completion
+{
+	NSError *error;
+	
+	/*
+	 DELETE /feeds/api/users/default/subscriptions/SUBSCRIPTION_ID HTTP/1.1
+	 Host: gdata.youtube.com
+	 Content-Type: application/atom+xml
+	 Authorization: Bearer ACCESS_TOKEN
+	 GData-Version: 2
+	 X-GData-Key: key=DEVELOPER_KEY
+	 */
+	
+	//NSString *urlString = [[NSString alloc] initWithFormat:@"https://gdata.youtube.com/feeds/api/users/default/subscriptions/%@?v=2", [channel subscriptionID]];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[channel subscriptionID]];//[NSURL URLWithString:urlString]];
+	
+	NSString *authorizationHeaderString = [[NSString alloc] initWithFormat:@"Bearer %@", [self authToken]];
+	NSString *developerKeyHeaderString = [[NSString alloc] initWithFormat:@"key=%@", developerKey];
+	
+	[request setHTTPMethod:@"DELETE"];
+	[request setValue:authorizationHeaderString forHTTPHeaderField:@"Authorization"];
+	[request setValue:developerKeyHeaderString forHTTPHeaderField:@"X-GData-Key"];
+	//[request setValue:@"2" forHTTPHeaderField:@"GData-Version"];
+	
+	NSError *connectionError;
+	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&connectionError];
+	
+	NSLog(@"response: %@", [[NSString alloc] initWithData:data
+												 encoding:NSUTF8StringEncoding]);
+	
+	if (connectionError)
+	{
+		if ([connectionError code] == -1012)
+		{
+			// if it's our first time we can't do this, this is also dangerously recursive
+			if([self authToken]!=nil)
+			{
+				NSLog(@"Your token has expired. Please request a new one.");
+				NSLog(@"Client:%@", [[PSCYouTubeAuthenticator sharedAuthenticator] clientID]);
+				[[PSCYouTubeAuthenticator sharedAuthenticator] reauthorize];
+				[self unsubscribeWithChannel:channel completion:completion];
+				return;
+			}
+		}
+		if ([connectionError code] == -1009)
+		{
+			NSLog(@"It appears you have no internet connection.");
+		}
+		NSLog(@"error: %@", [connectionError description]);
+	}
+		
+	completion(error);
+}
+
 - (void)videosWithURL:(NSURL*)url completion:(PSCVideosRequestCompletion)completion
 {
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -129,6 +188,7 @@
 	NSString *authorizationHeaderString = [[NSString alloc] initWithFormat:@"Bearer %@", [self authToken]];
 	NSString *developerKeyHeaderString = [[NSString alloc] initWithFormat:@"key=%@", developerKey];
 	
+		
 	[request setValue:authorizationHeaderString forHTTPHeaderField:@"Authorization"];
 	[request setValue:developerKeyHeaderString forHTTPHeaderField:@"X-GData-Key"];
 	

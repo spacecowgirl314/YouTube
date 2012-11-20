@@ -81,6 +81,8 @@
 
 - (void)awakeFromNib
 {
+	// setting the delegate allows me to use the NSMenus on right-click/cntrl-click with INAppStoreWindow
+	self.window.delegate=self;
 	self.window.trafficLightButtonsLeftMargin = 7.0;
     self.window.fullScreenButtonRightMargin = 7.0;
     self.window.hideTitleBarInFullScreen = YES;
@@ -95,10 +97,6 @@
 	[noiseView setBackgroundColor:[NSColor colorWithHexColorString:@"202020"]];
 	[noiseView setNoiseOpacity:0.04f];
 	
-	/*self.viewLeft.backgroundColor = [NSColor colorWithCalibratedRed:0.363 green:0.700 blue:0.909 alpha:1.000];
-    self.viewLeft.alternateBackgroundColor = [NSColor colorWithCalibratedRed:0.307 green:0.455 blue:0.909 alpha:1.000];
-    self.viewLeft.noiseBlendMode = kCGBlendModeMultiply;
-    self.viewLeft.noiseOpacity = 0.1;*/
 	[leftNoiseView setBackgroundColor:[NSColor colorWithHexColorString:@"dadada"]];
 	[leftNoiseView setAlternateBackgroundColor:[NSColor colorWithHexColorString:@"a6a6a6"]];
 	[leftNoiseView setNoiseBlendMode:kCGBlendModeMultiply];
@@ -121,8 +119,13 @@
 												 name:NSWindowDidResizeNotification
 											   object:[self window]];
 	
+	// Work in progress, trying to get self-contained login to work
 	/*[NSApp beginSheet:loginSheet modalForWindow:window
 		modalDelegate:self didEndSelector:NULL contextInfo:nil];*/
+	//[NSApp runModalForWindow: loginSheet];
+    // Sheet is up here.
+    //[NSApp endSheet: loginSheet];
+    //[loginSheet orderOut: self];
 }
 
 - (IBAction)toggleVideo:(id)sender

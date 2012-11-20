@@ -12,7 +12,7 @@
 #import "KGNoise.h"
 #import "INAppStoreWindow.h"
 
-@interface PSCWindowController : NSWindowController
+@interface PSCWindowController : NSWindowController <NSWindowDelegate>
 {
 	BOOL isTogglingSidebar;
 }

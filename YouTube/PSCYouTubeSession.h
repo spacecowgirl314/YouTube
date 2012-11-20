@@ -13,10 +13,12 @@
 
 typedef void (^PSCSubscriptionsRequestCompletion)(NSArray * channels, NSError * error);
 typedef void (^PSCVideosRequestCompletion)(NSArray * videos, NSError * error);
+typedef void (^PSCUnsubscribeCompletion)(NSError * error);
 
 + (id)sharedSession;
 - (void)subscriptionsWithCompletion:(PSCSubscriptionsRequestCompletion)completion;
 - (void)subscriptionWithChannel:(PSCYouTubeChannel*)channel completion:(PSCVideosRequestCompletion)completion;
+- (void)unsubscribeWithChannel:(PSCYouTubeChannel*)channel completion:(PSCUnsubscribeCompletion)completion;
 - (void)watchLaterWithCompletion:(PSCVideosRequestCompletion)completion;
 - (void)searchWithQuery:(NSString*)query completion:(PSCVideosRequestCompletion)completion;
 - (void)mostPopularWithCompletion:(PSCVideosRequestCompletion)completion;
