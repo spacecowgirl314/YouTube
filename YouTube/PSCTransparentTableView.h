@@ -10,4 +10,6 @@
 
 @interface PSCTransparentTableView : NSTableView
 
+@property NSInteger clickedRow;
+
 @end

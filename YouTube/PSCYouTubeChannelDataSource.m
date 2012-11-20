@@ -209,8 +209,7 @@
 		[session unsubscribeWithChannel:[channels objectAtIndex:[tableView clickedRow]] completion:^(NSError *error) {
 			if (error==nil)
 			{
-				NSRange range = NSMakeRange([tableView clickedRow], [tableView clickedRow]);
-				NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
+				NSIndexSet *theSet = [NSIndexSet indexSetWithIndex:[tableView clickedRow]];
 				[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideUp];
 				[channels removeObjectAtIndex:[tableView clickedRow]];
 			}
@@ -220,6 +219,7 @@
 
 - (IBAction)openChannelInBrowser:(id)sender
 {
+	NSLog(@"clicked row:%ld",[tableView clickedRow]);
 	if ([tableView clickedRow]!=0 && [tableView clickedRow]!=1 && [tableView clickedRow]!=2)
 	{
 		[[NSWorkspace sharedWorkspace] openURL:[[channels objectAtIndex:[tableView clickedRow]] browserURL]];

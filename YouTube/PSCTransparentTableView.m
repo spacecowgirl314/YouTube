@@ -42,7 +42,9 @@
 	// only allow regular non-pseudo channels to show the menu
 	if (row!=0 && row!=1 && row!=2)
 	{
+		// acquired help from http://www.cocoabuilder.com/archive/cocoa/242805-solved-with-reservations-re-turn-off-menu-highlight-in-outline-view.html#242823
 		// do not use [super menuForEvent:theEvent], it will draw the stupid blue or white outline when clicked
+		self.clickedRow=row;
 		return [self menu];
 	}
 	else

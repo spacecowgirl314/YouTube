@@ -2188,7 +2188,7 @@
 							<string key="NSFrame">{{200, 73}, {110, 17}}</string>
 							<reference key="NSSuperview" ref="999896607"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
+							<reference key="NSNextKeyView" ref="748009228"/>
 							<string key="NSReuseIdentifierKey">_NS:1535</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="246344277">
@@ -2212,6 +2212,7 @@
 							<string key="NSFrame">{{105, 31}, {300, 34}}</string>
 							<reference key="NSSuperview" ref="999896607"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:1535</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="340551918">
@@ -2997,6 +2998,7 @@
 									</set>
 									<string key="NSFrame">{{5, 7}, {47, 47}}</string>
 									<reference key="NSSuperview" ref="465082980"/>
+									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:11</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSImageCell" key="NSCell" id="884744039">
@@ -8000,25 +8002,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">PSCYouTubeChannelDataSource</string>
 					<string key="superclassName">NSObject</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="openChannelInBrowser:">id</string>
-						<string key="reloadPressed:">id</string>
-						<string key="unsubscribeChannel:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="openChannelInBrowser:">
-							<string key="name">openChannelInBrowser:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="reloadPressed:">
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">reloadPressed:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">reloadPressed:</string>
+						<object class="IBActionInfo" key="NS.object.0">
 							<string key="name">reloadPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="unsubscribeChannel:">
-							<string key="name">unsubscribeChannel:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
+					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="scrollView">EQSTRScrollView</string>
 						<string key="searchField">NSSearchField</string>
