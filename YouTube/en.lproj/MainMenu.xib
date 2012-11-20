@@ -1538,7 +1538,7 @@
 															<string key="NSFrameSize">{60, 468}</string>
 															<reference key="NSSuperview" ref="129521003"/>
 															<reference key="NSWindow"/>
-															<reference key="NSNextKeyView" ref="116659864"/>
+															<reference key="NSNextKeyView" ref="465082980"/>
 															<string key="NSReuseIdentifierKey">_NS:13</string>
 															<bool key="NSEnabled">YES</bool>
 															<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -1640,7 +1640,7 @@
 											<string key="NSFrame">{{0, 32}, {60, 468}}</string>
 											<reference key="NSSuperview" ref="765746352"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="129521003"/>
+											<reference key="NSNextKeyView" ref="116659864"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<int key="NSsFlags">141824</int>
 											<reference key="NSVScroller" ref="116659864"/>
@@ -1807,6 +1807,7 @@
 													<string key="NSFrame">{{285, -5}, {34, 32}}</string>
 													<reference key="NSSuperview" ref="1045535180"/>
 													<reference key="NSWindow"/>
+													<reference key="NSNextKeyView"/>
 													<string key="NSReuseIdentifierKey">_NS:9</string>
 													<bool key="NSEnabled">YES</bool>
 													<object class="NSButtonCell" key="NSCell" id="571019601">
@@ -1956,6 +1957,7 @@
 						<string key="NSFrame">{{1102, 1}, {27, 32}}</string>
 						<reference key="NSSuperview" ref="466257124"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="392476311">
@@ -2186,6 +2188,7 @@
 							<string key="NSFrame">{{120, 72}, {270, 17}}</string>
 							<reference key="NSSuperview" ref="999896607"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:1535</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="246344277">
@@ -2219,7 +2222,7 @@
 				<array class="NSMutableArray" key="NSMenuItems">
 					<object class="NSMenuItem" id="787190029">
 						<reference key="NSMenu" ref="530942153"/>
-						<string key="NSTitle">Open in Safari</string>
+						<string key="NSTitle">Open in Browser</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="35465992"/>
@@ -3305,6 +3308,14 @@
 						<reference key="destination" ref="467921627"/>
 					</object>
 					<int key="connectionID">2044</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openChannelInBrowser:</string>
+						<reference key="source" ref="540076123"/>
+						<reference key="destination" ref="787190029"/>
+					</object>
+					<int key="connectionID">2048</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -7732,7 +7743,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">2045</int>
+			<int key="maxID">2048</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -7878,20 +7889,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">PSCYouTubeChannelDataSource</string>
 					<string key="superclassName">NSObject</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="reloadPressed:">id</string>
-						<string key="unsubscribeChannel:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="reloadPressed:">
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">reloadPressed:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">reloadPressed:</string>
+						<object class="IBActionInfo" key="NS.object.0">
 							<string key="name">reloadPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="unsubscribeChannel:">
-							<string key="name">unsubscribeChannel:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
+					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="scrollView">EQSTRScrollView</string>
 						<string key="searchField">NSSearchField</string>

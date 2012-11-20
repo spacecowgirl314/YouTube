@@ -218,4 +218,12 @@
 	}
 }
 
+- (IBAction)openChannelInBrowser:(id)sender
+{
+	if ([tableView clickedRow]!=0 && [tableView clickedRow]!=1 && [tableView clickedRow]!=2)
+	{
+		[[NSWorkspace sharedWorkspace] openURL:[[channels objectAtIndex:[tableView clickedRow]] browserURL]];
+	}
+}
+
 @end

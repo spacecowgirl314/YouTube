@@ -94,7 +94,6 @@
 			[channel setChannelImage:[[NSImage alloc] initWithContentsOfURL:[channel thumbnailURL]]];
 			[channel setUnreadCount:[NSNumber numberWithLong:[[entryElement child:@"unreadCount"] textAsInt]]];
 			[channel setLastUpdated:nil]; // [[entryElement child:@"updated"] dateFromString];
-			//[channel setSubscriptionID:[[entryElement child:@"channelId"] text]];
 			for (RXMLElement *linkElement in [entryElement children:@"link"])
 			{
 				if ([[linkElement attribute:@"rel"] isEqualToString:@"http://gdata.youtube.com/schemas/2007#user.uploads"]) {
@@ -105,6 +104,10 @@
 				if ([[linkElement attribute:@"rel"] isEqualToString:@"self"])
 				{
 					[channel setSubscriptionID:[NSURL URLWithString:[linkElement attribute:@"href"]]];
+				}
+				if ([[linkElement attribute:@"rel"] isEqualToString:@"alternate"])
+				{
+					[channel setBrowserURL:[NSURL URLWithString:[linkElement attribute:@"href"]]];
 				}
 			}
 			[channels addObject:channel];
