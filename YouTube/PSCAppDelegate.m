@@ -11,6 +11,13 @@
 
 @implementation PSCAppDelegate
 
+- (id)init
+{
+	// reigster url scheme. also must be in init to be called when launched
+    [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(handleURLEvent:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
+	return self;
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	// Insert code here to initialize your application
@@ -33,6 +40,12 @@
 		NSURL *url = [authenticator URLToAuthorize];
 		[[NSWorkspace sharedWorkspace] openURL:url];
 	}
+}
+
+- (void)handleURLEvent:(NSAppleEventDescriptor*)event withReplyEvent:(NSAppleEventDescriptor*)replyEvent
+{
+    NSURL *URL = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
+    NSLog(@"received query %@", [URL host]);
 }
 
 @end

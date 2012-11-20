@@ -289,24 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				370A784E16561D4900D9F2EF /* YouTube.entitlements */,
-				709C2F69164EF59800A9C591 /* safari.png */,
-				709C2F6A164EF59800A9C591 /* safari@2x.png */,
-				709C2F65164EF48E00A9C591 /* comments@2x.png */,
-				709C2F66164EF48E00A9C591 /* comments.png */,
-				709C2F61164EF2B500A9C591 /* share@2x.png */,
-				709C2F62164EF2B500A9C591 /* share.png */,
-				706B2E84164E3CED008F584F /* mostpopular.png */,
-				706B2E85164E3CEE008F584F /* mostpopular@2x.png */,
-				706B2E6B164E19E4008F584F /* watchlater@2x.png */,
-				706B2E6C164E19E4008F584F /* watchlater.png */,
-				7059A99F164DD3D50082402B /* sidebarhighlight@2x.png */,
-				7059A9A0164DD3D50082402B /* sidebarhighlight.png */,
-				70CDBF00164DACE300939C3F /* search@2x.png */,
-				70CDBF01164DACE300939C3F /* search.png */,
-				70CDBEF4164D9DA600939C3F /* toggle@2x.png */,
-				70CDBEF5164D9DA600939C3F /* toggle.png */,
-				70124B6F164CBCE60006CEE2 /* togglereverse.png */,
-				70124B70164CBCE60006CEE2 /* togglereverse@2x.png */,
+				37E5F84D165B710900DD2DBE /* Images */,
 				70180C021655C5C5007EAB0E /* YouTube.iconset */,
 				3756B2E016436EC100492E20 /* MainMenu.xib */,
 				3756B2D316436EC100492E20 /* YouTube-Info.plist */,
@@ -441,6 +424,31 @@
 				37E5F846165B703F00DD2DBE /* NSDateTimeAgo.strings */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		37E5F84D165B710900DD2DBE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				709C2F69164EF59800A9C591 /* safari.png */,
+				709C2F6A164EF59800A9C591 /* safari@2x.png */,
+				709C2F65164EF48E00A9C591 /* comments@2x.png */,
+				709C2F66164EF48E00A9C591 /* comments.png */,
+				709C2F61164EF2B500A9C591 /* share@2x.png */,
+				709C2F62164EF2B500A9C591 /* share.png */,
+				706B2E84164E3CED008F584F /* mostpopular.png */,
+				706B2E85164E3CEE008F584F /* mostpopular@2x.png */,
+				706B2E6B164E19E4008F584F /* watchlater@2x.png */,
+				706B2E6C164E19E4008F584F /* watchlater.png */,
+				7059A99F164DD3D50082402B /* sidebarhighlight@2x.png */,
+				7059A9A0164DD3D50082402B /* sidebarhighlight.png */,
+				70CDBF00164DACE300939C3F /* search@2x.png */,
+				70CDBF01164DACE300939C3F /* search.png */,
+				70CDBEF4164D9DA600939C3F /* toggle@2x.png */,
+				70CDBEF5164D9DA600939C3F /* toggle.png */,
+				70124B6F164CBCE60006CEE2 /* togglereverse.png */,
+				70124B70164CBCE60006CEE2 /* togglereverse@2x.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
