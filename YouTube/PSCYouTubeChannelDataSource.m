@@ -204,15 +204,18 @@
 - (IBAction)unsubscribeChannel:(id)sender
 {
 	NSLog(@"clicked row:%ld",[tableView clickedRow]);
-	[session unsubscribeWithChannel:[channels objectAtIndex:[tableView clickedRow]] completion:^(NSError *error) {
-		if (error==nil)
-		{
-			NSRange range = NSMakeRange([tableView clickedRow], [tableView clickedRow]);
-			NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
-			[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideUp];
-			[channels removeObjectAtIndex:[tableView clickedRow]];
-		}
-	}];
+	if ([tableView clickedRow]!=0 && [tableView clickedRow]!=1 && [tableView clickedRow]!=2)
+	{
+		[session unsubscribeWithChannel:[channels objectAtIndex:[tableView clickedRow]] completion:^(NSError *error) {
+			if (error==nil)
+			{
+				NSRange range = NSMakeRange([tableView clickedRow], [tableView clickedRow]);
+				NSIndexSet *theSet = [NSIndexSet indexSetWithIndexesInRange:range];
+				[tableView removeRowsAtIndexes:theSet withAnimation:NSTableViewAnimationSlideUp];
+				[channels removeObjectAtIndex:[tableView clickedRow]];
+			}
+		}];
+	}
 }
 
 @end

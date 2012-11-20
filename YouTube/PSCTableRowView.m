@@ -20,8 +20,10 @@
     return self;
 }
 
-- (void)drawSelectionInRect:(NSRect)dirtyRect {
-    if (self.selectionHighlightStyle != NSTableViewSelectionHighlightStyleNone) {
+- (void)drawSelectionInRect:(NSRect)dirtyRect
+{
+    if (self.selectionHighlightStyle != NSTableViewSelectionHighlightStyleNone)
+	{
         //NSRect selectionRect = NSInsetRect(self.bounds, 2.5, 2.5);
 		[[NSImage imageNamed:@"sidebarhighlight"] drawInRect:self.bounds
 						  fromRect:NSZeroRect
