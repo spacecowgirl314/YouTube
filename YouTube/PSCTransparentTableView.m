@@ -35,4 +35,20 @@
     // don't draw a background rect
 }
 
+- (NSMenu*)menuForEvent:(NSEvent*)theEvent {
+    NSPoint pt = [self convertPoint:[theEvent locationInWindow] fromView:nil];
+    int row=(int)[self rowAtPoint:pt];
+	NSLog(@"menuForEvent %@ %@ %d",self, [self delegate], row);
+	// only allow regular non-pseudo channels to show the menu
+	if (row!=0 && row!=1 && row!=2)
+	{
+		// do not use [super menuForEvent:theEvent], it will draw the stupid blue or white outline when clicked
+		return [self menu];
+	}
+	else
+	{
+		return nil;
+	}
+}
+
 @end
