@@ -11,6 +11,7 @@
 #import <WebKit/WebUIDelegate.h>
 #import "KGNoise.h"
 #import "INAppStoreWindow.h"
+#import "PSCPlayerView.h"
 
 @interface PSCWindowController : NSWindowController <NSWindowDelegate>
 {

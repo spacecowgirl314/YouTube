@@ -42,7 +42,7 @@
 	NSMutableArray *channels = [NSMutableArray new];
 	NSError *error;
 	
-	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/default/subscriptions?v=2&max-results=50&orderby=published"]];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/default/subscriptions?v=2&max-results=50"]];
 	
 	NSString *authorizationHeaderString = [[NSString alloc] initWithFormat:@"Bearer %@", [self authToken]];
 	NSString *developerKeyHeaderString = [[NSString alloc] initWithFormat:@"key=%@", developerKey];
@@ -74,8 +74,8 @@
 		NSLog(@"error: %@", [connectionError description]);
 	}
 	
-	//NSLog(@"response: %@", [[NSString alloc] initWithData:data
-	//											 encoding:NSUTF8StringEncoding]);
+	/*NSLog(@"response: %@", [[NSString alloc] initWithData:data
+												 encoding:NSUTF8StringEncoding]);*/
 	
 	RXMLElement *rootXML = [RXMLElement elementFromXMLData:data];
 	//RXMLElement *rootXML = [RXMLElement elementFromURL:[NSURL URLWithString:@"https://gdata.youtube.com/feeds/api/users/codingguru/subscriptions?v=2&max-results=50&orderby=published"]];

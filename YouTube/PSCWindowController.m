@@ -51,34 +51,6 @@
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
-- (void)windowDidResize:(NSNotification*)notification
-{
-	NSView *right = [[[self splitView] subviews] objectAtIndex:1];
-	if (!isTogglingSidebar)
-	{
-		// adjust the toggle button to be in the proper positon at start
-		if (right.frame.size.width > 0)
-		{
-			[[self titleDivider] setHidden:NO];
-			[[self toggleSidebarButton] setImage:[NSImage imageNamed:@"togglereverse"]];
-		}
-		else
-		{
-			[[self titleDivider] setHidden:YES];
-			[[self toggleSidebarButton] setImage:[NSImage imageNamed:@"toggle"]];
-		}
-	}
-	else
-	{
-		// now that toggling has stopped resume resize detection
-		if (right.frame.size.width == 0)
-		{
-			[[self titleDivider] setHidden:YES];
-			isTogglingSidebar = NO;
-		}
-	}
-}
-
 - (void)awakeFromNib
 {
 	// setting the delegate allows me to use the NSMenus on right-click/cntrl-click with INAppStoreWindow
@@ -126,6 +98,34 @@
     // Sheet is up here.
     //[NSApp endSheet: loginSheet];
     //[loginSheet orderOut: self];
+}
+
+- (void)windowDidResize:(NSNotification*)notification
+{
+	NSView *right = [[[self splitView] subviews] objectAtIndex:1];
+	if (!isTogglingSidebar)
+	{
+		// adjust the toggle button to be in the proper positon at start
+		if (right.frame.size.width > 0)
+		{
+			[[self titleDivider] setHidden:NO];
+			[[self toggleSidebarButton] setImage:[NSImage imageNamed:@"togglereverse"]];
+		}
+		else
+		{
+			[[self titleDivider] setHidden:YES];
+			[[self toggleSidebarButton] setImage:[NSImage imageNamed:@"toggle"]];
+		}
+	}
+	else
+	{
+		// now that toggling has stopped resume resize detection
+		if (right.frame.size.width == 0)
+		{
+			[[self titleDivider] setHidden:YES];
+			isTogglingSidebar = NO;
+		}
+	}
 }
 
 - (IBAction)toggleVideo:(id)sender

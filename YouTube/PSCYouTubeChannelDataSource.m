@@ -94,7 +94,7 @@
 - (id)tableView:(NSTableView *)_tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
 	NSTableCellView *result = [_tableView makeViewWithIdentifier:[tableColumn identifier] owner:nil];
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+	//dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
 		if (row==0)
 		{
 			[[result imageView] setImage:[NSImage imageNamed:@"search"]];
@@ -124,7 +124,7 @@
 			[[result imageView] setImageScaling:NSImageScaleProportionallyUpOrDown];
             //[[result imageView] setAlphaValue:0.5];
 		}
-	});
+	//});
 	return result;
 }
 
