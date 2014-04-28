@@ -13,3 +13,6 @@
 [submodule "YouTube/ScrollToRefresh"]
 	path = YouTube/ScrollToRefresh
 	url = git://github.com/alexzielenski/ScrollToRefresh.git
+[submodule "YouTube/HCYoutubeParser"]
+	path = YouTube/HCYoutubeParser
+	url = https://github.com/hellozimi/HCYoutubeParser.git

@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		37078477164C7C2600668610 /* INAppStoreWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3707844D164C7C2600668610 /* INAppStoreWindow.m */; };
 		370A7944165651C100D9F2EF /* EQSTRClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 370A7930165651C100D9F2EF /* EQSTRClipView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		370A7945165651C100D9F2EF /* EQSTRScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 370A7932165651C100D9F2EF /* EQSTRScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		370A794A1656538800D9F2EF /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370A79491656538800D9F2EF /* Quartz.framework */; };
-		3723B64A165CD0EF0005F634 /* HCYoutubeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3723B649165CD0EF0005F634 /* HCYoutubeParser.m */; };
 		3723B653165CDBBD0005F634 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3723B652165CDBBD0005F634 /* AVFoundation.framework */; };
 		372D134C165E27F50071B223 /* PSCPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 372D134B165E27F50071B223 /* PSCPlayerView.m */; };
 		372D135A165E33FD0071B223 /* NSView+Fade.m in Sources */ = {isa = PBXBuildFile; fileRef = 372D1359165E33FD0071B223 /* NSView+Fade.m */; };
@@ -54,8 +52,14 @@
 		37742CDD164B710B00272C4A /* KGNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 37742CDC164B710B00272C4A /* KGNoise.m */; };
 		37742CEB164B814A00272C4A /* PSCTransparentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37742CE9164B814A00272C4A /* PSCTransparentTableView.m */; };
 		37742CF4164B899700272C4A /* NSColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 37742CF3164B899700272C4A /* NSColor+Hex.m */; };
-		377DD124164F8F22004B6916 /* NSDate+TimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 377DD121164F8F22004B6916 /* NSDate+TimeAgo.m */; };
-		37E5F84C165B703F00DD2DBE /* NSDateTimeAgo.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37E5F846165B703F00DD2DBE /* NSDateTimeAgo.strings */; };
+		37B5F732190EEAFE00555BCC /* INAppStoreWindowSwizzling.c in Sources */ = {isa = PBXBuildFile; fileRef = 37B5F6F0190EEAFE00555BCC /* INAppStoreWindowSwizzling.c */; };
+		37B5F733190EEAFE00555BCC /* INTitlebarView+CoreUIRendering.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B5F6F3190EEAFE00555BCC /* INTitlebarView+CoreUIRendering.m */; };
+		37B5F734190EEAFE00555BCC /* NSDocument+INAppStoreWindowFixes.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B5F6F5190EEAFE00555BCC /* NSDocument+INAppStoreWindowFixes.m */; };
+		37B5F737190EEAFE00555BCC /* INAppStoreWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B5F6FB190EEAFE00555BCC /* INAppStoreWindow.m */; };
+		37B5F738190EEAFE00555BCC /* INWindowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B5F6FD190EEAFE00555BCC /* INWindowButton.m */; };
+		37B5F769190EEB9C00555BCC /* NSDate+TimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B5F764190EEB9C00555BCC /* NSDate+TimeAgo.m */; };
+		37B5F76B190EEB9C00555BCC /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 37B5F766190EEB9C00555BCC /* NSDateTimeAgo.bundle */; };
+		37B5F772190EEF0C00555BCC /* HCYoutubeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B5F771190EEF0C00555BCC /* HCYoutubeParser.m */; };
 		37EFAA8A1647B17700E322D0 /* PSCYouTubeVideoDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EFAA891647B17600E322D0 /* PSCYouTubeVideoDataSource.m */; };
 		37EFAA8E1647B1A400E322D0 /* PSCYouTubeVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EFAA8D1647B1A400E322D0 /* PSCYouTubeVideo.m */; };
 		37EFAA951647BFDD00E322D0 /* PSCYouTubeVideoCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EFAA941647BFDC00E322D0 /* PSCYouTubeVideoCellView.m */; };
@@ -104,16 +108,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3707844C164C7C2600668610 /* INAppStoreWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INAppStoreWindow.h; sourceTree = "<group>"; };
-		3707844D164C7C2600668610 /* INAppStoreWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INAppStoreWindow.m; sourceTree = "<group>"; };
 		370A784E16561D4900D9F2EF /* YouTube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YouTube.entitlements; sourceTree = "<group>"; };
 		370A792F165651C100D9F2EF /* EQSTRClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EQSTRClipView.h; sourceTree = "<group>"; };
 		370A7930165651C100D9F2EF /* EQSTRClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EQSTRClipView.m; sourceTree = "<group>"; };
 		370A7931165651C100D9F2EF /* EQSTRScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EQSTRScrollView.h; sourceTree = "<group>"; };
 		370A7932165651C100D9F2EF /* EQSTRScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EQSTRScrollView.m; sourceTree = "<group>"; };
 		370A79491656538800D9F2EF /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
-		3723B648165CD0EF0005F634 /* HCYoutubeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HCYoutubeParser.h; path = ../../repos/HCYoutubeParser/YoutubeParser/Classes/HCYoutubeParser.h; sourceTree = "<group>"; };
-		3723B649165CD0EF0005F634 /* HCYoutubeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HCYoutubeParser.m; path = ../../repos/HCYoutubeParser/YoutubeParser/Classes/HCYoutubeParser.m; sourceTree = "<group>"; };
 		3723B652165CDBBD0005F634 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		372D134A165E27F50071B223 /* PSCPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCPlayerView.h; sourceTree = "<group>"; };
 		372D134B165E27F50071B223 /* PSCPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCPlayerView.m; sourceTree = "<group>"; };
@@ -184,13 +184,21 @@
 		37742CE9164B814A00272C4A /* PSCTransparentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCTransparentTableView.m; sourceTree = "<group>"; };
 		37742CF2164B899700272C4A /* NSColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Hex.h"; sourceTree = "<group>"; };
 		37742CF3164B899700272C4A /* NSColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Hex.m"; sourceTree = "<group>"; };
-		377DD120164F8F22004B6916 /* NSDate+TimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeAgo.h"; sourceTree = "<group>"; };
-		377DD121164F8F22004B6916 /* NSDate+TimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeAgo.m"; sourceTree = "<group>"; };
-		37E5F847165B703F00DD2DBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NSDateTimeAgo.strings; sourceTree = "<group>"; };
-		37E5F848165B703F00DD2DBE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/NSDateTimeAgo.strings; sourceTree = "<group>"; };
-		37E5F849165B703F00DD2DBE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/NSDateTimeAgo.strings; sourceTree = "<group>"; };
-		37E5F84A165B703F00DD2DBE /* pt_BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt_BR; path = pt_BR.lproj/NSDateTimeAgo.strings; sourceTree = "<group>"; };
-		37E5F84B165B703F00DD2DBE /* zh_Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_Hans; path = zh_Hans.lproj/NSDateTimeAgo.strings; sourceTree = "<group>"; };
+		37B5F6F0190EEAFE00555BCC /* INAppStoreWindowSwizzling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = INAppStoreWindowSwizzling.c; sourceTree = "<group>"; };
+		37B5F6F1190EEAFE00555BCC /* INAppStoreWindowSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INAppStoreWindowSwizzling.h; sourceTree = "<group>"; };
+		37B5F6F2190EEAFE00555BCC /* INTitlebarView+CoreUIRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "INTitlebarView+CoreUIRendering.h"; sourceTree = "<group>"; };
+		37B5F6F3190EEAFE00555BCC /* INTitlebarView+CoreUIRendering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "INTitlebarView+CoreUIRendering.m"; sourceTree = "<group>"; };
+		37B5F6F4190EEAFE00555BCC /* NSDocument+INAppStoreWindowFixes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDocument+INAppStoreWindowFixes.h"; sourceTree = "<group>"; };
+		37B5F6F5190EEAFE00555BCC /* NSDocument+INAppStoreWindowFixes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDocument+INAppStoreWindowFixes.m"; sourceTree = "<group>"; };
+		37B5F6FA190EEAFE00555BCC /* INAppStoreWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INAppStoreWindow.h; sourceTree = "<group>"; };
+		37B5F6FB190EEAFE00555BCC /* INAppStoreWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INAppStoreWindow.m; sourceTree = "<group>"; };
+		37B5F6FC190EEAFE00555BCC /* INWindowButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INWindowButton.h; sourceTree = "<group>"; };
+		37B5F6FD190EEAFE00555BCC /* INWindowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INWindowButton.m; sourceTree = "<group>"; };
+		37B5F763190EEB9C00555BCC /* NSDate+TimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeAgo.h"; sourceTree = "<group>"; };
+		37B5F764190EEB9C00555BCC /* NSDate+TimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeAgo.m"; sourceTree = "<group>"; };
+		37B5F766190EEB9C00555BCC /* NSDateTimeAgo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NSDateTimeAgo.bundle; sourceTree = "<group>"; };
+		37B5F770190EEF0C00555BCC /* HCYoutubeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HCYoutubeParser.h; path = HCYoutubeParser/YoutubeParser/Classes/HCYoutubeParser.h; sourceTree = "<group>"; };
+		37B5F771190EEF0C00555BCC /* HCYoutubeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HCYoutubeParser.m; path = HCYoutubeParser/YoutubeParser/Classes/HCYoutubeParser.m; sourceTree = "<group>"; };
 		37EFAA881647B17600E322D0 /* PSCYouTubeVideoDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCYouTubeVideoDataSource.h; sourceTree = "<group>"; };
 		37EFAA891647B17600E322D0 /* PSCYouTubeVideoDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCYouTubeVideoDataSource.m; sourceTree = "<group>"; };
 		37EFAA8C1647B1A400E322D0 /* PSCYouTubeVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCYouTubeVideo.h; sourceTree = "<group>"; };
@@ -245,15 +253,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3707844A164C7C2600668610 /* INAppStoreWindow */ = {
-			isa = PBXGroup;
-			children = (
-				3707844C164C7C2600668610 /* INAppStoreWindow.h */,
-				3707844D164C7C2600668610 /* INAppStoreWindow.m */,
-			);
-			path = INAppStoreWindow;
-			sourceTree = "<group>";
-		};
 		370A792E165651C100D9F2EF /* ScrollToRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,7 +345,7 @@
 				37742CF5164B8A6700272C4A /* Categories */,
 				37742CEC164B819000272C4A /* Subclasses */,
 				3756B6721643A5FC00492E20 /* YouTube */,
-				3707844A164C7C2600668610 /* INAppStoreWindow */,
+				37B5F6ED190EEAFE00555BCC /* INAppStoreWindow */,
 				37742CDF164B710E00272C4A /* KGNoise */,
 				3756B2D216436EC100492E20 /* Supporting Files */,
 			);
@@ -405,8 +404,8 @@
 			children = (
 				3756B6691643A3A300492E20 /* RaptureXML */,
 				3756B6A11643D20700492E20 /* HTTPServer */,
-				3723B648165CD0EF0005F634 /* HCYoutubeParser.h */,
-				3723B649165CD0EF0005F634 /* HCYoutubeParser.m */,
+				37B5F770190EEF0C00555BCC /* HCYoutubeParser.h */,
+				37B5F771190EEF0C00555BCC /* HCYoutubeParser.m */,
 				3756B6731643A63B00492E20 /* PSCYouTubeSession.h */,
 				3756B6741643A63B00492E20 /* PSCYouTubeSession.m */,
 				3756B66F1643A40100492E20 /* PSCYouTubeChannel.h */,
@@ -463,19 +462,9 @@
 			children = (
 				37742CF2164B899700272C4A /* NSColor+Hex.h */,
 				37742CF3164B899700272C4A /* NSColor+Hex.m */,
-				377DD119164F8F22004B6916 /* NSDate-TimeAgo */,
+				37B5F760190EEB9C00555BCC /* NSDate-TimeAgo */,
 			);
 			name = Categories;
-			sourceTree = "<group>";
-		};
-		377DD119164F8F22004B6916 /* NSDate-TimeAgo */ = {
-			isa = PBXGroup;
-			children = (
-				37E5F845165B703F00DD2DBE /* Localization */,
-				377DD120164F8F22004B6916 /* NSDate+TimeAgo.h */,
-				377DD121164F8F22004B6916 /* NSDate+TimeAgo.m */,
-			);
-			path = "NSDate-TimeAgo";
 			sourceTree = "<group>";
 		};
 		37AF36F6164E256600548814 /* Data Sources */ = {
@@ -489,10 +478,53 @@
 			name = "Data Sources";
 			sourceTree = "<group>";
 		};
-		37E5F845165B703F00DD2DBE /* Localization */ = {
+		37B5F6ED190EEAFE00555BCC /* INAppStoreWindow */ = {
 			isa = PBXGroup;
 			children = (
-				37E5F846165B703F00DD2DBE /* NSDateTimeAgo.strings */,
+				37B5F6EF190EEAFE00555BCC /* Extensions */,
+				37B5F6F9190EEAFE00555BCC /* INAppStoreWindow */,
+			);
+			path = INAppStoreWindow;
+			sourceTree = "<group>";
+		};
+		37B5F6EF190EEAFE00555BCC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				37B5F6F0190EEAFE00555BCC /* INAppStoreWindowSwizzling.c */,
+				37B5F6F1190EEAFE00555BCC /* INAppStoreWindowSwizzling.h */,
+				37B5F6F2190EEAFE00555BCC /* INTitlebarView+CoreUIRendering.h */,
+				37B5F6F3190EEAFE00555BCC /* INTitlebarView+CoreUIRendering.m */,
+				37B5F6F4190EEAFE00555BCC /* NSDocument+INAppStoreWindowFixes.h */,
+				37B5F6F5190EEAFE00555BCC /* NSDocument+INAppStoreWindowFixes.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		37B5F6F9190EEAFE00555BCC /* INAppStoreWindow */ = {
+			isa = PBXGroup;
+			children = (
+				37B5F6FA190EEAFE00555BCC /* INAppStoreWindow.h */,
+				37B5F6FB190EEAFE00555BCC /* INAppStoreWindow.m */,
+				37B5F6FC190EEAFE00555BCC /* INWindowButton.h */,
+				37B5F6FD190EEAFE00555BCC /* INWindowButton.m */,
+			);
+			path = INAppStoreWindow;
+			sourceTree = "<group>";
+		};
+		37B5F760190EEB9C00555BCC /* NSDate-TimeAgo */ = {
+			isa = PBXGroup;
+			children = (
+				37B5F762190EEB9C00555BCC /* Localization */,
+				37B5F763190EEB9C00555BCC /* NSDate+TimeAgo.h */,
+				37B5F764190EEB9C00555BCC /* NSDate+TimeAgo.m */,
+				37B5F766190EEB9C00555BCC /* NSDateTimeAgo.bundle */,
+			);
+			path = "NSDate-TimeAgo";
+			sourceTree = "<group>";
+		};
+		37B5F762190EEB9C00555BCC /* Localization */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -621,9 +653,9 @@
 				709C2F67164EF48E00A9C591 /* comments@2x.png in Resources */,
 				709C2F68164EF48E00A9C591 /* comments.png in Resources */,
 				709C2F6B164EF59800A9C591 /* safari.png in Resources */,
+				37B5F76B190EEB9C00555BCC /* NSDateTimeAgo.bundle in Resources */,
 				709C2F6C164EF59800A9C591 /* safari@2x.png in Resources */,
 				70180C031655C5C5007EAB0E /* YouTube.iconset in Resources */,
-				37E5F84C165B703F00DD2DBE /* NSDateTimeAgo.strings in Resources */,
 				372D1365165E35130071B223 /* mute.pdf in Resources */,
 				372D1366165E35130071B223 /* next-episode.pdf in Resources */,
 				372D1367165E35130071B223 /* pause.pdf in Resources */,
@@ -668,6 +700,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37B5F737190EEAFE00555BCC /* INAppStoreWindow.m in Sources */,
 				3756B2D816436EC100492E20 /* main.m in Sources */,
 				3756B2DF16436EC100492E20 /* PSCAppDelegate.m in Sources */,
 				3756B66C1643A3A300492E20 /* RXMLElement.m in Sources */,
@@ -679,18 +712,21 @@
 				3756B6A01643D20200492E20 /* HTTPResponseHandler.m in Sources */,
 				3756B6A51643D30C00492E20 /* PSCYouTubeTokenResponse.m in Sources */,
 				37EFAA8A1647B17700E322D0 /* PSCYouTubeVideoDataSource.m in Sources */,
+				37B5F772190EEF0C00555BCC /* HCYoutubeParser.m in Sources */,
 				37EFAA8E1647B1A400E322D0 /* PSCYouTubeVideo.m in Sources */,
 				37EFAA951647BFDD00E322D0 /* PSCYouTubeVideoCellView.m in Sources */,
 				37454AAE1648F8ED009FFCBB /* PSCWindowController.m in Sources */,
+				37B5F769190EEB9C00555BCC /* NSDate+TimeAgo.m in Sources */,
 				37742CDD164B710B00272C4A /* KGNoise.m in Sources */,
 				37742CEB164B814A00272C4A /* PSCTransparentTableView.m in Sources */,
+				37B5F733190EEAFE00555BCC /* INTitlebarView+CoreUIRendering.m in Sources */,
+				37B5F732190EEAFE00555BCC /* INAppStoreWindowSwizzling.c in Sources */,
 				37742CF4164B899700272C4A /* NSColor+Hex.m in Sources */,
-				37078477164C7C2600668610 /* INAppStoreWindow.m in Sources */,
 				375154E3164DBEB3004E4406 /* PSCTableRowView.m in Sources */,
-				377DD124164F8F22004B6916 /* NSDate+TimeAgo.m in Sources */,
+				37B5F738190EEAFE00555BCC /* INWindowButton.m in Sources */,
 				370A7944165651C100D9F2EF /* EQSTRClipView.m in Sources */,
 				370A7945165651C100D9F2EF /* EQSTRScrollView.m in Sources */,
-				3723B64A165CD0EF0005F634 /* HCYoutubeParser.m in Sources */,
+				37B5F734190EEAFE00555BCC /* NSDocument+INAppStoreWindowFixes.m in Sources */,
 				372D134C165E27F50071B223 /* PSCPlayerView.m in Sources */,
 				372D135A165E33FD0071B223 /* NSView+Fade.m in Sources */,
 				372D137C165E45AC0071B223 /* NSTimer+Blocks.m in Sources */,
@@ -747,18 +783,6 @@
 				3756B2F216436EC100492E20 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		37E5F846165B703F00DD2DBE /* NSDateTimeAgo.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				37E5F847165B703F00DD2DBE /* en */,
-				37E5F848165B703F00DD2DBE /* es */,
-				37E5F849165B703F00DD2DBE /* fr */,
-				37E5F84A165B703F00DD2DBE /* pt_BR */,
-				37E5F84B165B703F00DD2DBE /* zh_Hans */,
-			);
-			name = NSDateTimeAgo.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -832,6 +856,7 @@
 				HEADER_SEARCH_PATHS = "$(SDK_DIR)\"/usr/include/libxml2";
 				INFOPLIST_FILE = "YouTube/YouTube-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -851,6 +876,7 @@
 				HEADER_SEARCH_PATHS = "$(SDK_DIR)\"/usr/include/libxml2";
 				INFOPLIST_FILE = "YouTube/YouTube-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

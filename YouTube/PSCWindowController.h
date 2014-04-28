@@ -12,6 +12,7 @@
 #import "KGNoise.h"
 #import "INAppStoreWindow.h"
 #import "PSCPlayerView.h"
+#import "EQSTRScrollView.h"
 
 @interface PSCWindowController : NSWindowController <NSWindowDelegate>
 {
@@ -21,7 +22,7 @@
 @property IBOutlet INAppStoreWindow *window;
 @property IBOutlet NSView *titleView;
 @property IBOutlet NSTableView *channelTableView;
-@property IBOutlet NSScrollView *channelScrollView;
+@property IBOutlet EQSTRScrollView *channelScrollView;
 @property IBOutlet NSSplitView *splitView;
 @property IBOutlet NSButton *toggleSidebarButton;
 @property (weak) IBOutlet KGNoiseView *noiseView;
