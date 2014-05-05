@@ -64,8 +64,9 @@ static void *PSCPlayerViewBoundsChanged = &PSCPlayerViewBoundsChanged;
 	[self addObserver:self forKeyPath:@"self.frame" options:NSKeyValueObservingOptionNew context:PSCPlayerViewBoundsChanged];
 	[self addObserver:self forKeyPath:@"player.rate" options:NSKeyValueObservingOptionNew context:PSCPlayerRateChange];
 	
-	//[timeSlider setContinuous:YES];
+	[timeSlider setTarget:self]; // assume the handler is [self sliderDidMove:]
 	[timeSlider setAction:@selector(didSliderMove:)];
+	[timeSlider setContinuous:YES];
 }
 
 - (void)didSliderMove:(id)sender
